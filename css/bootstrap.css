@@ -4844,7 +4844,7 @@ textarea.form-control-lg {
   position: sticky;
   top: 0;
   z-index: 1020;
-  background: linear-gradient(#cce7ff, #cce7ef);
+  background: linear-gradient(#cce7ff 70%, #f6dac0 100% 100%);
 }
 
 @media (min-width: 576px) {
