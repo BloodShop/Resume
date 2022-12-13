@@ -43,11 +43,70 @@ body {
   color: #434A54;
   background: #f6dac0;
   background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
-    -webkit-text-size-adjust: 100%;
+
+
+  #portfolio {
+    z-index: 1;
+  }
+
+  #portfolio h2 {
+    padding: 0.5rem 2rem 2rem !important;
+  }
+
+  #portfolio .portfolio--content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+
+  #portfolio .portfolio--content .item a {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    position: relative;
+    -webkit-transition: all 0.8s ease-in-out;
+    transition: all 0.8s ease-in-out;
+  }
+
+  #portfolio .portfolio--content .item a h3 {
+    color: #000000;
+    font-weight: 500;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    opacity: 0;
+    -webkit-transition: all 0.8s ease-in-out;
+    transition: all 0.8s ease-in-out;
+  }
+
+  #portfolio .portfolio--content .item a img {
+    padding: 5%;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 320px;
+  }
+
+  #portfolio .portfolio--content .item:hover a > h3 {
+    opacity: 1;
+  }
+
+  #portfolio .portfolio--content .item:hover a > img {
+    opacity: 0.3;
+  }-webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
  }
- @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
 
+ @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
 .context {
     width: 100%;
     position: absolute;
@@ -164,8 +223,6 @@ body {
     animation-delay: 0s;
     animation-duration: 11s;
 }
-
-
 
 @keyframes animate {
 
