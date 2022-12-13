@@ -9,8 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" media="print" onload="this.media='all'"/>
-    <noscript>
-    </noscript>
     <link href="css/projects.css" rel="stylesheet">
     <link href="css/font-awesome/css/all.min.css?ver=1.2.0" rel="stylesheet">
     <link href="css/bootstrap.min.css?ver=1.2.0" rel="stylesheet">
@@ -24,20 +22,88 @@
             transform: translate(0) scale(1) !important;
         }
       </style>
+      <!-- <style>
+        css-doodle {
+          --color: @p(#51eaea, #fffde1, #ff9d76, #FB3569);
+          --rule: (
+            :doodle {
+              @grid: 30x1 / 18vmin;
+              --deg: @p(-180deg, 180deg);
+            }
+            :container {
+              perspective: 30vmin;
+            }
+            :after, :before {
+              content: '';
+              background: var(--color);
+              @place-cell: @r(100%) @r(100%);
+              @size: @r(6px);
+              @shape: heart;
+            }
+
+            @place-cell: center;
+            @size: 100%;
+
+            box-shadow: @m2(0 0 50px var(--color));
+            background: @m100(
+              radial-gradient(var(--color) 50%, transparent 0)
+              @r(-20%, 120%) @r(-20%, 100%) / 1px 1px
+              no-repeat
+            );
+
+            will-change: transform, opacity;
+            animation: scale-up 12s linear infinite;
+            animation-delay: calc(-12s / @I * @i);
+
+            @keyframes scale-up {
+              0%, 95.01%, 100% {
+                transform: translateZ(0) rotate(0);
+                opacity: 0;
+              }
+              10% {
+                opacity: 1;
+              }
+              95% {
+                transform:
+                  translateZ(35vmin) rotateZ(@var(--deg));
+              }
+            }
+          )
+        }
+      </style>
+    <css-doodle use="var(--rule)"></css-doodle> -->
     </noscript>
+    <script defer src="scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
+    <script defer src="scripts/aos.js?ver=1.2.0"></script>
+    <script defer src="/scripts/main.js?ver=1.2.0"></script>
+    <script> location.hash = (location.hash) ? location.hash : " "; </script>
+
   </head>
+
   <body id="top">
+      <ul class="circles zi--1">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+      </ul>
     <header class="d-print-none sticky-top">
       <div class="container text-center text-lg-left">
         <div class="py-1 clearfix">
-          <h1 class="site-title mb-0">Alon Kolyakov CV</h1>
+          <h1 class="site-title mb-0"><a class="container h2 nav-link me-3" href="#">Alon Kolyakov</a></h1>
           <div class="site-nav">
             <nav role="navigation">
               <ul class="nav justify-content-center">
-                <li class="menu-item"><a class=" h2 nav-link me-3" href="#specs">Specs</a></li>
-                <li class="menu-item"><a class=" h2 nav-link me-3" href="#portfol">Portfolio</a></li>
-                <li class="menu-item"><a class=" h2 nav-link me-3" href="#work-exp">Experience</a></li>
-                <li class="menu-item"><a class=" h2 nav-link me-3" href="#educate">Education</a></li>
+                <li class="menu-item"><a class="container h2 nav-link me-3" href="#specs">Specs</a></li>
+                <li class="menu-item"><a class="container h2 nav-link me-3" href="#portfol">Portfolio</a></li>
+                <li class="menu-item"><a class="container h2 nav-link me-3" href="#work-exp">Experience</a></li>
+                <li class="menu-item"><a class="container h2 nav-link me-3" href="#educate">Education</a></li>
                 <li class="menu-item">
                   <ul class="nav justify-content-center">
                     <li class="nav-item"><a class="nav-link" target="_blank" href="https://twitter.com/AlonKolyakov" title="Twitter"><i class="fab fa-twitter"></i><span class="menu-title sr-only">Twitter</span></a>
@@ -59,7 +125,7 @@
     <div class="page-content">
       <div class="container">
 <div class="cover shadow-lg bg-white">
-  <div class="cover-bg p-3 p-lg-4 text-white">
+  <div class="cover-bg p-3 p-lg-4 text-white zi--2">
     <div class="row">
       <div class="col-lg-4 col-md-5">
         <div class="avatar hover-effect bg-white shadow-sm p-1"><img src="images/avatar.jpg" width="200" height="200"/></div>
@@ -79,7 +145,7 @@
     <div class="row">
       <div class="col-md-6">
         <h2 class="h2 mb-3">About Me</h2>
-        <p class="h6">Hello, I'm Alon from Arad. I'm a student at Sela College in FullStack department. Although studying full-time and I've already began working and developing my skills as software developer and marketer. Ever since I was a child I wanted to study software engineering and combine it with project management.</p>
+        <p>Hello, I'm Alon from Arad. I'm a student at Sela College in FullStack department. Although studying full-time and I've already began working and developing my skills as software developer and marketer. Ever since I was a child I wanted to study software engineering and combine it with project management.</p>
       </div>
       <div class="col-md-5 offset-md-1">
         <div class="row mt-2">
@@ -215,8 +281,8 @@
       </div><!-- item -->
             <div class="item">
               <a class="d-block mx-auto portfolio-item" href="#portfolio-modal-5" data-bs-toggle="modal">
-        <h3>EyeContact</h3>
-        <img src="images/portfolio/facemeasure.png" alt="logo design"></a>
+        <h3>Pet Shop</h3>
+        <img src="images/portfolio/petshop.png" alt="logo design"></a>
       </div><!-- item -->
       <hr class="d-print-none"/>
     </div>
@@ -229,21 +295,21 @@
         <div class="card-body">
           <div class="h4 mb-1">Marketing & Advertising Agent <span class="text-muted h6">at Sheeta Brewery</span></div>
           <div class="h5 text-muted mb-2">Mar, 2018 - Present</div>
-          <div class="h6 mb-2">Sales professionals in this field work to sell beer directly to customers, restaurants, or beer retailers. The responsibilities of a sales representative involve product presentation to stores and restaurants as well as holding tastings to introduce the products to new customers</div>
+          <div class="mb-2">Sales professionals in this field work to sell beer directly to customers, restaurants, or beer retailers. The responsibilities of a sales representative involve product presentation to stores and restaurants as well as holding tastings to introduce the products to new customers</div>
         </div>
       </div>
       <div class="timeline-card timeline-card-primary card shadow-sm">
         <div class="card-body">
           <div class="h4 mb-1">Deputy Commander <span class="text-muted h6">at Israel Defense Forces</span></div>
           <div class="h5 text-muted mb-2">Mar, 2018 - Mar, 2022</div>
-          <div class="h6 mb-2">The Deputy Commander acts on the Commander`s behalf when required and performs other duties as directed by the Commander. Furthermore, the Deputy Commander gives advice in all fields of concern related to the Corps. I went to the commanders and officers courses immediately after finishing the initial military training and I was a platoon commander for a year and half, and at the last 8 months I was a deputy commander at devision 7, Battalion 82..</div>
+          <div class="mb-2">The Deputy Commander acts on the Commander`s behalf when required and performs other duties as directed by the Commander. Furthermore, the Deputy Commander gives advice in all fields of concern related to the Corps. I went to the commanders and officers courses immediately after finishing the initial military training and I was a platoon commander for a year and half, and at the last 8 months I was a deputy commander at devision 7, Battalion 82..</div>
         </div>
       </div>
       <div class="timeline-card timeline-card-primary card shadow-sm">
         <div class="card-body">
           <div class="h4 mb-1">Shop Salesman <span class="text-muted h6">at WeShoes</span></div>
           <div class="h5 text-muted mb-2">Jan, 2015 - Mar, 2018</div>
-          <div class="h6 mb-2">Servicing customers within the Footwear Department. Maintaining knowledge of products and using this knowledge to assist and educate customers on options available. Providing customer assistance and also delivering a positive customer shopping experience. Maintaining a neat and orderly stock room to facilitate identification of merchandise to be brought to the sales floor Utilizing and pull list and Fill Floor processes to replenish sales floor.</div>
+          <div class="mb-2">Servicing customers within the Footwear Department. Maintaining knowledge of products and using this knowledge to assist and educate customers on options available. Providing customer assistance and also delivering a positive customer shopping experience. Maintaining a neat and orderly stock room to facilitate identification of merchandise to be brought to the sales floor Utilizing and pull list and Fill Floor processes to replenish sales floor.</div>
         </div>
       </div>
   </div>
@@ -255,21 +321,21 @@
           <div class="card-body">
             <div class="h4 mb-1">Full-Stack Developer <span class="text-muted h6">from Sela College</span></div>
             <div class="h5 text-muted mb-2">2022 - 2023</div>
-            <div class="h6 mb-2">Web Developer From Scratch In 1 year. ASP.Net, C#, Algorithms and DataStructures, Javascript, Angular, OOP, Entityframework & Core, Azure, Design Patterns, HTML, and CSS, MSSQL, MongoDb, Git and etc. I've learned the foundations of programming and practiced with a variety of popular platforms. In addition I've been learning from a side several subjects that I was intrested in like - Solidity, Blockchain, Web3, Unity 2D/3D, Svelte, aws and more technologies. </div>
+            <div class="mb-2">Web Developer From Scratch In 1 year. ASP.Net, C#, Algorithms and DataStructures, Javascript, Angular, OOP, Entityframework & Core, Azure, Design Patterns, HTML, and CSS, MSSQL, MongoDb, Git and etc. I've learned the foundations of programming and practiced with a variety of popular platforms. In addition I've been learning from a side several subjects that I was intrested in like - Solidity, Blockchain, Web3, Unity 2D/3D, Svelte, aws and more technologies. </div>
           </div>
         </div>
         <div class="timeline-card timeline-card-success card shadow-sm">
           <div class="card-body">
             <div class="h4 mb-1">Computer Programming <span class="text-muted h6">from Technion - Israel Institute of Technology</span></div>
             <div class="h5 text-muted mb-2">2016 - 2017</div>
-            <div class="h6 mb-2">The scientific-technological major is intended for outstanding students in the fields of science, engineering and entrepreneurship, who show a willingness to work in a team and wish to contribute to society.</div>
+            <div class="mb-2">The scientific-technological major is intended for outstanding students in the fields of science, engineering and entrepreneurship, who show a willingness to work in a team and wish to contribute to society.</div>
           </div>
         </div>
     <div class="timeline-card timeline-card-success card shadow-sm">
       <div class="card-body">
         <div class="h4 mb-1">High School Studies <span class="text-muted h6">from Ort Arad</span></div>
         <div class="h5 text-muted mb-2">2012 - 2017</div>
-        <div class="h6 mb-2">I graduated high school with honors in the scientific subjects. Beyond these I also actively volunteer at the Rescue Unit Arad and Assisted to people with disabilities</div>
+        <div class="mb-2">I graduated high school with honors in the scientific subjects. Beyond these I also actively volunteer at the Rescue Unit Arad and Assisted to people with disabilities</div>
       </div>
     </div>
   </div>
@@ -339,7 +405,7 @@
               </div>
               <div class="modal-footer pb-2"><a
                 class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
-                href="https://github.com/BloodShop/Box-Project-MVVM-UWP" target="_blank"><i ></i>&nbsp;Project Link</a>
+                href="https://github.com/BloodShop/Box-Project-MVVM-UWP" target="_blank"><i ></i>&nbsp;Project Repo</a>
                 <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
                  data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a>
               </div> </div>
@@ -364,7 +430,7 @@
               </div>
               <div class="modal-footer pb-2"><a
                 class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
-                href="https://github.com/BloodShop/AradLibrary" target="_blank"><i ></i>&nbsp;Project Link</a>
+                href="https://github.com/BloodShop/AradLibrary" target="_blank"><i ></i>&nbsp;Project Repo</a>
                 <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
                  data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a>
               </div> </div>
@@ -389,7 +455,7 @@
               </div>
               <div class="modal-footer pb-2"><a
                 class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
-                href="https://github.com/BloodShop/TileVania-2D-Game" target="_blank"><i ></i>&nbsp;Project Link</a>
+                href="https://github.com/BloodShop/TileVania-2D-Game" target="_blank"><i ></i>&nbsp;Project Repo</a>
                 <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
                  data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a>
               </div>
@@ -416,7 +482,7 @@
               </div>
               <div class="modal-footer pb-2"><a
                 class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
-                href="https://github.com/BloodShop/TempSVELTE" target="_blank"><i ></i>&nbsp;Project Link</a>
+                href="https://github.com/BloodShop/TempSVELTE" target="_blank"><i ></i>&nbsp;Project Repo</a>
                 <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
                  data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a>
               </div>
@@ -432,17 +498,17 @@
                   <div class="container text-center">
                       <div class="row">
                           <div class="col-lg-0">
-                              <h2 class="text-uppercase text-secondary mb-0">Face Distance Measurement</h2>
+                            <h2><a target="_blank" href="https://petshoparad.azurewebsites.net/" class="text-uppercase text-secondary mb-0">Pet Shop WebApp</a></h2>
                               <hr class="star-dark mb-5"><img class="img-fluid mb-1"
-                                  src="images/portfolio/facemeasure.png">
-                              <p class="mb-0">Face-Measurement with simple python interpreters (cv2 & mediapipe). Measure the person's face distance sitting in front of the pc.</p>
+                                  src="images/portfolio/petshop.png">
+                              <p class="mb-0">This is a sample which shows most of the common features of ASP.NET Identity. When you create a User using a username or password, the Identity system performs validation on the username and password. ASP.NET Core SignalR, JS, Html, css, JQuery, Cors, Routing and more. <a href="https://petshoparad.azurewebsites.net/" target="_blank">link</a></p>
                           </div>
                       </div>
                   </div>
               </div>
               <div class="modal-footer pb-2"><a
                 class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
-                href="https://github.com/BloodShop/Face-Distance-Measurement" target="_blank"><i ></i>&nbsp;Project Link</a>
+                href="https://github.com/BloodShop/pet-shop" target="_blank"><i ></i>&nbsp;Project Repo</a>
                 <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
                  data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a>
               </div> </div>
@@ -467,14 +533,11 @@
               </div>
               <div class="modal-footer pb-2"><a
                 class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
-                href="https://github.com/BloodShop/jewbot" target="_blank"><i ></i>&nbsp;Project Link</a>
+                href="https://github.com/BloodShop/jewbot" target="_blank"><i ></i>&nbsp;Project Repo</a>
                 <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
                  data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a>
               </div> </div>
       </div>
   </div>
-    <script src="scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
-    <script src="scripts/aos.js?ver=1.2.0"></script>
-    <script src="scripts/main.js?ver=1.2.0"></script>
   </body>
 </html>

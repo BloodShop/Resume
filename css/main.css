@@ -58,7 +58,8 @@
  }
 
 html {
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+   }
 
 .site-title {
   font-size: 1.25rem;
@@ -117,9 +118,11 @@ footer a:not(.nav-link) {
   body {
     background-color: #fff; }
   .container {
-    width: auto;
-    max-width: 100%;
-    padding: 0; }
+    vertical-align: middle;
+    height: auto;
+    margin: auto;
+    padding: auto;
+    position: absolute; }
   .cover, .cover-bg {
     border-radius: 0; }
   .cover.shadow-lg {
