@@ -4689,9 +4689,9 @@ textarea.form-control-lg {
 .fixed-top {
   position: fixed;
   top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1030; }
+  width: 100%;
+  background: #f0f0f0
+}
 
 .fixed-bottom {
   position: fixed;
@@ -4704,7 +4704,9 @@ textarea.form-control-lg {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 1020; }
+  z-index: 1020;
+  background: linear-gradient(#cce7ff, #cce7ef);
+}
 
 @media (min-width: 576px) {
   .sticky-sm-top {
