@@ -2,6 +2,7 @@
   body {
     background-color: #fff; }
   .container {
+    font-family: 'Exo', sans-serif;
     vertical-align: middle;
     height: auto;
     margin: auto;

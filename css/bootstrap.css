@@ -21,14 +21,14 @@
   --bs-danger: #E9573F;
   --bs-light: #E6E9ED;
   --bs-dark: #434A54;
-  --bs-font-sans-serif: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --bs-font-sans-serif: 'Exo', "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)); }
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box; }
+  box-sizing: border-box;}
 
 @media (prefers-reduced-motion: no-preference) {
   :root {
@@ -100,7 +100,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: #434A54;
-  background: #f6dac0;
+  background: #2b2b3a;
   background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
 
 
@@ -144,7 +144,7 @@ body {
     list-style: none;
     width: 20px;
     height: 20px;
-    background: rgba(255, 255, 255, 0.77);
+    background: #254558;
     animation: animate 25s linear infinite;
     bottom: -150px;
 
@@ -2382,16 +2382,16 @@ textarea.form-control-lg {
 
 .btn-success {
   color: #fff;
-  background-color: #37BC9B;
-  border-color: #37BC9B; }
+  background-color: #1ed2f4;
+  border-color: #1ed2f4; }
   .btn-success:hover {
     color: #fff;
-    background-color: #2fa084;
-    border-color: #2c967c; }
+    background-color: #20a1bb;
+    border-color: #20a1bb; }
   .btn-check:focus + .btn-success, .btn-success:focus {
     color: #fff;
-    background-color: #2fa084;
-    border-color: #2c967c;
+    background-color: #1f7f92;
+    border-color: #1f7f92;
     box-shadow: 0 0 0 0.25rem rgba(85, 198, 170, 0.5); }
   .btn-check:checked + .btn-success,
   .btn-check:active + .btn-success, .btn-success:active, .btn-success.active,
@@ -4898,11 +4898,12 @@ textarea.form-control-lg {
   z-index: 1030; }
 
 .sticky-top {
+  font-family: 'Exo', sans-serif;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 1020;
-  background: linear-gradient(#cce7ff 70%, #f6dac0 100% 100%);
+  background: linear-gradient(#d6d6d6 70%, #d6d6d6 100% 100%);
 }
 
 @media (min-width: 576px) {
@@ -5787,6 +5788,10 @@ textarea.form-control-lg {
 
 .lh-lg {
   line-height: 2 !important; }
+
+.bg-custom {
+  background: #1ed2f4;
+}
 
 .bg-primary {
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(36,73,219,1) 0%, rgba(25,24,119,1) 100%, rgba(0,212,255,1) 100%) !important; }
