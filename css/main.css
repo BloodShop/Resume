@@ -57,10 +57,6 @@
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(16,94,25,1) 0%, rgba(18,182,64,1) 100%, rgba(0,212,255,1) 100%);
  }
 
-html {
-  scroll-behavior: smooth;
-   }
-
 .site-title {
   font-size: 1.25rem;
   line-height: 2.5rem; }
@@ -113,32 +109,3 @@ footer a:not(.nav-link) {
   .avatar {
     margin-bottom: -80px;
     margin-left: 0; } }
-
-@media print {
-  body {
-    background-color: #fff; }
-  .container {
-    vertical-align: middle;
-    height: auto;
-    margin: auto;
-    padding: auto;
-    position: absolute; }
-  .cover, .cover-bg {
-    border-radius: 0; }
-  .cover.shadow-lg {
-    box-shadow: none !important; }
-  .cover-bg {
-    padding: 5rem !important;
-    padding-bottom: 10px !important; }
-  .avatar {
-    margin-top: -10px; }
-  .about-section {
-    padding: 6.5rem 5rem 2rem !important; }
-  .skills-section,
-  .work-experience-section,
-  .education-section,
-  .contant-section {
-    padding: 1.5rem 5rem 2rem !important; }
-  .page-break {
-    padding-top: 5rem;
-    page-break-before: always; } }
