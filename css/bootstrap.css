@@ -34,9 +34,9 @@
   :root {
     scroll-behavior: smooth; } }
 
-    #portfolio {
-      z-index: 1;
-    }
+#portfolio {
+  z-index: 1;
+}
 
     #portfolio h2 {
       padding: 0.5rem 2rem 2rem !important;
@@ -89,9 +89,9 @@
       opacity: 1;
     }
 
-    #portfolio .portfolio--content .item:hover a > img {
-      opacity: 0.3;
-    }
+#portfolio .portfolio--content .item:hover a > img {
+  opacity: 0.3;
+}
 
 body {
   margin: 0;
