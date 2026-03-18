@@ -18,6 +18,18 @@ const HOBBIES = [
     tag: "Rideables"
   },
   {
+    icon: "fas fa-person-snowboarding",
+    title: "Snowboarding",
+    description: "Cold-weather edge control, fast terrain reading, and another reason to spend time outside of code.",
+    tag: "Snow"
+  },
+  {
+    icon: "fas fa-dumbbell",
+    title: "Exercise and lifting",
+    description: "Strength work and consistency off the keyboard to keep the rest of the stack sustainable.",
+    tag: "Training"
+  },
+  {
     icon: "fas fa-laptop-code",
     title: "Coding beyond work",
     description: "Production backend by day, side projects, automation, and experiments whenever there is room for another idea.",
@@ -25,7 +37,7 @@ const HOBBIES = [
   }
 ];
 
-const GALLERIES = {
+const GALLERY_FALLBACKS = {
   glider: [
     {
       src: "images/glider_9b035380755aae15dd2183bedb6d967d_336235.89999992255_1773847784943.jpg",
@@ -65,16 +77,28 @@ const GALLERIES = {
       description: "Another checkpoint in the Surron and e-bike build loop."
     }
   ],
+  setup: [
+    {
+      src: "images/setup_2jetsons_pi_zero_IMG20260318204744.jpg",
+      title: "Dual Jetson bench",
+      description: "Embedded compute setup with more than one board in the loop."
+    },
+    {
+      src: "images/setup_nxp_lx2160a_IMG_20250713_162927.jpg",
+      title: "SolidRun platform",
+      description: "Bench work around networking and compute hardware beyond the laptop."
+    },
+    {
+      src: "images/setup_rpi5_n_jetson_IMG20260318204456.jpg",
+      title: "Raspberry Pi and Jetson",
+      description: "Mixed-platform setup for prototyping, testing, and integration work."
+    }
+  ],
   stash: [
     {
       src: "images/stash_FB_IMG_1768478697049.jpg",
       title: "Stash overview",
       description: "The broader inventory and transport side that supports the builds."
-    },
-    {
-      src: "images/stash_IMG-20250726-WA0023.jpg",
-      title: "Ready to move",
-      description: "Storage and transport setup prepared for the next ride or build day."
     },
     {
       src: "images/stash_IMG-20250804-WA0055.jpg",
@@ -112,6 +136,29 @@ const GALLERIES = {
       description: "Recent inventory and transport state."
     }
   ]
+};
+
+const GALLERY_CONFIG = {
+  glider: {
+    prefix: "glider_",
+    fallbackTitle: "Glider log",
+    fallbackDescription: "Glider-side snapshots from airfield prep, flight days, and time around the aircraft."
+  },
+  surron: {
+    prefix: "surron_",
+    fallbackTitle: "Surron build",
+    fallbackDescription: "Build, tuning, and ride checkpoints from the Surron and e-bike side."
+  },
+  setup: {
+    prefix: "setup_",
+    fallbackTitle: "Lab setup",
+    fallbackDescription: "SolidRun, Jetson, Raspberry Pi, and other embedded compute setups on the bench."
+  },
+  stash: {
+    prefix: "stash_",
+    fallbackTitle: "Transport setup",
+    fallbackDescription: "Transport, storage, and tool organization that keep the hardware stack usable."
+  }
 };
 
 const MOTION_SCENES = [
@@ -170,8 +217,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initAOS();
   updateDerivedMetrics();
   renderHobbies();
-  renderGalleries();
   bindRailControls();
+  void renderGalleries();
+  initMobileFooter();
   initHeroAnimation();
 });
 
@@ -215,9 +263,10 @@ function renderHobbies() {
   `).join("");
 }
 
-function renderGalleries() {
+async function renderGalleries() {
+  const discoveredFiles = await loadImageDirectoryListing();
   document.querySelectorAll("[data-gallery]").forEach((rail) => {
-    const items = GALLERIES[rail.dataset.gallery] || [];
+    const items = buildGalleryItems(rail.dataset.gallery, discoveredFiles);
     rail.innerHTML = items.map((item) => `
       <article class="media-card">
         <img class="media-card__image" src="${item.src}" alt="${item.title}" loading="lazy">
@@ -228,6 +277,81 @@ function renderGalleries() {
       </article>
     `).join("");
   });
+}
+
+async function loadImageDirectoryListing() {
+  try {
+    const response = await fetch("images/");
+    if (!response.ok) {
+      return [];
+    }
+
+    const html = await response.text();
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    return Array.from(doc.querySelectorAll("a"))
+      .map((link) => link.getAttribute("href") || "")
+      .filter((href) => /\.[a-z0-9]+$/i.test(href) && !href.includes("/"))
+      .filter((href) => /\.(png|jpe?g|webp|gif)$/i.test(href))
+      .map((href) => decodeURIComponent(href.replace(/^\.\//, "")));
+  } catch (error) {
+    return [];
+  }
+}
+
+function buildGalleryItems(key, discoveredFiles) {
+  const config = GALLERY_CONFIG[key];
+  if (!config) {
+    return [];
+  }
+
+  const matchedFiles = discoveredFiles
+    .filter((file) => file.startsWith(config.prefix))
+    .sort((left, right) => left.localeCompare(right, undefined, { numeric: true, sensitivity: "base" }));
+
+  if (!matchedFiles.length) {
+    return GALLERY_FALLBACKS[key] || [];
+  }
+
+  return matchedFiles.map((file, index) => {
+    const copy = describeGalleryItem(key, file, index);
+    return {
+      src: `images/${file}`,
+      title: copy.title,
+      description: copy.description
+    };
+  });
+}
+
+function describeGalleryItem(key, file, index) {
+  const config = GALLERY_CONFIG[key];
+
+  if (key === "setup") {
+    if (file.includes("lx2160a")) {
+      return {
+        title: "SolidRun LX2160A setup",
+        description: "Bench work around SolidRun networking and edge compute hardware."
+      };
+    }
+
+    if (file.includes("2jetsons")) {
+      return {
+        title: "Dual Jetson bench",
+        description: "Multiple Jetsons and support boards wired together for platform testing."
+      };
+    }
+
+    if (file.includes("rpi5") || file.includes("jetson")) {
+      return {
+        title: "Raspberry Pi and Jetson stack",
+        description: "Raspberry Pi, Jetson, and mixed embedded platforms lined up for experiments."
+      };
+    }
+  }
+
+  return {
+    title: `${config.fallbackTitle} ${index + 1}`,
+    description: config.fallbackDescription
+  };
 }
 
 function bindRailControls() {
@@ -245,6 +369,45 @@ function bindRailControls() {
       });
     });
   });
+}
+
+function initMobileFooter() {
+  const footer = document.querySelector(".site-footer");
+  if (!footer) {
+    return;
+  }
+
+  const mediaQuery = window.matchMedia("(max-width: 767px)");
+  let lastScrollY = window.scrollY;
+
+  function updateFooterVisibility() {
+    const isMobile = mediaQuery.matches;
+    document.body.classList.toggle("has-mobile-footer", isMobile);
+
+    if (!isMobile) {
+      document.body.classList.remove("mobile-footer-hidden");
+      lastScrollY = window.scrollY;
+      return;
+    }
+
+    const currentScrollY = window.scrollY;
+    const nearTop = currentScrollY < 96;
+    const nearBottom = window.innerHeight + currentScrollY >= document.documentElement.scrollHeight - 32;
+    const scrollingDown = currentScrollY > lastScrollY + 8;
+    const scrollingUp = currentScrollY < lastScrollY - 8;
+
+    if (nearTop || nearBottom || scrollingUp) {
+      document.body.classList.remove("mobile-footer-hidden");
+    } else if (scrollingDown) {
+      document.body.classList.add("mobile-footer-hidden");
+    }
+
+    lastScrollY = currentScrollY;
+  }
+
+  window.addEventListener("scroll", updateFooterVisibility, { passive: true });
+  window.addEventListener("resize", updateFooterVisibility);
+  updateFooterVisibility();
 }
 
 function initHeroAnimation() {

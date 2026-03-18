@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resume Animation Lab</title>
+    <meta
+      name="description"
+      content="Standalone Three.js animation prototype for Alon Kolyakov's resume sequence."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+    >
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="lab-shell">
+      <section class="lab-copy">
+        <a class="lab-back" href="../">Back To Resume</a>
+        <p class="lab-eyebrow">Three.js Animation Study</p>
+        <h1>Ride, fly, build, snowboard, lift, code, sleep, repeat.</h1>
+        <p class="lab-lede">
+          Fresh route, fresh scene graph, same core idea. This prototype rebuilds the full sequence from scratch as a
+          self-contained Three.js study instead of patching the current homepage hero.
+        </p>
+
+        <div class="lab-meta">
+          <div>
+            <span class="lab-meta__label">Status</span>
+            <strong id="scene-label">Onewheel commute</strong>
+          </div>
+          <div>
+            <span class="lab-meta__label">Loop</span>
+            <strong><span id="scene-index">01</span> / <span id="scene-count">07</span></strong>
+          </div>
+        </div>
+
+        <div class="lab-progress">
+          <div class="lab-progress__bar" id="scene-progress"></div>
+        </div>
+
+        <div class="lab-steps" id="scene-steps">
+          <article class="lab-step is-active" data-scene-step="onewheel">
+            <span>01</span>
+            <strong>Onewheel commute</strong>
+          </article>
+          <article class="lab-step" data-scene-step="glider">
+            <span>02</span>
+            <strong>Glider flight</strong>
+          </article>
+          <article class="lab-step" data-scene-step="surron">
+            <span>03</span>
+            <strong>Surron run</strong>
+          </article>
+          <article class="lab-step" data-scene-step="snowboard">
+            <span>04</span>
+            <strong>Snowboard carve</strong>
+          </article>
+          <article class="lab-step" data-scene-step="exercise">
+            <span>05</span>
+            <strong>Lifting session</strong>
+          </article>
+          <article class="lab-step" data-scene-step="coding">
+            <span>06</span>
+            <strong>Standing desk coding</strong>
+          </article>
+          <article class="lab-step" data-scene-step="sleep">
+            <span>07</span>
+            <strong>Sleep reset</strong>
+          </article>
+        </div>
+
+        <p class="lab-note">
+          Built as a dedicated prototype route so the animation system can evolve without entangling the main resume page.
+        </p>
+      </section>
+
+      <section class="lab-stage">
+        <canvas id="animation-canvas" aria-label="Standalone Three.js resume animation"></canvas>
+      </section>
+    </main>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+    <script defer src="./app.js"></script>
+  </body>
+</html>
