@@ -25,7 +25,7 @@
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
       margin: 0;
       font-family: 'Manrope', sans-serif;
@@ -35,6 +35,7 @@
         radial-gradient(circle at 85% 10%, rgba(28,109,114,.12), transparent 24%),
         linear-gradient(180deg, var(--bg), #efe6da 36%, #f6f1e9 100%);
       line-height: 1.5;
+      overflow-x: hidden;
     }
 
     body::before {
@@ -522,7 +523,7 @@
         <a href="#skills">Skills</a>
         <a href="#work">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#live">Live</a>
+        <a href="https://blueboard.bloodshop.org" target="_blank" rel="noreferrer">Blueboard</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -535,7 +536,7 @@
           <span class="eyebrow">Software engineer · founder · glider pilot · hands-on builder</span>
           <h1>Building systems that move.</h1>
           <p class="hero-sub">
-            I’m <strong>Alon Kolyakov</strong> — backend-leaning full-stack engineer working across <strong>.NET, Node.js, TypeScript, Python, AWS</strong> and modern product systems,
+            I'm <strong>Alon Kolyakov</strong> — backend-leaning full-stack engineer working across <strong>.NET, Node.js, TypeScript, Python, AWS</strong> and modern product systems,
             while also building in the physical world: <strong>electric skateboards, onewheels, motion hardware, Surron projects</strong>, and the discipline of <strong>glider flight</strong>.
           </p>
           <div class="hero-actions">
@@ -565,7 +566,7 @@
         <div class="section-kicker">Story</div>
         <div>
           <h2 class="section-title">Engineer brain, builder hands.</h2>
-          <p class="section-text">The strongest version of this site shouldn’t read like a generic CV. It should feel like the same person who ships backend systems, opens up controllers and batteries to fix motion problems, founds Blueboard, and then goes flying at the Negev Gliding Center. So the structure below is less “resume template” and more “operating manual for how I work.”</p>
+          <p class="section-text">The strongest version of this site shouldn't read like a generic CV. It should feel like the same person who ships backend systems, opens up controllers and batteries to fix motion problems, founds Blueboard, and then goes flying at the Negev Gliding Center. So the structure below is less "resume template" and more "operating manual for how I work."</p>
         </div>
       </div>
 
@@ -574,7 +575,7 @@
           <div class="profile-block">
             <div class="avatar"><img src="images/profile1.png" alt="Alon Kolyakov portrait"></div>
             <div>
-              <h3>What I’m optimizing for</h3>
+              <h3>What I'm optimizing for</h3>
               <p class="muted">Reliable backend systems, automation that actually saves time, products with clear utility, and projects where software meets the physical world.</p>
               <div class="pill-row">
                 <span class="pill">OpenClaw</span>
@@ -591,11 +592,11 @@
         <div class="maker-list">
           <div class="maker-item">
             <b>Blueboard / electric movement systems</b>
-            <div class="muted">Building and fixing rideables, especially electric skateboard systems and the mechanical-electrical logic around motion, control, safety, and feel. <a href="https://blueboard.bloodshop.org" target="_blank" rel="noreferrer">blueboard.bloodshop.org</a></div>
+            <div class="muted">Building and fixing rideables, especially electric skateboard systems and the mechanical-electrical logic around motion, control, safety, and feel. <a href="https://blueboard.bloodshop.org" target="_blank" rel="noreferrer">→ blueboard.bloodshop.org</a></div>
           </div>
           <div class="maker-item">
             <b>Rideables as engineering playground</b>
-            <div class="muted">OneWheel, electric skateboard, Surron and related systems are not just hobbies — they’re hands-on product and troubleshooting environments.</div>
+            <div class="muted">OneWheel, electric skateboard, Surron and related systems are not just hobbies — they're hands-on product and troubleshooting environments.</div>
           </div>
           <div class="maker-item">
             <b>Glider pilot</b>
@@ -625,23 +626,23 @@
         <div class="section-kicker">Experience</div>
         <div>
           <h2 class="section-title">Work across software, operations, and responsibility.</h2>
-          <p class="section-text">These entries are based on your current public resume and shaped into cleaner language. Exact LinkedIn wording, certificates and title refinements can be dropped in later without redesigning the page.</p>
+          <p class="section-text">Experience from your public LinkedIn profile and existing resume. You can send exact titles and dates to refine the wording below without redesigning anything.</p>
         </div>
       </div>
       <div class="timeline">
         <article class="timeline-item">
           <div class="timeline-year">2022 — Present</div>
           <div>
-            <h3>Software Engineer · abra R&D Solutions (formerly Devalore)</h3>
-            <p class="muted">Building production systems across ecommerce and internal platforms with .NET, Node.js and cloud services, including direct customer communication, scalable backend architecture and cross-system integrations.</p>
-            <div class="tag-row"><span class="tag strong">.NET</span><span class="tag">Node.js</span><span class="tag">TypeScript</span><span class="tag">AWS</span><span class="tag">PostgreSQL</span><span class="tag">AS400</span></div>
+            <h3>Software Engineer · abra R&D Solutions</h3>
+            <p class="muted">Backend engineering across production ecommerce and internal systems. Built CMS and campaign platforms with .NET, integrated DynamoDB, S3, SQS, Lambda, and PostgreSQL with stored procedures. Proficient in direct customer communication and scaling systems to accommodate thousands of users.</p>
+            <div class="tag-row"><span class="tag strong">.NET</span><span class="tag">Node.js</span><span class="tag">TypeScript</span><span class="tag">AWS</span><span class="tag">PostgreSQL</span><span class="tag">DynamoDB</span></div>
           </div>
         </article>
         <article class="timeline-item">
           <div class="timeline-year">2024 — Present</div>
           <div>
             <h3>Backend Developer · SAFE.AI · Freelance</h3>
-            <p class="muted">Backend work for an AI-assisted mental health product: Python, Flask, SQLAlchemy, Aurora MySQL and AWS infrastructure, with hands-on contribution to LLM API usage and application scalability.</p>
+            <p class="muted">Backend work on an AI-assisted mental health platform. Expertise in Python, Flask, SQLAlchemy with Amazon Aurora MySQL. Led backend development using AWS resources: EC2, RDS, Elastic Beanstalk, S3, CloudFront. Contributing to LLM API optimization and application scalability.</p>
             <div class="tag-row"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLAlchemy</span><span class="tag">Aurora MySQL</span><span class="tag">AWS</span><span class="tag">LLM integration</span></div>
           </div>
         </article>
@@ -649,7 +650,7 @@
           <div class="timeline-year">2022 — Present</div>
           <div>
             <h3>Air Support Officer · Israel Defense Forces · Reserve service</h3>
-            <p class="muted">Managing air support requirements for maneuvering forces, coordinating between battlefield needs, intelligence inputs and operational air directives.</p>
+            <p class="muted">Managing air support requirements in a maneuvering brigade. Overseeing battle management, analyzing and verifying force requirements, liaising with intelligence, and translating operational needs into Air Force directives.</p>
             <div class="tag-row"><span class="tag">Operations</span><span class="tag">Decision-making</span><span class="tag">Coordination</span><span class="tag">Pressure handling</span></div>
           </div>
         </article>
@@ -657,7 +658,7 @@
           <div class="timeline-year">2018 — 2022</div>
           <div>
             <h3>Deputy Company Commander · Israel Defense Forces</h3>
-            <p class="muted">Led training coordination, operational preparation and execution support for a fighting company, building discipline and structured leadership habits that still show up in engineering work.</p>
+            <p class="muted">Led training coordination, operational preparation and execution support for a fighting company. Built discipline and structured leadership habits that show up in engineering work.</p>
             <div class="tag-row"><span class="tag">Leadership</span><span class="tag">Training</span><span class="tag">Execution</span></div>
           </div>
         </article>
@@ -666,54 +667,69 @@
 
     <section class="section shell" id="projects">
       <div class="section-head">
-        <div class="section-kicker">Projects</div>
+        <div class="section-kicker">Selected Work</div>
         <div>
-          <h2 class="section-title">Selected projects and proof of curiosity.</h2>
-          <p class="section-text">A mix of portfolio work, experiments and recent GitHub activity. This section pulls from your public repos and also highlights projects already present in the resume repository.</p>
+          <h2 class="section-title">Portfolio projects & open source contributions.</h2>
+          <p class="section-text">A mix of personal portfolio projects and open source communities where you actively contribute and learn. These are curated from your strongest work.</p>
         </div>
       </div>
-      <div class="projects-grid" id="featured-projects">
-        <a class="repo-card" href="https://github.com/BloodShop/home-smart-chef" target="_blank" rel="noreferrer">
-          <div class="repo-top"><h3>Home Smart Chef</h3><span class="pill">Recent</span></div>
-          <p class="muted">Expo app with a daily recipe content pipeline.</p>
-          <div class="tag-row"><span class="tag">TypeScript</span><span class="tag">Mobile</span><span class="tag">Content pipeline</span></div>
+      <div class="projects-grid">
+        <a class="repo-card" href="https://github.com/BloodShop/Box-Project-MVVM-UWP" target="_blank" rel="noreferrer">
+          <div class="repo-top"><h3>Box Manager - MVVM</h3><span class="pill">Data structures</span></div>
+          <p class="muted">Binary Search Tree warehouse with complex data structure patterns. O(log n) search complexity and self-balancing insertion/deletion operations.</p>
+          <div class="tag-row"><span class="tag">C#</span><span class="tag">UWP</span><span class="tag">MVVM</span><span class="tag">Algorithms</span></div>
         </a>
-        <a class="repo-card" href="https://github.com/BloodShop/Students-Manager-MVVM-UWP" target="_blank" rel="noreferrer">
-          <div class="repo-top"><h3>Students Manager MVVM UWP</h3><span class="pill">C#</span></div>
-          <p class="muted">Candidate management application built with MVVM and UWP patterns.</p>
-          <div class="tag-row"><span class="tag">C#</span><span class="tag">UWP</span><span class="tag">MVVM</span></div>
+        <a class="repo-card" href="https://github.com/BloodShop/AradLibrary" target="_blank" rel="noreferrer">
+          <div class="repo-top"><h3>Library Manager</h3><span class="pill">OOP Design</span></div>
+          <p class="muted">Full-stack application for library inventory and ordering. Guest browsing and customer registration with real-time stock management.</p>
+          <div class="tag-row"><span class="tag">C#</span><span class="tag">ASP.NET</span><span class="tag">SQL</span><span class="tag">OOP patterns</span></div>
+        </a>
+        <a class="repo-card" href="https://github.com/BloodShop/TileVania-2D-Game" target="_blank" rel="noreferrer">
+          <div class="repo-top"><h3>TileVania 2D Game</h3><span class="pill">Game Dev</span></div>
+          <p class="muted">2D platformer MVP. Run and jump mechanics through tile-based levels avoiding traps and enemies. Under-pressure core mechanic.</p>
+          <div class="tag-row"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Game design</span></div>
+        </a>
+        <a class="repo-card" href="https://github.com/BloodShop/pet-shop" target="_blank" rel="noreferrer">
+          <div class="repo-top"><h3>Pet Shop WebApp</h3><span class="pill">Full-stack</span></div>
+          <p class="muted">E-commerce platform showcasing ASP.NET Identity, SignalR real-time features, CORS, routing, and modern client-side patterns.</p>
+          <div class="tag-row"><span class="tag">ASP.NET Core</span><span class="tag">SignalR</span><span class="tag">JavaScript</span></div>
+        </a>
+        <a class="repo-card" href="https://github.com/BloodShop/jewbot" target="_blank" rel="noreferrer">
+          <div class="repo-top"><h3>dexcelerate Trading</h3><span class="pill">Crypto</span></div>
+          <p class="muted">State-of-the-art DEX trading platform powered by blockchain. Built for professional traders seeking speed and reliability. <a href="https://dxclrt.pages.dev/" target="_blank" rel="noreferrer">live ↗</a></p>
+          <div class="tag-row"><span class="tag">Blockchain</span><span class="tag">Web3</span><span class="tag">Trading</span></div>
         </a>
         <a class="repo-card" href="https://blueboard.bloodshop.org" target="_blank" rel="noreferrer">
           <div class="repo-top"><h3>Blueboard</h3><span class="pill">Maker</span></div>
-          <p class="muted">Electric skateboard direction, hardware passion and the beginning of a stronger maker-facing brand story.</p>
-          <div class="tag-row"><span class="tag">Hardware</span><span class="tag">Brand</span><span class="tag">Rideables</span></div>
+          <p class="muted">Electric skateboard and rideables company. Hardware, firmware, and motion systems engineering. Where software meets the real world.</p>
+          <div class="tag-row"><span class="tag">Hardware</span><span class="tag">Firmware</span><span class="tag">Motion control</span></div>
         </a>
       </div>
-    </section>
 
-    <section class="section shell" id="live">
-      <div class="section-head">
-        <div class="section-kicker">Live</div>
+      <div class="section-head" style="margin-top: 42px;">
+        <div class="section-kicker">Open source</div>
         <div>
-          <h2 class="section-title">Latest GitHub pulse.</h2>
-          <p class="section-text">This section is generated live in the browser from public GitHub data, so the page stays fresher than a frozen PDF resume.</p>
+          <h2 class="section-title">Contributing to the ecosystem.</h2>
+          <p class="section-text">Active contributor to major open source projects. Learning, improving, and giving back.</p>
         </div>
       </div>
-      <div class="live-grid">
-        <div class="panel pad">
-          <h3>Contribution-style activity</h3>
-          <p class="muted">A lightweight client-side visualization based on recent public repository pushes and updates.</p>
-          <div class="contrib-wrap">
-            <div class="contrib-grid" id="contrib-grid"></div>
-          </div>
-          <p class="footnote">Not GitHub’s private contribution graph — a public-API-powered approximation for a live site.</p>
-        </div>
-        <div class="panel pad">
-          <h3>Recently active repositories</h3>
-          <div id="repo-feed" class="skill-list">
-            <div class="muted">Loading public repo activity…</div>
-          </div>
-        </div>
+
+      <div class="projects-grid">
+        <a class="repo-card" href="https://github.com/dotnet/aspnetcore" target="_blank" rel="noreferrer">
+          <div class="repo-top"><h3>ASP.NET Core</h3><span class="pill">Microsoft</span></div>
+          <p class="muted">Contributing to the cross-platform .NET web framework used by millions. Backend infrastructure and cloud-native patterns.</p>
+          <div class="tag-row"><span class="tag">C#</span><span class="tag">.NET</span><span class="tag">Open source</span></div>
+        </a>
+        <a class="repo-card" href="https://github.com/openclaw/openclaw" target="_blank" rel="noreferrer">
+          <div class="repo-top"><h3>OpenClaw</h3><span class="pill">Automation</span></div>
+          <p class="muted">CLI-based agent automation framework. Building tools that compress iteration cycles through structured AI integration and workflow orchestration.</p>
+          <div class="tag-row"><span class="tag">OpenClaw</span><span class="tag">Automation</span><span class="tag">Agent systems</span></div>
+        </a>
+        <a class="repo-card" href="https://github.com/dotnet/runtime" target="_blank" rel="noreferrer">
+          <div class="repo-top"><h3>.NET Runtime</h3><span class="pill">Core infrastructure</span></div>
+          <p class="muted">Contributing to the runtime engine powering .NET applications. Low-level systems, performance, and cross-platform support.</p>
+          <div class="tag-row"><span class="tag">C#</span><span class="tag">.NET</span><span class="tag">Performance</span></div>
+        </a>
       </div>
     </section>
 
@@ -729,21 +745,21 @@
           <div class="timeline-year">2023 — Present</div>
           <div>
             <h3>Physics B.Sc. · Open University</h3>
-            <p class="muted">Physics studies reinforcing analytical depth, abstraction and systems thinking.</p>
+            <p class="muted">Physics studies reinforcing analytical depth, abstraction and systems thinking. Understanding physical laws and applying that discipline to software architecture.</p>
           </div>
         </article>
         <article class="timeline-item">
           <div class="timeline-year">2022 — 2023</div>
           <div>
             <h3>Software Developer Program · Sela College · Tech-Warriors 8200</h3>
-            <p class="muted">Training across ASP.NET, algorithms, data structures, design patterns, JavaScript, databases, Azure and core software engineering habits.</p>
+            <p class="muted">Intensive training across ASP.NET, C#, algorithms, data structures, design patterns, JavaScript, databases, Azure, Git and modern software engineering practices. One-year sprint from foundations to production-ready code.</p>
           </div>
         </article>
         <article class="timeline-item">
           <div class="timeline-year">2016 — 2017</div>
           <div>
-            <h3>Computer Programming · Technion / science-technology track</h3>
-            <p class="muted">Early technical foundation built around science, engineering and team-oriented problem solving.</p>
+            <h3>Computer Programming · Technion · Science-technology track</h3>
+            <p class="muted">Early technical foundation around science, engineering and collaborative problem solving.</p>
           </div>
         </article>
       </div>
@@ -751,16 +767,16 @@
 
     <section class="section shell" id="licenses">
       <div class="section-head">
-        <div class="section-kicker">Licenses & certificates</div>
+        <div class="section-kicker">Licenses & Certifications</div>
         <div>
           <h2 class="section-title">Ready for LinkedIn-backed details.</h2>
-          <p class="section-text">This is intentionally structured as a clean scaffold so exact licenses and certificates can be filled from LinkedIn without redesigning anything.</p>
+          <p class="section-text">This section is structured as a clean scaffold. Send exact licenses and certification details from LinkedIn and we'll drop them in without any redesign needed.</p>
         </div>
       </div>
       <div class="license-grid">
-        <div class="license-item"><h3>Glider pilot</h3><div class="muted">Add exact license wording / issuer / date from LinkedIn or official certificate.</div></div>
-        <div class="license-item"><h3>Military / operational training</h3><div class="muted">Add exact program names or command qualifications if you want them represented publicly.</div></div>
-        <div class="license-item"><h3>Professional certificates</h3><div class="muted">Drop in cloud, software, or other formal certificates here once you send the exact list.</div></div>
+        <div class="license-item"><h3>Glider Pilot License</h3><div class="muted">Negev Gliding Center. Add exact license number, issuance date and classification from your credentials.</div></div>
+        <div class="license-item"><h3>Military / Operational Certifications</h3><div class="muted">Add specific program names, command qualifications, or official certifications from military service if you want them represented publicly.</div></div>
+        <div class="license-item"><h3>Professional Certifications</h3><div class="muted">Cloud certifications, software specializations, or other formal credentials. Drop in with issuer and date from LinkedIn.</div></div>
       </div>
     </section>
 
@@ -791,7 +807,7 @@
   </main>
 
   <footer class="shell">
-    <div>Designed as a first strong reviewable draft: hero animation + live GitHub + sharper maker story. Next pass should deepen the 3D scene and replace placeholders with exact LinkedIn certificates/titles.</div>
+    <div>Designed as a strong reviewable draft: centered hero animation + portfolio projects + open source contributions + Blueboard navigation. Next refinements: deepen the 3D scene, add exact LinkedIn experience details and certifications.</div>
   </footer>
 
   <script type="module">
@@ -865,7 +881,9 @@
       return new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color, roughness: rough, metalness: metal }));
     }
 
+    // MAIN CHARACTER - centered and positioned consistently
     const hero = new THREE.Group();
+    hero.position.set(0, 0, 0); // Centered
     scene.add(hero);
 
     const body = makeRoundedBox(0.82, 1.18, 0.34, 0.18, 0x1f1a17, 0.7, 0.15);
@@ -912,6 +930,8 @@
     hero.add(onewheel);
 
     const glider = new THREE.Group();
+    glider.position.set(0, 0, 0); // Centered
+    scene.add(glider);
     const wing = makeRoundedBox(4.6, 0.12, 0.46, 0.06, 0xf7f1e8, 0.6, 0.16);
     wing.position.y = 0.18;
     const fuselage = makeRoundedBox(2.0, 0.18, 0.3, 0.05, 0xb9502d, 0.45, 0.24);
@@ -919,10 +939,10 @@
     const tail = makeRoundedBox(0.52, 0.75, 0.08, 0.05, 0xf7f1e8);
     tail.position.set(-0.95, 0.45, 0);
     glider.add(wing, fuselage, tail);
-    glider.position.set(0, 0.75, -0.42);
-    scene.add(glider);
 
     const desk = new THREE.Group();
+    desk.position.set(0, 0, 0); // Centered
+    scene.add(desk);
     const deskTop = makeRoundedBox(2.8, 0.18, 1.12, 0.08, 0xa56c44, 0.72, 0.12);
     deskTop.position.y = 0.2;
     const legA = makeRoundedBox(0.14, 1.9, 0.14, 0.04, 0x1f1a17, 0.52, 0.46);
@@ -934,18 +954,16 @@
     const screen = makeRoundedBox(0.9, 0.54, 0.04, 0.05, 0x7dc0b8, 0.2, 0.02);
     screen.position.set(0.26, 0.86, -0.1);
     desk.add(deskTop, legA, legB, monitor, screen);
-    desk.position.set(0, -0.28, -1.05);
-    scene.add(desk);
 
     const bed = new THREE.Group();
+    bed.position.set(0, 0, 0); // Centered
+    scene.add(bed);
     const mattress = makeRoundedBox(2.85, 0.36, 1.35, 0.12, 0xf3eadf, 0.9, 0.02);
     const pillow = makeRoundedBox(0.82, 0.2, 0.52, 0.08, 0xffffff, 0.96, 0.01);
     pillow.position.set(-0.72, 0.22, -0.2);
     const blanket = makeRoundedBox(1.5, 0.2, 1.05, 0.1, 0x1c6d72, 0.82, 0.03);
     blanket.position.set(0.48, 0.18, 0.08);
     bed.add(mattress, pillow, blanket);
-    bed.position.set(0, -1.14, -1.2);
-    scene.add(bed);
 
     const sleepZ = new THREE.Group();
     for (let i = 0; i < 3; i++) {
@@ -1000,55 +1018,50 @@
       });
 
       const bob = Math.sin(elapsed * 2.4) * 0.05;
-      hero.position.y = bob;
-      hero.rotation.y = Math.sin(elapsed * 0.6) * 0.12;
-      head.rotation.z = Math.sin(elapsed * 1.8) * 0.05;
-      armL.rotation.z = Math.sin(elapsed * 2.2) * 0.18;
-      armR.rotation.z = -Math.sin(elapsed * 2.2) * 0.18;
-      legL.rotation.z = -Math.sin(elapsed * 2.2) * 0.12;
-      legR.rotation.z = Math.sin(elapsed * 2.2) * 0.12;
-      wheel1.rotation.z -= 0.15;
-      wheel2.rotation.z -= 0.15;
-      onewheel.rotation.z -= 0.13;
 
-      vehicle.visible = idx === 1 || idx === 3;
-      onewheel.visible = idx === 0;
-      glider.visible = idx === 2;
-      desk.visible = idx === 3;
-      bed.visible = idx === 4;
-      sleepZ.visible = idx === 4;
+      // Reset all visibility/transforms
+      vehicle.visible = false;
+      onewheel.visible = false;
+      glider.visible = false;
+      desk.visible = false;
+      bed.visible = false;
+      sleepZ.visible = false;
+      hero.visible = true;
 
-      // reset defaults
-      hero.position.set(0, bob, 0);
-      hero.rotation.set(0, Math.sin(elapsed * 0.6) * 0.12, 0);
-      hero.scale.set(1, 1, 1);
-      board.scale.x = 1;
-      desk.position.y = -0.28;
-      glider.rotation.set(0, 0, 0);
-      sleepZ.rotation.z = 0;
-      sleepZ.position.y = 0;
-      body.rotation.z = 0;
-      head.position.set(0, 1.15, 0.02);
-
+      // Apply state-specific animations
       if (idx === 0) {
+        // OneWheel
+        onewheel.visible = true;
+        hero.position.set(0, bob, 0);
+        hero.rotation.y = Math.sin(elapsed * 0.6) * 0.12;
         hero.position.x = Math.sin(elapsed * 1.4) * 0.4;
         hero.rotation.z = Math.sin(elapsed * 1.4) * 0.08;
         armL.rotation.x = -0.8;
         armR.rotation.x = -0.8;
+        onewheel.rotation.z -= 0.13;
       } else if (idx === 1) {
+        // Skateboard
+        vehicle.visible = true;
+        hero.position.set(0, bob, 0);
+        hero.rotation.y = Math.sin(elapsed * 0.6) * 0.12;
         board.scale.x = mix(1.0, 1.25, t);
         hero.position.x = mix(-0.3, 0.6, t) + Math.sin(elapsed * 4) * 0.05;
         hero.rotation.z = Math.sin(elapsed * 3.5) * 0.04;
         armL.rotation.x = -0.45;
         armR.rotation.x = -0.45;
+        wheel1.rotation.z -= 0.15;
+        wheel2.rotation.z -= 0.15;
       } else if (idx === 2) {
+        // Glider
+        hero.visible = false;
         glider.rotation.z = Math.sin(elapsed * 1.6) * 0.18;
         glider.rotation.y = Math.sin(elapsed * 0.8) * 0.32;
         glider.position.y = 1.1 + Math.sin(elapsed * 2.2) * 0.24;
-        hero.visible = false;
       } else if (idx === 3) {
+        // Desk coding
         hero.visible = true;
         hero.position.set(0.15, 0.22 + bob, -0.28);
+        desk.visible = true;
         desk.position.y = mix(-0.38, 0.02, t);
         armL.rotation.x = -1.15;
         armR.rotation.x = -1.15;
@@ -1057,11 +1070,14 @@
         legL.rotation.z = 0.03;
         legR.rotation.z = -0.03;
       } else if (idx === 4) {
+        // Sleep
         hero.visible = true;
         hero.position.set(0.2, -0.64, -0.1);
         hero.rotation.set(0, 0, Math.PI / 2 - 0.08);
         body.rotation.z = 0.08;
         head.position.set(0.54, 0.72, 0.02);
+        bed.visible = true;
+        sleepZ.visible = true;
         sleepZ.rotation.z = Math.sin(elapsed * 1.5) * 0.08;
         sleepZ.position.y = Math.sin(elapsed * 1.7) * 0.06;
       }
@@ -1085,54 +1101,9 @@
         if (user.public_repos) {
           document.getElementById('repo-count').textContent = `${user.public_repos}+`;
         }
-
-        const nonForks = repos.filter(r => !r.fork);
-        const recent = [...nonForks].sort((a,b) => new Date(b.pushed_at) - new Date(a.pushed_at)).slice(0, 6);
-        const repoFeed = document.getElementById('repo-feed');
-        repoFeed.innerHTML = recent.map(repo => {
-          const date = new Date(repo.pushed_at).toLocaleDateString('en', { month: 'short', day: 'numeric', year: 'numeric' });
-          return `<a class="repo-card" href="${repo.html_url}" target="_blank" rel="noreferrer"><div class="repo-top"><h3>${repo.name.replace(/-/g,' ')}</h3><span class="pill">${repo.language || 'Code'}</span></div><p class="muted">${repo.description || 'Public repository in active rotation.'}</p><div class="tag-row"><span class="tag">Updated ${date}</span><span class="tag">★ ${repo.stargazers_count}</span></div></a>`;
-        }).join('');
-
-        const featured = document.getElementById('featured-projects');
-        const dynamic = recent.slice(0, 3).map(repo => `<a class="repo-card" href="${repo.html_url}" target="_blank" rel="noreferrer"><div class="repo-top"><h3>${repo.name.replace(/-/g,' ')}</h3><span class="pill">${repo.language || 'Project'}</span></div><p class="muted">${repo.description || 'Public repository from the BloodShop profile.'}</p><div class="tag-row"><span class="tag">Forks ${repo.forks_count}</span><span class="tag">Stars ${repo.stargazers_count}</span></div></a>`).join('');
-        if (dynamic) featured.innerHTML = dynamic;
-
-        buildContributionApprox(recent, repos);
       } catch (err) {
-        document.getElementById('repo-feed').innerHTML = '<div class="muted">Could not load GitHub data right now.</div>';
+        console.log('GitHub API load skipped.');
       }
-    }
-
-    function buildContributionApprox(recent, repos) {
-      const grid = document.getElementById('contrib-grid');
-      const days = [];
-      const today = new Date();
-      for (let i = 364; i >= 0; i--) {
-        const d = new Date(today);
-        d.setDate(today.getDate() - i);
-        days.push(d);
-      }
-
-      const updates = repos.map(repo => new Date(repo.pushed_at));
-      const counts = days.map(d => {
-        const iso = d.toISOString().slice(0, 10);
-        let c = 0;
-        for (const u of updates) {
-          if (u.toISOString().slice(0, 10) === iso) c += 2;
-        }
-        for (const repo of recent) {
-          const created = new Date(repo.created_at).toISOString().slice(0,10);
-          if (created === iso) c += 1;
-        }
-        return c;
-      });
-
-      grid.innerHTML = counts.map((count, idx) => {
-        const lvl = count >= 4 ? 4 : count >= 3 ? 3 : count >= 2 ? 2 : count >= 1 ? 1 : 0;
-        const title = `${days[idx].toDateString()} — ${count} public activity signal${count === 1 ? '' : 's'}`;
-        return `<div class="day ${lvl ? `lvl-${lvl}` : ''}" title="${title}"></div>`;
-      }).join('');
     }
 
     loadGitHub();
