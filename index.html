@@ -1,536 +1,771 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Alon's Resume</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" media="print" onload="this.media='all'"/>
-    <link href="css/font-awesome/css/all.min.css?ver=1.2.0" rel="stylesheet">
-    <link href="css/bootstrap.min.css?ver=1.2.0" rel="stylesheet">
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/aos.css?ver=1.2.0" rel="stylesheet">
-    <link href="css/main.css?ver=1.2.0" rel="stylesheet">
-    <noscript>
-      <style type="text/css">
-        [data-aos] {
-            opacity: 1 !important;
-            transform: translate(0) scale(1) !important;
-        }
-      </style>
-    </noscript>
-    <script defer src="scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
-    <script defer src="scripts/aos.js?ver=1.2.0"></script>
-    <script defer src="scripts/main.js?ver=1.2.0"></script>
-    <script> location.hash = (location.hash) ? location.hash : " "; </script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alon Kolyakov — Builder, Engineer, Pilot</title>
+  <meta name="description" content="Resume and portfolio of Alon Kolyakov — software engineer, builder, founder, and glider pilot." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --paper: #fbf7f0;
+      --ink: #1f2321;
+      --muted: #5b625d;
+      --line: rgba(31, 35, 33, 0.14);
+      --accent: #cb5c32;
+      --accent-2: #236a52;
+      --accent-3: #c89b2a;
+      --panel: rgba(251, 247, 240, 0.78);
+      --shadow: 0 16px 60px rgba(63, 42, 20, 0.12);
+      --radius: 26px;
+      --max: 1240px;
+    }
 
-  </head>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Manrope', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(203,92,50,0.16), transparent 26%),
+        radial-gradient(circle at 90% 12%, rgba(35,106,82,0.12), transparent 18%),
+        linear-gradient(180deg, #f7f1e7 0%, #efe6d8 100%);
+      color: var(--ink);
+      line-height: 1.5;
+    }
 
-  <body id="top">
-      <ul class="circles zi--1">
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-      </ul>
-    <header class="d-print-none sticky-top">
-      <div class="container ">
-        <div class="py-0 clearfix">
-          <h1 class="site-title mb-0"><a class="container nav-link me-3" href="#">Alon Kolyakov</a></h1>
-          <div class="site-nav  navbar-inverse">
-            <nav role="navigation">
-              <ul class="nav justify-content-center">
-                <li class="menu-item"><a class="container nav-link me-3" href="#specs">Specs</a></li>
-                <li class="menu-item"><a class="container nav-link me-3" href="#portfol">Portfolio</a></li>
-                <li class="menu-item"><a class="container nav-link me-3" href="#work-exp">Experience</a></li>
-                <li class="menu-item"><a class="container nav-link me-3" href="#educate">Education</a></li>
-                <li class="menu-item">
-                  <ul class="nav justify-content-center">
-                    <li class="nav-item"><a class="nav-link" target="_blank" href="https://twitter.com/AlonKolyakov" title="Twitter"><i class="fab fa-twitter"></i><span class="menu-title sr-only">Twitter</span></a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" target="_blank" href="https://discord.gg/Ujfx22bB" title="Facebook"><i class="fab fa-discord"></i><span class="menu-title sr-only">Discord</span></a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" target="_blank" href="https://www.linkedin.com/in/alon-kolyakov-376aa5246/" title="LinkedIn"><i class="fab fa-linkedin"></i><span class="menu-title sr-only">LinkeIn</span></a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" target="_blank" href="https://github.com/BloodShop?tab=repositories" title="Github"><i class="fab fa-github"></i><span class="menu-title sr-only">Github</span></a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </header>
-    <div class="page-content">
-      <div class="container">
-        <hr class="d-print-none"/>
-<div class="cover shadow-lg bg-white">
-  <div class="cover-bg p-3 p-lg-4 text-white zi--2">
-    <div class="row">
-      <!-- <div class="col-lg-4 col-md-5">
-        <div class="avatar hover-effect bg-white shadow-sm p-1"><img src="images/profile1.png" width="200" height="200"/></div>
-      </div> -->
-      <div class="col-lg-10 col-md-7 text-center text-md-start">
-        <h2 class="h1 mt-2" data-aos="fade-left" data-aos-delay="0">Alon Kolyakov </h2>
-        <h4 data-aos="fade-left" data-aos-delay="100">
-          Software Engineer | Backend | C# | NodeJS | python |<br>
-          Tech-Warriors 8200 Graduated & Physics B.Sc. student |<br>
-          3 Years Experience</h4>
-        <div class="d-print-none" data-aos="fade-left" data-aos-delay="200">
-          <a class="btn btn-light text-dark shadow-sm mt-1 me-1"
-            href="AlonKolyakovCV.pdf" target="_blank">CV pdf</a>
-          <a class="btn btn-light text-dark shadow-sm mt-1 me-1"
-            href="AlonKolyakovCV.docx">CV docx</a>
-            <a class="btn btn-success text-dark shadow-sm mt-1" href="mailto:koliakovcr7@gmail.com?subject=We%20would%20like%20to%20interview%20you!" target="_blank"><b>Hire Me</b></a>
-          </div>
-      </div>
-    </div>
-  </div>
-  <div class="about-section pt-4 px-3 px-lg-4 mt-1">
-    <div class="row">
-      <div class="col-md-6">
-        <h2 class="h2 mb-3">About Me</h2>
-        <p>I enjoy traveling around the world 🌎, exercising 🏋️ and mostly software 🧑‍💻.
-        </br></br>
-          I work full-time at abra R&D (formerly Devalore) as a Backend Software Engineer and freelance at SAFE.AI as a Backend Developer.
-        </br></br>
-          Currently, I am studying physics at the Open University and have completed a Software Development Course at Sela (Tech-Warriors 8200) from the army.
-        </br></br>
-          I am highly motivated to learn and explore new fields.</p>
-      </div>
-      <div class="col-md-5 offset-md-1">
-        <div class="row mt-2">
-          <!--<div class="col-sm-4">
-            <div class="pb-1">Age</div>
-          </div>
-          <div class="col-sm-8">
-            <div class="pb-1 text-secondary">23</div>
-          </div>
-           <div class="col-sm-4">
-            <div class="pb-1">Status</div>
-          </div>
-          <div class="col-sm-8">
-            <div class="pb-1 text-secondary">Single</div>
-          </div> -->
-          <div class="col-sm-4">
-            <div class="pb-1">Phone</div>
-          </div>
-          <div class="col-sm-8">
-            <div class="pb-1 text-secondary"><a style="text-decoration: none;" target="_blank" href="https://api.whatsapp.com/send?phone=972503901000" >+972 50-390-1000</a></div>
-          </div>
-          <div class="col-sm-4">
-            <div class="pb-1">Email</div>
-          </div>
-          <div class="col-sm-8">
-            <div class="pb-1 text-secondary"><a style="text-decoration: none;" href="mailto:koliakovcr7@gmail.com?subject=We%20would%20like%20to%20interview%20you!" target="_blank">koliakovcr7@gmail.com</a></div>
-          </div>
-          <!-- <div class="col-sm-4">
-            <div class="pb-1">Address</div>
-          </div>
-          <div class="col-sm-8">
-            <div class="pb-1 text-secondary">Irusim 18/39, Arad, Israel</div>
-          </div> -->
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-  <hr class="d-print-none"/>
-  <div class="page-break"></div>
-  <div id="specs" class="skills-section px-3 px-lg-4">
-    <h1 class="h1 mb-3">Professional Skills 🌟</h1>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="mb-2"><span>.NET Core</span>
-          <div class="progress my-1">
-            <div class="progress-bar bg-custom" role="progressbar" data-aos="zoom-in-right" data-aos-delay="100" data-aos-anchor=".skills-section" style="width: 99%" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-        </div>
-        <div class="mb-2"><span>NodeJS</span>
-          <div class="progress my-1">
-            <div class="progress-bar bg-custom" role="progressbar" data-aos="zoom-in-right" data-aos-delay="200" data-aos-anchor=".skills-section" style="width: 99%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-        </div>
-        <div class="mb-2"><span>TypeScript</span>
-          <div class="progress my-1">
-            <div class="progress-bar bg-custom" role="progressbar" data-aos="zoom-in-right" data-aos-delay="300" data-aos-anchor=".skills-section" style="width: 92%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-        </div>
-        <div class="mb-2"><span>AWS</span>
-            <div class="progress my-1">
-              <div class="progress-bar bg-custom" role="progressbar" data-aos="zoom-in-right" data-aos-delay="300" data-aos-anchor=".skills-section" style="width: 96%" aria-valuenow="96" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          <div class="mb-2"><span>Azure Cloud</span>
-            <div class="progress my-1">
-              <div class="progress-bar bg-custom" role="progressbar" data-aos="zoom-in-right" data-aos-delay="300" data-aos-anchor=".skills-section" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-      </div>
-      <div class="col-md-6">
-        <div class="mb-2"><span>C#</span>
-          <div class="progress my-1">
-            <div class="progress-bar bg-custom" role="progressbar" data-aos="zoom-in-right" data-aos-delay="400" data-aos-anchor=".skills-section" style="width: 100%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-        </div>
-        <div class="mb-2"><span>Python</span>
-          <div class="progress my-1">
-            <div class="progress-bar bg-custom" role="progressbar" data-aos="zoom-in-right" data-aos-delay="700" data-aos-anchor=".skills-section" style="width: 98%" aria-valuenow="94" aria-valuemin="0" aria-valuemax="100">
-            </div>
-          </div>
-        </div>
-        <div class="mb-2"><span>elk</span>
-          <div class="progress my-1">
-            <div class="progress-bar bg-custom" role="progressbar" data-aos="zoom-in-right" data-aos-delay="500" data-aos-anchor=".skills-section" style="width: 92%" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-        </div>
-        <div class="mb-2"><span>No/SQL</span>
-          <div class="progress my-1">
-            <div class="progress-bar bg-custom" role="progressbar" data-aos="zoom-in-right" data-aos-delay="600" data-aos-anchor=".skills-section" style="width: 90%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-        </div>
-        <div class="mb-2"><span>Unity</span>
-            <div class="progress my-1">
-              <div class="progress-bar bg-custom" role="progressbar" data-aos="zoom-in-right" data-aos-delay="700" data-aos-anchor=".skills-section" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr class="d-print-none"/>
-  </div>
-  <section id="portfolio">
-    <hr class="d-print-none"/>
-  <div class="page-break"></div>
-    <h1 id="portfol" class="h1 text-white mb-2">Portfolio 🔮</h1>
-    <div class="content portfolio--content">
-      <div class="item">
-        <a href="#portfolio-modal-1" data-bs-toggle="modal">
-        <h3>Box - MVVM</h3>
-        <img src="images/portfolio/box.png" alt="logo design"></a>
-      </div><!-- item -->
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(31,35,33,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(31,35,33,0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: radial-gradient(circle at center, black 55%, transparent 92%);
+      pointer-events: none;
+      z-index: -1;
+    }
 
-      <div class="item">
-        <a class="d-block mx-auto portfolio-item" href="#portfolio-modal-2" data-bs-toggle="modal">
-          <h3>Library - OOP</h3>
-        <img src="images/portfolio/Library.png" alt="logo design"></a>
-      </div><!-- item -->
-      <div class="item">
-        <a class="d-block mx-auto portfolio-item" href="#portfolio-modal-3" data-bs-toggle="modal">
-        <h3>TileVania</h3>
-        <img src="images/portfolio/tilevania.png" alt="logo design"></a>
-      </div><!-- item -->
-      <div class="item">
-        <a class="d-block mx-auto portfolio-item" href="#portfolio-modal-4" data-bs-toggle="modal">
-        <h3>Svelte Review Page</h3>
-        <img src="images/portfolio/Svelte.png" alt="logo design"></a>
-      </div><!-- item -->
-      <div class="item">
-        <a class="d-block mx-auto portfolio-item" href="#portfolio-modal-6" data-bs-toggle="modal">
-        <h3>dexcelerate</h3>
-        <img src="images/portfolio/dexcelerate.png" alt="logo design"></a>
-      </div><!-- item -->
-            <div class="item">
-              <a class="d-block mx-auto portfolio-item" href="#portfolio-modal-5" data-bs-toggle="modal">
-        <h3>Pet Shop</h3>
-        <img src="images/portfolio/petshop.png" alt="logo design"></a>
-      </div><!-- item -->
-      <hr class="d-print-none"/>
-    </div>
-  </section><!-- portfolio -->
-  <hr class="d-print-none"/>
-  <div class="work-experience-section px-3">
-    <h1 id="work-exp" class="h1 text-white mb-4">Work Experience 🔨</h1>
-    <div class="timeline">
-      <div class="timeline-card timeline-card-primary card shadow-sm">
-        <div class="card-body">
-          <div class="h4 mb-1">Software Engineer <span class="text-muted h6">at abra R&D Solutions (formerly Devalore) · Full-time</span></div>
-          <div class="h5 text-muted mb-2">2022 - Present</div>
-          <div class="mb-2">
-            Contributed to the development of over 10 production systems, each with distinct requirements and objectives, ranging from e-commerce platforms to internal use apps with .NET:
-            </br></br>
-            ·	Engineered CMS and Campaigns backend applications, integrating DynamoDB, S3, SQS, Lambdas, and more.
-            </br></br>
-            ·	Constructed a sturdy server-side application using the .NET framework, integrated with multiple databases including PostgreSQL and AS400, employing stored procedures for efficient data handling. Anticipated scalability to accommodate a wide user base, projected to reach thousands of users.
-            </br></br>
-            ·	Demonstrated versatility in utilizing a variety of modern backend technologies, including popular frameworks such as .NET Core, Node with Typescript, AWS serverless computing services and more.
-            </br></br>
-            ·	Proficient in direct customer communication, adept at understanding requirements from inception to execution, and skilled in resolving any issues that arise.
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .shell {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 24px auto 56px;
+    }
+
+    .nav {
+      position: sticky;
+      top: 14px;
+      z-index: 20;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(251, 247, 240, 0.8);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 34px rgba(63,42,20,0.08);
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      display: flex; align-items: center; gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+    }
+
+    .brand-mark {
+      width: 42px; height: 42px; border-radius: 14px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--accent), #e58c49);
+      color: #fff8f2;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.15rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.4);
+    }
+
+    .nav-links { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .nav-links a {
+      font-size: 0.94rem;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 999px;
+      transition: .2s ease;
+    }
+    .nav-links a:hover { background: rgba(31,35,33,0.06); color: var(--ink); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.9fr);
+      gap: 26px;
+      align-items: stretch;
+      margin-bottom: 26px;
+    }
+
+    .hero-main, .hero-side, .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      padding: clamp(26px, 4vw, 50px);
+      position: relative;
+      overflow: hidden;
+      min-height: 530px;
+    }
+
+    .hero-main::after {
+      content: '';
+      position: absolute;
+      right: -60px;
+      bottom: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(35,106,82,0.2) 0%, rgba(35,106,82,0.03) 55%, transparent 75%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(31,35,33,0.05);
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: .77rem;
+      margin-bottom: 24px;
+    }
+
+    h1, h2, h3, .display {
+      margin: 0;
+      font-family: 'Syne', sans-serif;
+      line-height: .95;
+      letter-spacing: -0.04em;
+    }
+
+    .display {
+      font-size: clamp(3rem, 8vw, 6.7rem);
+      max-width: 10ch;
+      margin-bottom: 20px;
+    }
+
+    .lead {
+      max-width: 62ch;
+      font-size: clamp(1rem, 1.8vw, 1.18rem);
+      color: var(--muted);
+      margin-bottom: 26px;
+    }
+
+    .hero-tags, .chips {
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+
+    .hero-tags span, .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(31,35,33,0.1);
+      background: rgba(255,255,255,0.45);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .hero-cta {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 18px;
+      font-weight: 800;
+      border: 1px solid var(--line);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(63,42,20,0.12); }
+    .button.primary { background: var(--ink); color: var(--paper); }
+    .button.secondary { background: rgba(255,255,255,0.5); }
+
+    .hero-side {
+      padding: 20px;
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      gap: 18px;
+    }
+
+    .portrait {
+      position: relative;
+      aspect-ratio: 4 / 4.6;
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid rgba(31,35,33,0.12);
+      background: linear-gradient(135deg, rgba(35,106,82,0.14), rgba(203,92,50,0.12));
+    }
+    .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+
+    .stamp-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stamp {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.46);
+      border: 1px solid rgba(31,35,33,0.09);
+    }
+    .stamp strong { display: block; font-size: 1.5rem; font-family: 'Syne', sans-serif; }
+    .stamp span { font-size: .84rem; color: var(--muted); font-weight: 700; }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .panel {
+      padding: 24px;
+      overflow: hidden;
+    }
+
+    .section-head {
+      display: flex; justify-content: space-between; align-items: end; gap: 12px;
+      margin-bottom: 20px;
+    }
+    .section-head h2 { font-size: clamp(1.7rem, 2vw, 2.4rem); }
+    .section-head p { margin: 0; color: var(--muted); max-width: 34ch; }
+
+    .bio {
+      display: grid; gap: 18px;
+    }
+    .bio p { margin: 0; color: var(--muted); }
+
+    .maker-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .maker-card {
+      padding: 16px;
+      border: 1px solid rgba(31,35,33,0.09);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.42);
+    }
+    .maker-card h3 { font-size: 1.08rem; margin-bottom: 8px; }
+    .maker-card p { color: var(--muted); margin: 0; font-size: .95rem; }
+
+    .skill-clusters {
+      display: grid;
+      gap: 18px;
+    }
+    .cluster {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.46);
+      border: 1px solid rgba(31,35,33,0.09);
+    }
+    .cluster h3 { font-size: 1rem; margin-bottom: 12px; }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .entry {
+      position: relative;
+      padding: 18px 18px 18px 22px;
+      border-left: 3px solid rgba(31,35,33,0.12);
+      background: linear-gradient(90deg, rgba(255,255,255,0.55), rgba(255,255,255,0.22));
+      border-radius: 0 18px 18px 0;
+    }
+    .entry::before {
+      content: '';
+      position: absolute;
+      left: -8px;
+      top: 20px;
+      width: 13px; height: 13px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(203,92,50,0.18);
+    }
+    .entry-header {
+      display: flex; justify-content: space-between; gap: 16px; align-items: start;
+      margin-bottom: 8px;
+    }
+    .entry h3 { font-size: 1.16rem; margin-bottom: 6px; }
+    .entry .meta { color: var(--muted); font-weight: 700; }
+    .entry p { margin: 0; color: var(--muted); }
+    .entry ul { margin: 10px 0 0 18px; color: var(--muted); padding: 0; }
+
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .project {
+      display: grid;
+      grid-template-rows: 180px auto;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(31,35,33,0.12);
+      background: rgba(255,255,255,0.48);
+      transition: transform .24s ease, box-shadow .24s ease;
+    }
+    .project:hover { transform: translateY(-5px) rotate(-.2deg); box-shadow: 0 18px 38px rgba(63,42,20,0.14); }
+    .project-media { position: relative; overflow: hidden; background: #dfd1be; }
+    .project-media img { width: 100%; height: 100%; object-fit: cover; }
+    .project-body { padding: 16px; display: grid; gap: 10px; }
+    .project-body h3 { font-size: 1.14rem; }
+    .project-body p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+    .live-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .contrib-frame {
+      overflow: hidden;
+      border-radius: 22px;
+      border: 1px solid rgba(31,35,33,0.11);
+      background: rgba(255,255,255,0.55);
+      padding: 16px;
+      min-height: 220px;
+    }
+    .contrib-frame img { width: 100%; border-radius: 14px; }
+    .helper { color: var(--muted); font-size: .92rem; }
+
+    .github-feed {
+      display: grid;
+      gap: 12px;
+    }
+    .repo-row {
+      display: grid;
+      gap: 8px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(31,35,33,0.1);
+      background: rgba(255,255,255,0.44);
+    }
+    .repo-top { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
+    .repo-name { font-weight: 800; }
+    .repo-meta { color: var(--muted); font-size: .88rem; }
+
+    .footer {
+      padding: 20px 24px;
+      display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: rgba(31,35,33,0.95);
+      color: #f6f0e6;
+    }
+    .footer small { color: rgba(246,240,230,0.72); }
+
+    @media (max-width: 1040px) {
+      .hero, .section-grid, .live-grid, .portfolio { grid-template-columns: 1fr 1fr; }
+      .hero { grid-template-columns: 1fr; }
+      .live-grid, .section-grid, .portfolio { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .shell { width: min(calc(100% - 20px), var(--max)); margin-top: 14px; }
+      .nav { border-radius: 26px; align-items: start; flex-direction: column; }
+      .display { max-width: unset; }
+      .maker-list, .stamp-grid { grid-template-columns: 1fr; }
+      .entry-header { flex-direction: column; }
+      .hero-main, .hero-side, .panel { border-radius: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav">
+      <a class="brand" href="#top">
+        <span class="brand-mark">AK</span>
+        <span>Alon Kolyakov</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#live">Live / Latest</a>
+        <a href="#credentials">Credentials</a>
+        <a href="https://github.com/BloodShop" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/alon-kolyakov/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </nav>
+
+    <section class="hero" id="top">
+      <article class="hero-main">
+        <div class="eyebrow">Software engineer · founder · glider pilot</div>
+        <h1 class="display">I build systems that move.</h1>
+        <p class="lead">
+          Backend-heavy engineer with full-stack instincts: C#, .NET, Node.js, Python, TypeScript, AWS, React, Svelte.
+          I like real things too — electric skateboards, onewheels, Surron bikes, repair benches, wiring, mechanics, and aircraft towlines over the Negev.
+        </p>
+        <div class="hero-tags">
+          <span>.NET / C#</span>
+          <span>Node.js / TypeScript</span>
+          <span>Python</span>
+          <span>AWS / Serverless</span>
+          <span>OpenClaw</span>
+          <span>n8n</span>
+          <span>Blueboard</span>
+          <span>Glider Pilot</span>
+        </div>
+        <div class="hero-cta">
+          <a class="button primary" href="mailto:koliakovcr7@gmail.com?subject=Interview%20Opportunity">Hire me</a>
+          <a class="button secondary" href="./AlonKolyakovCV.pdf" target="_blank">Open PDF CV</a>
+          <a class="button secondary" href="https://blueboard.bloodshop.org" target="_blank" rel="noreferrer">Blueboard</a>
+        </div>
+      </article>
+
+      <aside class="hero-side">
+        <div class="portrait">
+          <img src="images/profile1.png" alt="Portrait of Alon Kolyakov" onerror="this.src='images/imgg.jpg'">
+        </div>
+        <div class="stamp-grid">
+          <div class="stamp"><strong id="repoCount">52</strong><span>public repos</span></div>
+          <div class="stamp"><strong id="followerCount">6</strong><span>GitHub followers</span></div>
+          <div class="stamp"><strong>3+</strong><span>years building production software</span></div>
+          <div class="stamp"><strong>2 worlds</strong><span>software + electromechanics</span></div>
+        </div>
+        <div class="cluster">
+          <h3>Contact</h3>
+          <div class="chips">
+            <span class="chip"><a href="mailto:koliakovcr7@gmail.com">koliakovcr7@gmail.com</a></span>
+            <span class="chip"><a href="https://api.whatsapp.com/send?phone=972503901000" target="_blank" rel="noreferrer">+972 50-390-1000</a></span>
+            <span class="chip"><a href="https://twitter.com/AlonKolyakov" target="_blank" rel="noreferrer">@AlonKolyakov</a></span>
           </div>
         </div>
-      </div>
-      <div class="timeline-card timeline-card-primary card shadow-sm">
-        <div class="card-body">
-          <div class="h4 mb-1">Backend Developer <span class="text-muted h6">at SAFE.AI · Freelance</span></div>
-          <div class="h5 text-muted mb-2">2024 - Present</div>
-          <div class="mb-2">SAFE.AI is an innovative mental health app offering a unique AI-powered virtual companion to help individuals navigate mental challenges.
-            </br></br>
-            · Expertise in Python, Flask, SQLAlchemy implementations using Amazon Aurora MySQL.
-            </br></br>
-            · Contributed to integrating AI techniques and optimizing LLM API usage for enhanced performance.
-            </br></br>
-            ·	Lead backend development efforts for scalable application using AWS resources: EC2, RDS, Elastic Beanstalk, S3, Cloudfront etc.
+      </aside>
+    </section>
+
+    <section class="section-grid" id="about">
+      <article class="panel">
+        <div class="section-head">
+          <h2>About</h2>
+          <p>Builder energy. Cloud systems by day, batteries, boards, and flight by choice.</p>
+        </div>
+        <div class="bio">
+          <p>
+            I’m a software engineer focused on backend and distributed systems, but I’m happiest when software touches real-world motion — logistics, infrastructure, automation, connected products, or anything with motors, batteries, sensors, or timing.
+          </p>
+          <p>
+            Professionally, I work across .NET, Node.js, Python, SQL/NoSQL, AWS, ELK, and modern frontend stacks when needed. I also actively use AI tooling and workflow automation, including OpenClaw and n8n, to move faster and build smarter systems.
+          </p>
+          <p>
+            Outside pure software, I build and fix electric movement platforms: Blueboard electric skateboards, onewheels, Surron bikes, and other hands-on electronic/mechanical projects. I’m also a glider pilot at the Negev Gliding Center.
+          </p>
+        </div>
+        <div class="maker-list">
+          <div class="maker-card">
+            <h3>Blueboard</h3>
+            <p>Founder / builder of electric skateboard projects and experiments. Practical product thinking, fabrication mindset, and direct ownership. <a href="https://blueboard.bloodshop.org" target="_blank" rel="noreferrer">Visit site ↗</a></p>
+          </div>
+          <div class="maker-card">
+            <h3>Electric movement</h3>
+            <p>Repairing, upgrading, and tuning hardware systems around electric boards, onewheels, and Surron-class bikes.</p>
+          </div>
+          <div class="maker-card">
+            <h3>AI-native workflows</h3>
+            <p>Using OpenClaw, automation, and agentic tooling to reduce friction between idea, prototype, and production.</p>
+          </div>
+          <div class="maker-card">
+            <h3>Flight</h3>
+            <p>Glider pilot at Negev Gliding Center — systems awareness, calm decision-making, and respect for physics in real life.</p>
           </div>
         </div>
-      </div>
-      <div class="timeline-card timeline-card-primary card shadow-sm">
-        <div class="card-body">
-          <div class="h4 mb-1">Air Support Officer, cooperation unit 5620 <span class="text-muted h6">at Israel Defense Forces · Reserve service</span></div>
-          <div class="h5 text-muted mb-2">2022 - Present</div>
-          <div class="mb-2">As an Air Support Officer in a maneuvering brigade, I manage air support based on brigade needs. Actively oversee battle management, analyze and verify maneuvering forces requirements, liaise with intelligence agencies, and translate these into Air Force directives.</div>
+      </article>
+
+      <aside class="panel">
+        <div class="section-head">
+          <h2>Skill stack</h2>
+          <p>Broad enough to ship end-to-end, strongest where systems meet scale.</p>
         </div>
-      </div>
-      <div class="timeline-card timeline-card-primary card shadow-sm">
-        <div class="card-body">
-          <div class="h4 mb-1">Deputy Company Commander <span class="text-muted h6">at Israel Defense Forces · Full-time</span></div>
-          <div class="h5 text-muted mb-2">2018 - 2022</div>
-          <div class="mb-2">Deputy Company Commander, Division 7.
-            Coordinating all professional training for the fighting company and consulting the deputy commander about future activities.</div>
-        </div>
-      </div>
-  </div>
-  <div class="education-section">
-    <hr class="d-print-none"/>
-    <h1 id="educate" class="h1 text-white mb-4">Education 🎓</h1>
-    <div class="timeline">
-      <div class="timeline-card timeline-card-primary card shadow-sm">
-        <div class="card-body">
-          <div class="h4 mb-1">Physics B.Sc. <span class="text-muted h6">at Open University</span></div>
-          <div class="h5 text-muted mb-2">2023 - Present</div>
-          <div class="mb-2">Studying physics at the Open University has been an engaging experience of learning fundamental principles through interactive online lectures and practical experiments. It has deepened my analytical skills and passion for understanding the complexities of the universe, all while allowing me to maintain flexibility in my studies and personal life.</div>
-        </div>
-      </div>
-      <div class="timeline-card timeline-card-primary card shadow-sm">
-          <div class="card-body">
-            <div class="h4 mb-1">Software Developer <span class="text-muted h6">at Sela College</span></div>
-            <div class="h5 text-muted mb-2">2022 - 2023</div>
-            <div class="mb-2">Software Developer (Tech warriors - 8200) From Scratch In 1 year. ASP.NET, C#, Algorithms and DataStructures, Javascript, OOP, Entityframework & Core, Azure, Design Patterns, Angular, MSSQL, MongoDb, Git and etc. I've learned the foundations of programming and practiced with a variety of popular platforms. In addition I've been learning from a side several subjects that I was intrested in like - Solidity, Blockchain, Web3, Unity 2D/3D, Svelte, aws and more technologies. </div>
+        <div class="skill-clusters">
+          <div class="cluster">
+            <h3>Backend & cloud</h3>
+            <div class="chips">
+              <span class="chip">C#</span><span class="chip">.NET Core</span><span class="chip">Node.js</span><span class="chip">TypeScript</span><span class="chip">Python</span><span class="chip">AWS</span><span class="chip">Azure</span><span class="chip">REST APIs</span><span class="chip">Serverless</span>
+            </div>
+          </div>
+          <div class="cluster">
+            <h3>Data & observability</h3>
+            <div class="chips">
+              <span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">DynamoDB</span><span class="chip">NoSQL</span><span class="chip">SQLAlchemy</span><span class="chip">ELK</span><span class="chip">SQS</span><span class="chip">S3</span>
+            </div>
+          </div>
+          <div class="cluster">
+            <h3>Frontend & product</h3>
+            <div class="chips">
+              <span class="chip">React</span><span class="chip">Svelte</span><span class="chip">HTML/CSS</span><span class="chip">Bootstrap</span><span class="chip">Responsive UI</span><span class="chip">GitHub Pages</span>
+            </div>
+          </div>
+          <div class="cluster">
+            <h3>AI & automation</h3>
+            <div class="chips">
+              <span class="chip">OpenClaw</span><span class="chip">n8n</span><span class="chip">LLM APIs</span><span class="chip">Prompt workflows</span><span class="chip">Agent orchestration</span><span class="chip">Process automation</span>
+            </div>
           </div>
         </div>
-        <div class="timeline-card timeline-card-primary card shadow-sm">
-          <div class="card-body">
-            <div class="h4 mb-1">Computer Programming <span class="text-muted h6">at Technion - Israel Institute of Technology</span></div>
-            <div class="h5 text-muted mb-2">2016 - 2017</div>
-            <div class="mb-2">The scientific-technological major is intended for outstanding students in the fields of science, engineering and entrepreneurship, who show a willingness to work in a team and wish to contribute to society.</div>
-          </div>
+      </aside>
+    </section>
+
+    <section class="section-grid" id="experience">
+      <article class="panel">
+        <div class="section-head">
+          <h2>Work experience</h2>
+          <p>Structured from your current resume and public company context, ready for exact LinkedIn wording later.</p>
         </div>
-    <div class="timeline-card timeline-card-primary card shadow-sm">
-      <div class="card-body">
-        <div class="h4 mb-1">High School Studies <span class="text-muted h6">at Ort Zimtbaum</span></div>
-        <div class="h5 text-muted mb-2">2012 - 2017</div>
-        <div class="mb-2">As a high school graduate, I received honors in science subjects [Science Engineering Program]. Aside from these, I volunteered at the Rescue Unit Arad and assisted people with disabilities.</div>
-      </div>
-    </div>
-  </div>
-  <hr class="d-print-none"/>
-      <div class="col d-none d-print-block">
-        <div class="mt-2">
-          <div>
-            <div class="mb-2">
-              <div class="text-dark"><i class="fab fa-twitter mr-1"></i><span>https://twitter.com/templateflip</span>
+        <div class="timeline">
+          <div class="entry">
+            <div class="entry-header">
+              <div>
+                <h3>Software Engineer · abra R&D Solutions (formerly Devalore)</h3>
+                <div class="meta">2022 — Present · Full-time</div>
               </div>
             </div>
-            <div class="mb-2">
-              <div class="text-dark"><i class="fab fa-discord mr-1"></i><span>https://www.facebook.com/templateflip</span>
+            <p>Backend engineer delivering production systems for multiple clients across cloud apps, internal tools, and commerce-oriented platforms.</p>
+            <ul>
+              <li>Built and maintained production-grade backend systems with .NET, Node.js, TypeScript, PostgreSQL, and AWS.</li>
+              <li>Worked with DynamoDB, S3, SQS, Lambdas, and multi-database integrations including legacy environments.</li>
+              <li>Handled customer-facing technical communication from requirements to delivery.</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <div>
+                <h3>Backend Developer · SAFE.AI</h3>
+                <div class="meta">2024 — Present · Freelance</div>
               </div>
             </div>
-            <div class="mb-2">
-              <div class="text-dark"><i class="fab fa-linkedin mr-1"></i><span>https://www.linkedin.com/in/alon-kolyakov-376aa5246/</span>
+            <p>Worked on an AI-assisted mental-health product focused on scalable backend services and practical LLM integration.</p>
+            <ul>
+              <li>Used Python, Flask, SQLAlchemy, and Aurora MySQL to support application development.</li>
+              <li>Improved LLM API usage patterns and backend performance.</li>
+              <li>Owned cloud infrastructure pieces across EC2, RDS, Elastic Beanstalk, S3, and CloudFront.</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <div>
+                <h3>Air Support Officer · Israel Defense Forces</h3>
+                <div class="meta">2022 — Present · Reserve service</div>
               </div>
             </div>
-            <div class="mb-2">
-              <div class="text-dark"><i class="fab fa-github mr-1"></i><span>https://github.com/templateflip</span>
+            <p>Coordinating and translating operational requirements into air-support directives inside maneuvering contexts.</p>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <div>
+                <h3>Deputy Company Commander · Israel Defense Forces</h3>
+                <div class="meta">2018 — 2022 · Full-time</div>
               </div>
             </div>
+            <p>Led training and operational coordination responsibilities, combining execution discipline with planning and team readiness.</p>
           </div>
         </div>
+      </article>
+
+      <aside class="panel" id="credentials">
+        <div class="section-head">
+          <h2>Education & licenses</h2>
+          <p>Built from the existing resume and the items you asked to mirror from LinkedIn.</p>
+        </div>
+        <div class="timeline">
+          <div class="entry">
+            <div class="entry-header">
+              <div>
+                <h3>Physics B.Sc. · Open University</h3>
+                <div class="meta">2023 — Present</div>
+              </div>
+            </div>
+            <p>Continuing academic work in physics while maintaining full-time engineering work.</p>
+          </div>
+          <div class="entry">
+            <div class="entry-header">
+              <div>
+                <h3>Software Developer Program · Sela College</h3>
+                <div class="meta">2022 — 2023</div>
+              </div>
+            </div>
+            <p>Tech-Warriors / 8200 track covering ASP.NET, C#, algorithms, data structures, OOP, EF Core, Azure, Angular, SQL, MongoDB, Git, and more.</p>
+          </div>
+          <div class="entry">
+            <div class="entry-header">
+              <div>
+                <h3>Computer Programming · Technion</h3>
+                <div class="meta">2016 — 2017</div>
+              </div>
+            </div>
+            <p>Advanced scientific-technological high-school major for outstanding students in science, engineering, and entrepreneurship.</p>
+          </div>
+          <div class="entry">
+            <div class="entry-header">
+              <div>
+                <h3>Licenses & certificates</h3>
+                <div class="meta">To sync from LinkedIn</div>
+              </div>
+            </div>
+            <p>Add the exact licenses/certifications from LinkedIn here. I kept this block intentionally modular so it’s easy to update titles, issuing organizations, and dates later.</p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="panel" id="projects" style="margin-bottom:24px;">
+      <div class="section-head">
+        <h2>Selected projects</h2>
+        <p>A mix of product, experimentation, and hands-on engineering curiosity.</p>
       </div>
-    </div>
-  </div>
-</div></div>
-    </div>
-    <footer class="pt-4 pb-4 text-muted text-center d-print-none">
-      <div class="container">
-        <div class="my-3">
-          <div class="h4">Alon Kolyakov</div>
-          <div class="footer-nav">
-            <nav role="navigation">
-              <ul class="nav justify-content-center">
-                <li class="nav-item"><a class="nav-link" href="https://twitter.com/AlonKolyakov" title="Twitter"><i class="fab fa-twitter"></i><span class="menu-title sr-only">Twitter</span></a>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="https://discord.gg/Ujfx22bB" title="Discord"><i class="fab fa-discord"></i><span class="menu-title sr-only">Discord</span></a>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="https://twitter.com/AlonKolyakov/" title="LinkedIn"><i class="fab fa-linkedin"></i><span class="menu-title sr-only">LinkedIn</span></a>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="https://github.com/BloodShop?tab=repositories" title="Github"><i class="fab fa-github"></i><span class="menu-title sr-only">Github</span></a>
-                </li>
-              </ul>
-            </nav>
+      <div class="portfolio">
+        <a class="project" href="https://blueboard.bloodshop.org" target="_blank" rel="noreferrer">
+          <div class="project-media"><img src="images/imgg.jpg" alt="Blueboard project image"></div>
+          <div class="project-body">
+            <h3>Blueboard</h3>
+            <p>Electric skateboard company / maker project focused on ride systems, product thinking, and building things that physically move.</p>
+            <div class="chips"><span class="chip">Founder</span><span class="chip">Hardware</span><span class="chip">Brand</span></div>
           </div>
+        </a>
+
+        <a class="project" href="https://github.com/BloodShop/home-smart-chef" target="_blank" rel="noreferrer">
+          <div class="project-media"><img src="images/portfolio/dexcelerate.png" alt="Home Smart Chef preview"></div>
+          <div class="project-body">
+            <h3>Home Smart Chef</h3>
+            <p>Expo app with a daily recipe content pipeline — product + automation + mobile delivery.</p>
+            <div class="chips"><span class="chip">TypeScript</span><span class="chip">Expo</span><span class="chip">Content pipeline</span></div>
+          </div>
+        </a>
+
+        <a class="project" href="https://github.com/BloodShop/Students-Manager-MVVM-UWP" target="_blank" rel="noreferrer">
+          <div class="project-media"><img src="images/portfolio/box.png" alt="Students manager preview"></div>
+          <div class="project-body">
+            <h3>Students Manager</h3>
+            <p>UWP MVVM application for managing study candidates — one of the stronger early desktop projects in the repo.</p>
+            <div class="chips"><span class="chip">C#</span><span class="chip">UWP</span><span class="chip">MVVM</span></div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="live-grid" id="live">
+      <article class="panel">
+        <div class="section-head">
+          <h2>Live / latest</h2>
+          <p>Public GitHub activity, wired live from the profile instead of being frozen into the page.</p>
         </div>
+        <div class="contrib-frame">
+          <img src="https://ghchart.rshah.org/cb5c32/BloodShop" alt="GitHub contribution chart for BloodShop" />
+          <p class="helper">Contribution chart is loaded live from a public GitHub-compatible service. If you want, I can swap this for a custom native grid later.</p>
+        </div>
+      </article>
+
+      <aside class="panel">
+        <div class="section-head">
+          <h2>Fresh repos</h2>
+          <p>Latest public repositories and recently updated work.</p>
+        </div>
+        <div class="github-feed" id="repoFeed">
+          <div class="repo-row"><div class="repo-name">Loading latest repositories…</div></div>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="footer">
+      <div>
+        <div style="font-family:'Syne',sans-serif;font-size:1.35rem;letter-spacing:-0.04em;">Alon Kolyakov</div>
+        <small>Software engineer · founder · builder · glider pilot</small>
+      </div>
+      <div class="chips">
+        <span class="chip"><a href="https://github.com/BloodShop" target="_blank" rel="noreferrer">GitHub</a></span>
+        <span class="chip"><a href="https://www.linkedin.com/in/alon-kolyakov/" target="_blank" rel="noreferrer">LinkedIn</a></span>
+        <span class="chip"><a href="mailto:koliakovcr7@gmail.com">Email</a></span>
+      </div>
     </footer>
-    <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-1">
-      <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-              <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal"
-                      aria-label="Close"></button></div>
-              <div class="modal-body">
-                  <div class="container text-center">
-                      <div class="row">
-                          <div class="col-lg-0">
-                              <h2 class="text-uppercase text-secondary mb-0">Box Manager - BST</h2>
-                              <hr class="star-dark mb-5"><img class="img-fluid mb-1"
-                                  src="images/portfolio/box.png">
-                              <p class="mb-0">DataStructures and Algorithms Complexity Box WareHouse. Most searches Time complexity of Θ(log n). The main WareHouse stores a BSTree of generic type double, BSTree<double, Box>, TKey and TValue - an inner Tree. The WareHouse class uses it's own function and condition in order to implement the Binary Search Tree Time comlexity of Insertion, Deletion, Add, Search and etc.</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="modal-footer pb-2"><a
-                class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
-                href="https://github.com/BloodShop/Box-Project-MVVM-UWP" target="_blank"><i ></i>&nbsp;Project Repo</a>
-                <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
-                 data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a>
-              </div> </div>
-      </div>
   </div>
-  <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-2">
-      <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-              <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal"
-                      aria-label="Close"></button></div>
-              <div class="modal-body">
-                  <div class="container text-center">
-                      <div class="row">
-                          <div class="col-lg-0">
-                              <h2 class="text-uppercase text-secondary mb-0">Library</h2>
-                              <hr class="star-dark mb-5"><img class="img-fluid mb-1"
-                                  src="images/portfolio/Library.png">
-                              <p class="mb-0">Our application is a simple way to view what kind of Library Items we have in our stock and make a quick orders. Everyone can access this application without any commitment you can browse the application as a guest without logging in, or you could just simply register as a customer and you will remain our lovely user.<br></p>
-                          </div>
-                      </div>
-                  </div>
+
+  <script>
+    const repoFeed = document.getElementById('repoFeed');
+
+    function formatDate(input) {
+      const date = new Date(input);
+      return date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+    }
+
+    async function loadGitHub() {
+      try {
+        const [userRes, repoRes] = await Promise.all([
+          fetch('https://api.github.com/users/BloodShop'),
+          fetch('https://api.github.com/users/BloodShop/repos?per_page=6&sort=updated')
+        ]);
+
+        if (!userRes.ok || !repoRes.ok) throw new Error('GitHub API unavailable');
+
+        const user = await userRes.json();
+        const repos = await repoRes.json();
+
+        document.getElementById('repoCount').textContent = user.public_repos ?? '—';
+        document.getElementById('followerCount').textContent = user.followers ?? '—';
+
+        const filtered = repos
+          .filter(repo => !repo.archived)
+          .slice(0, 5);
+
+        repoFeed.innerHTML = filtered.map(repo => `
+          <a class="repo-row" href="${repo.html_url}" target="_blank" rel="noreferrer">
+            <div class="repo-top">
+              <div>
+                <div class="repo-name">${repo.name}</div>
+                <div class="repo-meta">${repo.language || 'Mixed stack'} · updated ${formatDate(repo.pushed_at)}</div>
               </div>
-              <div class="modal-footer pb-2"><a
-                class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
-                href="https://github.com/BloodShop/AradLibrary" target="_blank"><i ></i>&nbsp;Project Repo</a>
-                <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
-                 data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a>
-              </div> </div>
-      </div>
-  </div>
-  <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-3">
-      <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-              <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal"
-                      aria-label="Close"></button></div>
-              <div class="modal-body">
-                  <div class="container text-center">
-                      <div class="row">
-                          <div class="col-lg-0">
-                              <h2 class="text-uppercase text-secondary mb-0">TileVania-2D</h2>
-                              <hr class="star-dark mb-5"><img class="img-fluid mb-2"
-                                  src="images/portfolio/tilevania.png">
-                              <p class="mb-0">TileVania-2D-Game MVP Gameplay. Player Experience: Under pressure Core Mechanic: Run and jump Core game loop: Get from A to B by navigating platforms and avoiding traps and enemies</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="modal-footer pb-2"><a
-                class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
-                href="https://github.com/BloodShop/TileVania-2D-Game" target="_blank"><i ></i>&nbsp;Project Repo</a>
-                <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
-                 data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a>
-              </div>
-    </div>
+              <div class="repo-meta">★ ${repo.stargazers_count}</div>
+            </div>
+            <div class="helper">${repo.description || 'No description yet — likely a fresh or internal-style scratchpad project.'}</div>
+          </a>
+        `).join('');
+      } catch (err) {
+        repoFeed.innerHTML = `
+          <div class="repo-row">
+            <div class="repo-name">Couldn’t load live GitHub data</div>
+            <div class="helper">The page still works fine; GitHub may have rate-limited the request. Refresh later or I can add a local fallback snapshot.</div>
           </div>
-      </div>
-  </div>
-  <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-4">
-      <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-              <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal"
-                      aria-label="Close"></button></div>
-              <div class="modal-body">
-                  <div class="container text-center">
-                      <div class="row">
-                          <div class="col-lg-0">
-                              <h2 class="text-uppercase text-secondary mb-0">Svelte Reviews OS</h2>
-                              <hr class="star-dark mb-5"><img class="img-fluid mb-1"
-                                  src="images/portfolio/Svelte.png">
-                              <p class="mb-0">This is a project template for Svelte apps.<br></p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="modal-footer pb-2"><a
-                class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
-                href="https://github.com/BloodShop/TempSVELTE" target="_blank"><i ></i>&nbsp;Project Repo</a>
-                <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
-                 data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-5">
-      <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-              <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal"
-                      aria-label="Close"></button></div>
-              <div class="modal-body">
-                  <div class="container text-center">
-                      <div class="row">
-                          <div class="col-lg-0">
-                            <h2 class="text-uppercase text-secondary mb-0">PetShop WebApp</h2>
-                              <hr class="star-dark mb-5"><img class="img-fluid mb-1"
-                                  src="images/portfolio/petshop.png">
-                              <p class="mb-0">This is a sample which shows most of the common features of ASP.NET Identity. When you create a User using a username or password, the Identity system performs validation on the username and password. ASP.NET Core SignalR, JS, Html, css, JQuery, Cors, Routing and more.</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="modal-footer pb-2"><a
-                class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
-                href="https://github.com/BloodShop/pet-shop" target="_blank"><i ></i>&nbsp;Project Repo</a>
-                <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
-                 data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a>
-              </div> </div>
-      </div>
-  </div>
-  <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-6">
-      <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-              <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal"
-                      aria-label="Close"></button></div>
-              <div class="modal-body">
-                  <div class="container text-center">
-                      <div class="row">
-                          <div class="col-lg-0">
-                              <h2><a target="_blank" href="https://dxclrt.pages.dev/" class="text-uppercase text-secondary mb-0">dexcelerate cryptocurrencies trading</a></h2>
-                              <hr class="star-dark mb-0"><img class="img-fluid mb-1"
-                                  src="images/portfolio/dexcelerate.png">
-                              <p class="mb-0">State-of-the-art trading platform powered by blockchain technology - designed for professional traders seeking maximum speed and reliability. [<a href="https://dxclrt.pages.dev/" target="_blank">dev-link</a>][<a href="https://app.dexcelerate.com" target="_blank">prod-link</a>][<a href="https://www.dexcelerate.com" target="_blank">Site</a>]</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="modal-footer pb-2"><a
-                class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
-                href="https://github.com/BloodShop/jewbot" target="_blank"><i ></i>&nbsp;Project Repo</a>
-                <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button"
-                 data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a>
-              </div> </div>
-      </div>
-  </div>
-  </body>
+        `;
+      }
+    }
+
+    loadGitHub();
+  </script>
+</body>
 </html>
