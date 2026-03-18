@@ -121,18 +121,23 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 30;
-  padding: 0.95rem 0;
-  backdrop-filter: blur(16px);
-  background: rgba(246, 241, 232, 0.8);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  padding: 0.6rem 0 0.3rem;
+  background: transparent;
+  border-bottom: 0;
 }
 
 .site-header__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
+  padding: 0.7rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(255, 248, 238, 0.76);
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  box-shadow: 0 18px 40px rgba(20, 33, 48, 0.1);
+  backdrop-filter: blur(18px);
 }
 
 .site-brand {
@@ -160,15 +165,17 @@ a:hover {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
-  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+  flex: 1 1 420px;
+  min-width: 0;
 }
 
 .site-nav__link {
-  padding: 0.35rem 0.65rem;
+  padding: 0.28rem 0.55rem;
   border-radius: 999px;
   color: var(--text-main);
-  font-size: 0.95rem;
+  font-size: 0.84rem;
   font-weight: 700;
   text-decoration: none;
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
@@ -184,8 +191,8 @@ a:hover {
 .site-header__actions {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
-  flex-wrap: wrap;
+  gap: 0.4rem;
+  flex-wrap: nowrap;
 }
 
 .site-icon,
@@ -193,8 +200,8 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 42px;
-  min-height: 42px;
+  min-width: 36px;
+  min-height: 36px;
   border-radius: 999px;
   border: 1px solid rgba(23, 32, 43, 0.08);
   background: rgba(255, 255, 255, 0.72);
@@ -207,9 +214,10 @@ a:hover {
 }
 
 .site-cta {
-  padding: 0 1rem;
+  padding: 0 0.85rem;
   color: var(--text-main);
   font-weight: 800;
+  font-size: 0.82rem;
 }
 
 .site-cta:hover,
@@ -308,6 +316,7 @@ a:hover {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  object-position: center 18%;
   border-radius: 18px;
   margin-bottom: 1rem;
   box-shadow: var(--shadow-md);
@@ -392,12 +401,6 @@ a:hover {
   font-size: 1.08rem;
 }
 
-.scene-step p {
-  margin-bottom: 0;
-  color: var(--text-soft);
-  font-size: 0.92rem;
-}
-
 .scene-step__index {
   min-width: 42px;
   padding-top: 0.1rem;
@@ -439,13 +442,8 @@ a:hover {
 }
 
 .motion-stage__overlay h3 {
-  margin-bottom: 0.45rem;
-  color: #fff6e9;
-}
-
-.motion-stage__overlay p {
   margin-bottom: 0;
-  color: rgba(255, 246, 233, 0.78);
+  color: #fff6e9;
 }
 
 .motion-stage__eyebrow {
@@ -669,18 +667,28 @@ a:hover {
 #portfolio .portfolio--content {
   position: relative;
   z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
+}
+
+#portfolio .portfolio--content .item {
+  min-width: 0;
 }
 
 #portfolio .portfolio--content .item a {
   display: block;
+  height: 100%;
   overflow: hidden;
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.08);
 }
 
 #portfolio .portfolio--content .item a img {
-  max-width: 100%;
+  padding: 0;
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
   aspect-ratio: 1.2 / 1;
   object-fit: cover;
 }
@@ -819,6 +827,10 @@ a:hover {
   .motion-stage {
     height: 460px;
   }
+
+  #portfolio .portfolio--content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 767px) {
@@ -832,8 +844,53 @@ a:hover {
     padding: 1.25rem;
   }
 
+  .site-header {
+    padding-top: 0.45rem;
+  }
+
+  .site-header__inner {
+    padding: 0.55rem 0.65rem;
+    border-radius: 24px;
+    gap: 0.55rem;
+  }
+
+  .site-brand__name {
+    font-size: 1rem;
+  }
+
+  .site-brand__eyebrow {
+    font-size: 0.66rem;
+  }
+
+  .site-header__actions {
+    margin-left: auto;
+  }
+
+  .site-nav {
+    order: 3;
+    flex: 0 0 100%;
+    justify-content: flex-start;
+    gap: 0.4rem;
+    overflow-x: auto;
+    padding-bottom: 0.15rem;
+    scrollbar-width: none;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav__link {
+    white-space: nowrap;
+    font-size: 0.78rem;
+  }
+
   .motion-stage {
     height: 400px;
+  }
+
+  #portfolio .portfolio--content {
+    grid-template-columns: 1fr;
   }
 
   .motion-stage__overlay {

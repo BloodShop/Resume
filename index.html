@@ -18,7 +18,7 @@
     <link href="css/font-awesome/css/all.min.css?ver=1.2.0" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/aos.css?ver=1.2.0" rel="stylesheet">
-    <link href="css/main.css?ver=1.3.0" rel="stylesheet">
+    <link href="css/main.css?ver=1.5.1" rel="stylesheet">
     <noscript>
       <style type="text/css">
         [data-aos] { opacity: 1 !important; transform: translate(0) scale(1) !important; }
@@ -94,8 +94,8 @@
 
             <div class="intro-metrics">
               <article class="intro-metric">
-                <span class="intro-metric__value">5+</span>
-                <span class="intro-metric__label">Years shipping production systems</span>
+                <span class="intro-metric__value" data-start-year="2022">5+</span>
+                <span class="intro-metric__label">Years experience coding</span>
               </article>
               <article class="intro-metric">
                 <span class="intro-metric__value">10+</span>
@@ -110,7 +110,7 @@
 
           <aside class="intro-panel__aside">
             <div class="profile-card">
-              <img class="profile-card__image" src="images/profile1.png" alt="Portrait of Alon Kolyakov">
+              <img class="profile-card__image" src="images/profile_IMG-20250319-WA0134.jpg" alt="Portrait of Alon Kolyakov">
               <div class="profile-card__content">
                 <p class="profile-card__title">Current focus</p>
                 <ul class="profile-card__list">
@@ -125,7 +125,7 @@
             <div class="contact-card">
               <div class="contact-card__row">
                 <span class="contact-card__label">Phone</span>
-                <a target="_blank" rel="noreferrer" href="https://api.whatsapp.com/send?phone=972502567324">+972 50-256-7324</a>
+                <a target="_blank" rel="noreferrer" href="https://api.whatsapp.com/send?phone=972503901000">+972 50-390-1000</a>
               </div>
               <div class="contact-card__row">
                 <span class="contact-card__label">Email</span>
@@ -142,10 +142,9 @@
         <section id="hero" class="section-card motion-section" data-aos="fade-up" data-aos-delay="50">
           <div class="section-heading">
             <p class="eyebrow">Animated Hero</p>
-            <h2>Ride, fly, build, code, sleep, repeat.</h2>
+            <h2>Ride, fly, build, snowboard, lift, code, sleep, repeat.</h2>
             <p>
-              The animation below is now a staged loop instead of a rotating placeholder. It cycles through the sequence you asked
-              for and is wired in code as individual scenes so new moments can be added later without rewriting the whole section.
+              A visual loop through riding, flying, building, snowboarding, training, coding, and resetting before doing it again.
             </p>
           </div>
 
@@ -156,35 +155,42 @@
                   <span class="scene-step__index">01</span>
                   <div>
                     <h3>Onewheel commute</h3>
-                    <p>Low-slung ride posture, dusk lighting, road motion, and camera tracking.</p>
                   </div>
                 </article>
                 <article class="scene-step" data-scene-step="glider">
                   <span class="scene-step__index">02</span>
                   <div>
                     <h3>Glider flight</h3>
-                    <p>Wide sky framing, cloud drift, banking turns, and a dedicated glider rig.</p>
                   </div>
                 </article>
                 <article class="scene-step" data-scene-step="surron">
                   <span class="scene-step__index">03</span>
                   <div>
                     <h3>Surron run</h3>
-                    <p>Trail palette, wheel spin, rider lean, and a more aggressive camera line.</p>
+                  </div>
+                </article>
+                <article class="scene-step" data-scene-step="snowboard">
+                  <span class="scene-step__index">04</span>
+                  <div>
+                    <h3>Snowboard carve</h3>
+                  </div>
+                </article>
+                <article class="scene-step" data-scene-step="exercise">
+                  <span class="scene-step__index">05</span>
+                  <div>
+                    <h3>Lifting session</h3>
                   </div>
                 </article>
                 <article class="scene-step" data-scene-step="coding">
-                  <span class="scene-step__index">04</span>
+                  <span class="scene-step__index">06</span>
                   <div>
                     <h3>Standing desk coding</h3>
-                    <p>Desk rig, screen glow, typing motion, and a work-focused framing.</p>
                   </div>
                 </article>
                 <article class="scene-step" data-scene-step="sleep">
-                  <span class="scene-step__index">05</span>
+                  <span class="scene-step__index">07</span>
                   <div>
                     <h3>Sleep reset</h3>
-                    <p>Night palette, room lighting, breathing motion, and quiet pacing before restart.</p>
                   </div>
                 </article>
               </div>
@@ -194,10 +200,9 @@
               <canvas id="hero-canvas" aria-label="Animated 3D sequence of Alon's hobbies and work"></canvas>
               <div class="motion-stage__overlay">
                 <div class="motion-stage__eyebrow">
-                  Scene <span id="scene-index">01</span> / 05
+                  Scene <span id="scene-index">01</span> / <span id="scene-count">07</span>
                 </div>
                 <h3 id="scene-label">Onewheel commute</h3>
-                <p id="scene-detail">Dusk city ride with a moving board, rider lean, and camera tracking.</p>
               </div>
             </div>
           </div>
@@ -222,7 +227,7 @@
               </div>
               <div class="skill-item">
                 <span>Python / Flask</span>
-                <div class="progress my-1"><div class="progress-bar bg-custom" style="width: 92%"></div></div>
+                <div class="progress my-1"><div class="progress-bar bg-custom" style="width: 96%"></div></div>
               </div>
               <div class="skill-item">
                 <span>PostgreSQL / NoSQL</span>
@@ -233,20 +238,20 @@
             <div class="skill-cluster">
               <h3>Cloud and delivery</h3>
               <div class="skill-item">
+                <span>Automation / OpenClaw / n8n</span>
+                <div class="progress my-1"><div class="progress-bar bg-custom" style="width: 95%"></div></div>
+              </div>
+              <div class="skill-item">
                 <span>AWS</span>
                 <div class="progress my-1"><div class="progress-bar bg-custom" style="width: 96%"></div></div>
               </div>
               <div class="skill-item">
                 <span>Azure Cloud</span>
-                <div class="progress my-1"><div class="progress-bar bg-custom" style="width: 80%"></div></div>
+                <div class="progress my-1"><div class="progress-bar bg-custom" style="width: 88%"></div></div>
               </div>
               <div class="skill-item">
                 <span>ELK / Observability</span>
                 <div class="progress my-1"><div class="progress-bar bg-custom" style="width: 85%"></div></div>
-              </div>
-              <div class="skill-item">
-                <span>Automation / OpenClaw / n8n</span>
-                <div class="progress my-1"><div class="progress-bar bg-custom" style="width: 84%"></div></div>
               </div>
             </div>
 
@@ -267,8 +272,7 @@
             <p class="eyebrow">Hobbies And Builds</p>
             <h2>Not filler hobbies. Real systems, real tools, real time outside the laptop.</h2>
             <p>
-              This part is now split into reusable cards plus independent horizontal media rails. Adding another hobby later is a
-              data change instead of another one-off HTML block.
+              Electric builds, glider time, and the extra gear that makes the logistics actually work in the real world.
             </p>
           </div>
 
@@ -308,6 +312,24 @@
               </div>
             </div>
             <div class="media-rail" id="surron-gallery" data-gallery="surron" aria-label="Scrollable Surron photos"></div>
+          </div>
+
+          <div class="gallery-block">
+            <div class="gallery-block__header">
+              <div>
+                <p class="eyebrow">Scrollable Media</p>
+                <h3>Stash and transport tools</h3>
+              </div>
+              <div class="rail-controls">
+                <button class="rail-nav" type="button" data-scroll-target="stash-gallery" data-scroll-direction="prev" aria-label="Scroll stash gallery left">
+                  <i class="fas fa-arrow-left"></i>
+                </button>
+                <button class="rail-nav" type="button" data-scroll-target="stash-gallery" data-scroll-direction="next" aria-label="Scroll stash gallery right">
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+            <div class="media-rail" id="stash-gallery" data-gallery="stash" aria-label="Scrollable stash and transport tool photos"></div>
           </div>
         </section>
 
@@ -390,6 +412,12 @@
                   <br><br>
                   Worked directly with customers to turn requirements into shipped systems.
                 </div>
+              </div>
+            </div>
+            <div class="timeline-card timeline-card-primary card shadow-sm">
+              <div class="card-body">
+                <div class="h4 mb-1">DevOps Engineer <span class="text-muted h6">at IDF · Part-time</span></div>
+                <div class="h5 text-muted mb-2">2024 - Present</div>
               </div>
             </div>
             <div class="timeline-card timeline-card-primary card shadow-sm">
@@ -481,8 +509,7 @@
           <p class="eyebrow">Closing Loop</p>
           <h2>Engineering with a builder mindset.</h2>
           <p>
-            The page now has a clearer top navigation, a real footer, data-driven hobby/media sections, and a dedicated animation
-            module so future changes stay additive instead of becoming more inline clutter.
+            I do my best work where software, hardware, and operations are all treated as part of one system and not separate worlds.
           </p>
         </div>
         <div>
@@ -495,7 +522,7 @@
         <div>
           <p class="site-footer__title">Contact</p>
           <a href="mailto:koliakovcr7@gmail.com">koliakovcr7@gmail.com</a>
-          <a target="_blank" rel="noreferrer" href="https://api.whatsapp.com/send?phone=972502567324">WhatsApp</a>
+          <a target="_blank" rel="noreferrer" href="https://api.whatsapp.com/send?phone=972503901000">WhatsApp</a>
           <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/alon-kolyakov/">LinkedIn</a>
           <a target="_blank" rel="noreferrer" href="https://blueboard.bloodshop.org">Blueboard</a>
         </div>
@@ -658,6 +685,6 @@
     <script defer src="scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
     <script defer src="scripts/aos.js?ver=1.2.0"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
-    <script defer src="scripts/main.js?ver=1.3.0"></script>
+    <script defer src="scripts/main.js?ver=1.5.1"></script>
   </body>
 </html>

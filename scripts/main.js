@@ -50,7 +50,7 @@ const GALLERIES = {
       description: "Hands-on iteration around setup, fit, and mechanical details."
     },
     {
-      src: "images/surron_IMG-20250918-WA0086.jpg",
+      src: "images/surron_IMG20260130110701.jpg",
       title: "Ride day",
       description: "The bike in its natural state: outside and moving."
     },
@@ -60,9 +60,56 @@ const GALLERIES = {
       description: "Adjustments, testing, and refining the rideable system."
     },
     {
-      src: "images/surron_IMG20260130110701.jpg",
+      src: "images/surron_IMG-20250918-WA0086.jpg",
       title: "Latest snapshot",
       description: "Another checkpoint in the Surron and e-bike build loop."
+    }
+  ],
+  stash: [
+    {
+      src: "images/stash_FB_IMG_1768478697049.jpg",
+      title: "Stash overview",
+      description: "The broader inventory and transport side that supports the builds."
+    },
+    {
+      src: "images/stash_IMG-20250726-WA0023.jpg",
+      title: "Ready to move",
+      description: "Storage and transport setup prepared for the next ride or build day."
+    },
+    {
+      src: "images/stash_IMG-20250804-WA0055.jpg",
+      title: "Tool loadout",
+      description: "Cases and supporting tools that travel with the hardware."
+    },
+    {
+      src: "images/stash_IMG-20250804-WA0056.jpg",
+      title: "Packed system",
+      description: "Compact transport-friendly arrangement for moving more than one piece of gear."
+    },
+    {
+      src: "images/stash_IMG-20250807-WA0031.jpeg",
+      title: "Transport detail",
+      description: "Another angle on the equipment that keeps projects and rides mobile."
+    },
+    {
+      src: "images/stash_IMG-20250822-WA0030.jpeg",
+      title: "Field carry",
+      description: "Practical storage for getting gear from stash to real use."
+    },
+    {
+      src: "images/stash_IMG-20250822-WA0131.jpeg",
+      title: "Utility setup",
+      description: "The less glamorous part of the hobby stack, but one of the most useful."
+    },
+    {
+      src: "images/stash_Screenshot_2026-01-15-23-02-15-40_a23b203fd3aafc6dcb84e438dda678b6.jpg",
+      title: "Tracking and inventory",
+      description: "A digital view into the same transport and stash workflow."
+    },
+    {
+      src: "images/stash_IMG-20260214-WA0031.jpeg",
+      title: "Latest stash snapshot",
+      description: "Recent inventory and transport state."
     }
   ]
 };
@@ -71,7 +118,6 @@ const MOTION_SCENES = [
   {
     key: "onewheel",
     label: "Onewheel commute",
-    detail: "Dusk city ride with a moving board, rider lean, and camera tracking.",
     background: 0x1a2d45,
     fogNear: 14,
     fogFar: 38
@@ -79,7 +125,6 @@ const MOTION_SCENES = [
   {
     key: "glider",
     label: "Glider flight",
-    detail: "A wider sky with cloud drift, long wings, and a banking flight line.",
     background: 0x8fc7ea,
     fogNear: 28,
     fogFar: 68
@@ -87,15 +132,27 @@ const MOTION_SCENES = [
   {
     key: "surron",
     label: "Surron run",
-    detail: "Trail colors, faster wheel motion, and a more aggressive riding posture.",
     background: 0x3b3126,
     fogNear: 14,
     fogFar: 34
   },
   {
+    key: "snowboard",
+    label: "Snowboard carve",
+    background: 0xdcefff,
+    fogNear: 14,
+    fogFar: 42
+  },
+  {
+    key: "exercise",
+    label: "Lifting session",
+    background: 0x101722,
+    fogNear: 12,
+    fogFar: 30
+  },
+  {
     key: "coding",
     label: "Standing desk coding",
-    detail: "Monitor glow, typing motion, and an indoor work setup anchored around the desk.",
     background: 0x132031,
     fogNear: 14,
     fogFar: 32
@@ -103,7 +160,6 @@ const MOTION_SCENES = [
   {
     key: "sleep",
     label: "Sleep reset",
-    detail: "Quiet night scene, softer lighting, and a short breathing pause before the loop restarts.",
     background: 0x081119,
     fogNear: 12,
     fogFar: 30
@@ -112,11 +168,24 @@ const MOTION_SCENES = [
 
 document.addEventListener("DOMContentLoaded", () => {
   initAOS();
+  updateDerivedMetrics();
   renderHobbies();
   renderGalleries();
   bindRailControls();
   initHeroAnimation();
 });
+
+function updateDerivedMetrics() {
+  document.querySelectorAll("[data-start-year]").forEach((element) => {
+    const startYear = Number(element.dataset.startYear);
+    const currentYear = new Date().getFullYear();
+    if (!Number.isFinite(startYear) || !Number.isFinite(currentYear) || currentYear < startYear) {
+      return;
+    }
+
+    element.textContent = `${currentYear - startYear + 1}+`;
+  });
+}
 
 function initAOS() {
   if (!window.AOS) {
@@ -186,11 +255,11 @@ function initHeroAnimation() {
   const THREE = window.THREE;
   const canvas = document.getElementById("hero-canvas");
   const labelEl = document.getElementById("scene-label");
-  const detailEl = document.getElementById("scene-detail");
   const indexEl = document.getElementById("scene-index");
+  const countEl = document.getElementById("scene-count");
   const stepEls = Array.from(document.querySelectorAll("[data-scene-step]"));
 
-  if (!canvas || !labelEl || !detailEl || !indexEl) {
+  if (!canvas || !labelEl || !indexEl || !countEl) {
     return;
   }
 
@@ -216,6 +285,10 @@ function initHeroAnimation() {
 
   const sunLight = new THREE.DirectionalLight(0xfff1cf, 1.15);
   sunLight.position.set(9, 10, 4);
+  const sunTarget = new THREE.Object3D();
+  sunTarget.position.set(0, 1, 0);
+  scene.add(sunTarget);
+  sunLight.target = sunTarget;
   scene.add(sunLight);
 
   const fillLight = new THREE.PointLight(0x72c5ff, 0.55, 60);
@@ -248,23 +321,33 @@ function initHeroAnimation() {
 
   const roadScene = createRoadScene(THREE);
   const trailScene = createTrailScene(THREE);
+  const snowScene = createSnowScene(THREE);
+  const gymScene = createGymScene(THREE);
   const deskScene = createDeskScene(THREE);
   const bedScene = createBedScene(THREE);
+  const fakeShadows = createFakeShadows(THREE);
 
   scene.add(roadScene.group);
   scene.add(trailScene.group);
+  scene.add(snowScene.group);
+  scene.add(gymScene.group);
   scene.add(deskScene.group);
   scene.add(bedScene.group);
+  scene.add(fakeShadows.group);
 
   const avatar = createAvatar(THREE);
   const onewheel = createOnewheel(THREE);
   const glider = createGlider(THREE);
   const surron = createSurron(THREE);
+  const snowboard = createSnowboard(THREE);
+  const barbell = createBarbell(THREE);
 
   scene.add(avatar.group);
   scene.add(onewheel.group);
   scene.add(glider.group);
   scene.add(surron.group);
+  scene.add(snowboard.group);
+  scene.add(barbell.group);
 
   const context = {
     THREE,
@@ -273,6 +356,7 @@ function initHeroAnimation() {
     renderer,
     ambientLight,
     sunLight,
+    sunTarget,
     fillLight,
     mountains,
     clouds,
@@ -281,12 +365,17 @@ function initHeroAnimation() {
     moon,
     roadScene,
     trailScene,
+    snowScene,
+    gymScene,
     deskScene,
     bedScene,
+    fakeShadows,
     avatar,
     onewheel,
     glider,
-    surron
+    surron,
+    snowboard,
+    barbell
   };
 
   const sceneDuration = 5.8;
@@ -295,8 +384,8 @@ function initHeroAnimation() {
   function updateSceneState(sceneIndex) {
     const current = MOTION_SCENES[sceneIndex];
     labelEl.textContent = current.label;
-    detailEl.textContent = current.detail;
     indexEl.textContent = String(sceneIndex + 1).padStart(2, "0");
+    countEl.textContent = String(MOTION_SCENES.length).padStart(2, "0");
     stepEls.forEach((step) => {
       step.classList.toggle("is-active", step.dataset.sceneStep === current.key);
     });
@@ -312,7 +401,7 @@ function initHeroAnimation() {
     context.onewheel.group.visible = false;
     context.onewheel.group.position.set(0, 0, 0);
     context.onewheel.group.rotation.set(0, 0, 0);
-    context.onewheel.tire.rotation.set(0, 0, Math.PI / 2);
+    context.onewheel.wheelSpin.rotation.set(0, 0, 0);
 
     context.glider.group.visible = false;
     context.glider.group.position.set(0, 0, 0);
@@ -321,14 +410,31 @@ function initHeroAnimation() {
     context.surron.group.visible = false;
     context.surron.group.position.set(0, 0, 0);
     context.surron.group.rotation.set(0, 0, 0);
-    context.surron.frontWheel.rotation.set(0, 0, Math.PI / 2);
-    context.surron.backWheel.rotation.set(0, 0, Math.PI / 2);
+    context.surron.frontWheelSpin.rotation.set(0, 0, 0);
+    context.surron.backWheelSpin.rotation.set(0, 0, 0);
     context.surron.headlight.intensity = 0.2;
 
     context.roadScene.group.visible = false;
     context.trailScene.group.visible = false;
+    context.snowScene.group.visible = false;
+    context.gymScene.group.visible = false;
     context.deskScene.group.visible = false;
     context.bedScene.group.visible = false;
+    context.snowboard.group.visible = false;
+    context.snowboard.group.position.set(0, 0, 0);
+    context.snowboard.group.rotation.set(0, 0, 0);
+    context.snowboard.board.rotation.set(0, 0, -0.08);
+    context.barbell.group.visible = false;
+    context.barbell.group.position.set(0, 0, 0);
+    context.barbell.group.rotation.set(0, 0, 0);
+    context.bedScene.sleepFigure.group.visible = false;
+    context.bedScene.sleepFigure.group.position.set(-0.32, 1.06, 0);
+    context.bedScene.sleepFigure.chest.scale.y = 1;
+    context.bedScene.sleepFigure.head.position.y = 0.14;
+    Object.values(context.fakeShadows.items).forEach((shadow) => {
+      shadow.visible = false;
+      shadow.material.opacity = 0;
+    });
 
     context.mountains.group.visible = true;
     context.clouds.group.visible = true;
@@ -364,11 +470,18 @@ function initHeroAnimation() {
       context.mountains.group.position.y = -0.25;
 
       context.avatar.group.position.set(x, 0.18 + bob, 0.04);
-      context.avatar.group.rotation.set(0.04, -0.18, -0.14);
+      context.avatar.group.rotation.set(0.04, 1.28, -0.1);
       poseRide(context.avatar, localTime);
 
       context.onewheel.group.position.set(x, 0.12, 0.02);
-      context.onewheel.tire.rotation.x = -localTime * 14;
+      context.onewheel.wheelSpin.rotation.z = -localTime * 14;
+      animateRoadScene(context.roadScene, localTime, progress);
+
+      const shadow = context.fakeShadows.items.ride;
+      shadow.visible = true;
+      shadow.position.set(x, 0.03, 0.1);
+      shadow.scale.set(1.8, 1.3, 1);
+      shadow.material.opacity = 0.28;
 
       context.camera.position.set(x + 3.4, 2.7, 8.2);
       context.camera.lookAt(x + 0.8, 2.2, 0);
@@ -377,6 +490,7 @@ function initHeroAnimation() {
       context.stars.material.opacity = 0.05;
       context.sun.position.set(7.5, 8.1, -16);
       context.sunLight.position.set(8, 9, 4);
+      context.sunTarget.position.set(x + 0.6, 1.2, 0);
     },
 
     glider(localTime, progress) {
@@ -396,12 +510,20 @@ function initHeroAnimation() {
       context.fillLight.intensity = 0.4;
 
       context.glider.group.position.set(x, y, z);
-      context.glider.group.rotation.set(0.08 + Math.sin(localTime * 0.7) * 0.04, -0.58, bank);
+      context.glider.group.rotation.set(0.06 + Math.sin(localTime * 0.7) * 0.04, -0.18, bank);
+      animateGliderScene(context, localTime);
 
-      context.camera.position.set(x + 6.2, y + 2.3, z + 8.8);
-      context.camera.lookAt(x - 1.1, y - 0.1, z);
+      const shadow = context.fakeShadows.items.glider;
+      shadow.visible = true;
+      shadow.position.set(x, 0.04, z);
+      shadow.scale.set(2.3, 0.95, 1);
+      shadow.material.opacity = 0.14;
+
+      context.camera.position.set(x + 7.1, y + 2.1, z + 6.1);
+      context.camera.lookAt(x, y + 0.15, z);
 
       context.clouds.group.position.x = -localTime * 0.22;
+      context.sunTarget.position.set(x, y - 1.8, z);
     },
 
     surron(localTime, progress) {
@@ -419,17 +541,99 @@ function initHeroAnimation() {
       context.fillLight.intensity = 0.42;
 
       context.surron.group.position.set(x, 0.28 + bounce * 0.35, 0.45);
-      context.surron.group.rotation.set(0, -0.36, 0.02);
-      context.surron.frontWheel.rotation.x = -localTime * 20;
-      context.surron.backWheel.rotation.x = -localTime * 20;
+      context.surron.group.rotation.set(0.02, 0, 0.03);
+      context.surron.frontWheelSpin.rotation.z = -localTime * 20;
+      context.surron.backWheelSpin.rotation.z = -localTime * 20;
       context.surron.headlight.intensity = 0.55;
+      animateTrailScene(context.trailScene, localTime, progress);
 
-      context.avatar.group.position.set(x - 0.08, 0.88 + bounce, 0.45);
-      context.avatar.group.rotation.set(0.08, -0.42, -0.05);
+      const shadow = context.fakeShadows.items.surron;
+      shadow.visible = true;
+      shadow.position.set(x, 0.04, 0.42);
+      shadow.scale.set(2.4, 1.2, 1);
+      shadow.material.opacity = 0.3;
+
+      context.avatar.group.position.set(x - 0.16, 1.02 + bounce, 0.44);
+      context.avatar.group.rotation.set(0.08, 1.42, -0.04);
       poseSurron(context.avatar, localTime);
 
-      context.camera.position.set(x + 3.8, 2.6, 7.7);
-      context.camera.lookAt(x + 0.9, 1.6, 0.4);
+      context.camera.position.set(x + 4.6, 2.4, 6.9);
+      context.camera.lookAt(x + 0.45, 1.55, 0.38);
+      context.sunTarget.position.set(x + 0.4, 1.1, 0.35);
+    },
+
+    snowboard(localTime, progress) {
+      const x = lerp(-4.3, 4.1, progress);
+      const carve = Math.sin(progress * Math.PI * 4) * 0.24;
+      const lean = Math.sin(progress * Math.PI * 2) * 0.26;
+      const hop = Math.max(0, Math.sin(progress * Math.PI * 2)) * 0.08;
+
+      context.snowScene.group.visible = true;
+      context.avatar.group.visible = true;
+      context.snowboard.group.visible = true;
+      context.sun.visible = true;
+      context.moon.visible = false;
+      context.stars.material.opacity = 0;
+      context.mountains.group.visible = true;
+      context.mountains.group.position.y = -0.9;
+      context.clouds.group.visible = true;
+      context.clouds.group.position.x = -localTime * 0.16;
+      context.sun.position.set(7.3, 8.8, -16);
+      context.sunLight.intensity = 1.36;
+      context.fillLight.intensity = 0.48;
+
+      context.snowboard.group.position.set(x, 0.14 + hop, carve);
+      context.snowboard.group.rotation.set(0, 0.04, -0.1 - lean);
+      context.snowboard.board.rotation.y = lean * 0.3;
+      context.avatar.group.position.set(x, 0.08 + hop * 0.7, carve + 0.04);
+      context.avatar.group.rotation.set(0.08, -0.22, -0.18 - lean * 0.72);
+      poseSnowboard(context.avatar, localTime, lean);
+      animateSnowScene(context.snowScene, localTime, progress);
+
+      const shadow = context.fakeShadows.items.snowboard;
+      shadow.visible = true;
+      shadow.position.set(x, 0.03, carve);
+      shadow.scale.set(2.3, 1.15, 1);
+      shadow.material.opacity = 0.22;
+
+      context.camera.position.set(x + 4.6, 2.9, 7.6);
+      context.camera.lookAt(x + 0.4, 1.9, carve);
+      context.sunTarget.position.set(x + 0.6, 1.2, carve);
+    },
+
+    exercise(localTime) {
+      const press = (Math.sin(localTime * 2.4) + 1) * 0.5;
+      const bodyDip = (1 - press) * 0.07;
+
+      context.gymScene.group.visible = true;
+      context.avatar.group.visible = true;
+      context.barbell.group.visible = true;
+      context.mountains.group.visible = false;
+      context.clouds.group.visible = false;
+      context.sun.visible = false;
+      context.moon.visible = false;
+      context.stars.material.opacity = 0;
+      context.ambientLight.intensity = 0.96;
+      context.sunLight.intensity = 0.44;
+      context.fillLight.intensity = 0.76;
+
+      context.avatar.group.position.set(0, 0.18 - bodyDip, 0.26);
+      context.avatar.group.rotation.set(0, 0.02, 0);
+      poseLift(context.avatar, localTime, press);
+
+      context.barbell.group.position.set(0, 1.92 + press * 0.92 - bodyDip * 0.25, 0.18);
+      context.barbell.group.rotation.set(0, 0.02, 0);
+      animateGymScene(context.gymScene, context.barbell, localTime, press);
+
+      const shadow = context.fakeShadows.items.exercise;
+      shadow.visible = true;
+      shadow.position.set(0, 0.03, 0.36);
+      shadow.scale.set(2.7, 1.45, 1);
+      shadow.material.opacity = 0.24;
+
+      context.camera.position.set(4.9, 3.3, 7.2);
+      context.camera.lookAt(0, 2.7, 0.18);
+      context.sunTarget.position.set(0.1, 2.2, -0.2);
     },
 
     coding(localTime) {
@@ -444,18 +648,26 @@ function initHeroAnimation() {
       context.sunLight.intensity = 0.55;
       context.fillLight.intensity = 0.82;
 
-      context.avatar.group.position.set(0.35, 0.15 + Math.sin(localTime * 3.4) * 0.02, 0.2);
-      context.avatar.group.rotation.set(0, 0.48, 0);
+      context.avatar.group.position.set(-0.45, 0.18 + Math.sin(localTime * 3.4) * 0.02, 0.88);
+      context.avatar.group.rotation.set(0, 2.18, 0);
       poseCoding(context.avatar, localTime);
+      animateDeskScene(context.deskScene, localTime);
 
-      context.camera.position.set(5.2, 3.1, 7.4);
-      context.camera.lookAt(0.45, 2.3, 0.15);
+      const shadow = context.fakeShadows.items.desk;
+      shadow.visible = true;
+      shadow.position.set(-0.2, 0.03, 0.45);
+      shadow.scale.set(2.7, 1.4, 1);
+      shadow.material.opacity = 0.2;
+
+      context.camera.position.set(5.4, 3.15, 7.7);
+      context.camera.lookAt(0.45, 2.35, 0.2);
 
       context.deskScene.screen.material.emissiveIntensity = 1.1 + Math.sin(localTime * 4.2) * 0.16;
       context.deskScene.screenBars.forEach((bar, index) => {
         bar.scale.x = 0.65 + (Math.sin(localTime * 4 + index) + 1) * 0.35;
         bar.position.x = -0.78 + index * 0.3 + Math.sin(localTime * 1.2 + index * 0.5) * 0.03;
       });
+      context.sunTarget.position.set(0.5, 1.9, -0.2);
     },
 
     sleep(localTime) {
@@ -473,20 +685,30 @@ function initHeroAnimation() {
       context.sunLight.intensity = 0.24;
       context.fillLight.intensity = 0.28;
 
-      context.avatar.group.position.set(-0.55 + breath * 0.5, 0.72 + breath, 0.08);
-      context.avatar.group.rotation.set(0, 0, Math.PI / 2.14);
-      poseSleep(context.avatar, localTime);
+      context.avatar.group.visible = false;
+      context.bedScene.sleepFigure.group.visible = true;
+      context.bedScene.sleepFigure.group.position.set(-0.32 + breath * 0.18, 1.06 + breath * 0.2, 0);
+      animateSleepScene(context.bedScene, localTime);
+
+      const shadow = context.fakeShadows.items.sleep;
+      shadow.visible = true;
+      shadow.position.set(-0.2, 0.03, 0);
+      shadow.scale.set(2.7, 1.4, 1);
+      shadow.material.opacity = 0.16;
 
       context.camera.position.set(4.6, 3.4, 7.3);
       context.camera.lookAt(-0.15, 1.3, 0);
 
       context.bedScene.lampLight.intensity = 0.14 + Math.sin(localTime * 0.45) * 0.01;
+      context.bedScene.sleepFigure.chest.scale.y = 1 + breath * 0.14;
+      context.bedScene.sleepFigure.head.position.y = 0.14 + breath * 0.08;
       context.bedScene.dreamParticles.children.forEach((particle, index) => {
         const lift = (localTime * 0.28 + index * 0.32) % 1;
         particle.position.y = 2.7 + lift * 1.35;
         particle.position.x = 0.45 + Math.sin(localTime * 0.8 + index) * 0.18;
         particle.material.opacity = 0.2 + (1 - lift) * 0.55;
       });
+      context.sunTarget.position.set(-0.2, 1.1, 0);
     }
   };
 
@@ -515,6 +737,7 @@ function initHeroAnimation() {
     twinkleStars(context.stars, elapsed);
 
     sceneUpdaters[sceneConfig.key](localTime, progress);
+    context.sunLight.target.updateMatrixWorld();
 
     renderer.render(scene, camera);
     requestAnimationFrame(renderFrame);
@@ -564,8 +787,8 @@ function createAvatar(THREE) {
 
   const leftArmPivot = new THREE.Group();
   const rightArmPivot = new THREE.Group();
-  leftArmPivot.position.set(-0.62, 2.62, 0);
-  rightArmPivot.position.set(0.62, 2.62, 0);
+  leftArmPivot.position.set(-0.68, 2.62, 0.12);
+  rightArmPivot.position.set(0.68, 2.62, 0.12);
 
   const armGeometry = new THREE.CylinderGeometry(0.11, 0.12, 0.96, 14);
   const leftArm = new THREE.Mesh(armGeometry, skin);
@@ -579,8 +802,8 @@ function createAvatar(THREE) {
 
   const leftLegPivot = new THREE.Group();
   const rightLegPivot = new THREE.Group();
-  leftLegPivot.position.set(-0.24, 1.48, 0);
-  rightLegPivot.position.set(0.24, 1.48, 0);
+  leftLegPivot.position.set(-0.31, 1.48, 0);
+  rightLegPivot.position.set(0.31, 1.48, 0);
 
   const legGeometry = new THREE.CylinderGeometry(0.13, 0.14, 1.22, 14);
   const leftLeg = new THREE.Mesh(legGeometry, pants);
@@ -594,8 +817,8 @@ function createAvatar(THREE) {
 
   const leftFoot = new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.14, 0.72), shoes);
   const rightFoot = leftFoot.clone();
-  leftFoot.position.set(-0.24, 0.18, 0.14);
-  rightFoot.position.set(0.24, 0.18, 0.14);
+  leftFoot.position.set(-0.34, 0.18, 0.14);
+  rightFoot.position.set(0.34, 0.18, 0.14);
   group.add(leftFoot);
   group.add(rightFoot);
 
@@ -616,6 +839,7 @@ function createOnewheel(THREE) {
   const group = new THREE.Group();
   const dark = new THREE.MeshStandardMaterial({ color: 0x101217, roughness: 0.62 });
   const accent = new THREE.MeshStandardMaterial({ color: 0xff7a45, roughness: 0.45 });
+  const metal = new THREE.MeshStandardMaterial({ color: 0xd2dae2, roughness: 0.32 });
 
   const deck = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.12, 0.6), dark);
   deck.position.y = 0.32;
@@ -632,16 +856,32 @@ function createOnewheel(THREE) {
     new THREE.TorusGeometry(0.5, 0.17, 18, 36),
     new THREE.MeshStandardMaterial({ color: 0x050608, roughness: 0.84 })
   );
-  tire.rotation.z = Math.PI / 2;
-  tire.position.y = 0.22;
-  group.add(tire);
+  const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.34, 18), metal);
+  hub.rotation.x = Math.PI / 2;
 
-  return { group, tire };
+  const spokeVertical = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.84, 0.04), metal);
+  const spokeHorizontal = new THREE.Mesh(new THREE.BoxGeometry(0.84, 0.08, 0.04), metal);
+  const wheelSpin = new THREE.Group();
+  wheelSpin.position.y = 0.22;
+  wheelSpin.add(tire);
+  wheelSpin.add(hub);
+  wheelSpin.add(spokeVertical);
+  wheelSpin.add(spokeHorizontal);
+  group.add(wheelSpin);
+
+  const leftRail = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.3, 0.62), dark);
+  const rightRail = leftRail.clone();
+  leftRail.position.set(-0.26, 0.37, 0);
+  rightRail.position.set(0.26, 0.37, 0);
+  group.add(leftRail);
+  group.add(rightRail);
+
+  return { group, wheelSpin };
 }
 
 function createGlider(THREE) {
   const group = new THREE.Group();
-  const body = new THREE.MeshStandardMaterial({ color: 0xe9dcc5, roughness: 0.48 });
+  const body = new THREE.MeshStandardMaterial({ color: 0xe9dcc5, roughness: 0.46 });
   const accent = new THREE.MeshStandardMaterial({ color: 0xff7a45, roughness: 0.55 });
   const glass = new THREE.MeshStandardMaterial({
     color: 0x7fc8ff,
@@ -650,37 +890,63 @@ function createGlider(THREE) {
     roughness: 0.1
   });
 
-  const fuselage = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.2, 4.6, 18), body);
+  const fuselage = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.18, 5.8, 22), body);
   fuselage.rotation.z = Math.PI / 2;
   group.add(fuselage);
 
-  const nose = new THREE.Mesh(new THREE.SphereGeometry(0.2, 18, 18), accent);
-  nose.position.x = 2.35;
+  const nose = new THREE.Mesh(new THREE.ConeGeometry(0.18, 0.76, 20), accent);
+  nose.rotation.z = -Math.PI / 2;
+  nose.position.x = 3.22;
   group.add(nose);
 
-  const wing = new THREE.Mesh(new THREE.BoxGeometry(6.4, 0.1, 0.92), body);
-  wing.position.y = 0.08;
-  group.add(wing);
+  const tailCone = new THREE.Mesh(new THREE.ConeGeometry(0.12, 0.7, 18), body);
+  tailCone.rotation.z = Math.PI / 2;
+  tailCone.position.x = -3.1;
+  group.add(tailCone);
 
-  const tailWing = new THREE.Mesh(new THREE.BoxGeometry(1.55, 0.08, 0.45), body);
-  tailWing.position.set(-2.02, 0.44, 0);
+  const leftWing = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.07, 4.5), body);
+  const rightWing = leftWing.clone();
+  leftWing.position.set(0.18, 0.08, 2.35);
+  rightWing.position.set(0.18, 0.08, -2.35);
+  leftWing.rotation.x = -0.05;
+  rightWing.rotation.x = 0.05;
+  group.add(leftWing);
+  group.add(rightWing);
+
+  const leftWingTip = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.12, 0.3), accent);
+  const rightWingTip = leftWingTip.clone();
+  leftWingTip.position.set(0.22, 0.06, 4.58);
+  rightWingTip.position.set(0.22, 0.06, -4.58);
+  group.add(leftWingTip);
+  group.add(rightWingTip);
+
+  const tailWing = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.06, 1.8), body);
+  tailWing.position.set(-2.72, 0.42, 0);
   group.add(tailWing);
 
-  const fin = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.78, 0.4), body);
-  fin.position.set(-2.14, 0.76, 0);
+  const fin = new THREE.Mesh(new THREE.BoxGeometry(0.72, 0.82, 0.06), body);
+  fin.position.set(-2.95, 0.75, 0);
   group.add(fin);
 
   const canopy = new THREE.Mesh(new THREE.SphereGeometry(0.44, 16, 16), glass);
-  canopy.scale.set(1.35, 0.65, 0.95);
-  canopy.position.set(0.6, 0.36, 0);
+  canopy.scale.set(1.55, 0.72, 0.95);
+  canopy.position.set(0.74, 0.34, 0);
   group.add(canopy);
 
   const pilotHead = new THREE.Mesh(
     new THREE.SphereGeometry(0.18, 14, 14),
     new THREE.MeshStandardMaterial({ color: 0x1b3146, roughness: 0.55 })
   );
-  pilotHead.position.set(0.45, 0.34, 0);
+  pilotHead.position.set(0.56, 0.28, 0);
   group.add(pilotHead);
+
+  const landingWheel = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.08, 0.08, 0.16, 16),
+    new THREE.MeshStandardMaterial({ color: 0x111318, roughness: 0.8 })
+  );
+  landingWheel.rotation.z = Math.PI / 2;
+  landingWheel.position.set(0.18, -0.24, 0);
+  group.add(landingWheel);
 
   return { group };
 }
@@ -690,44 +956,111 @@ function createSurron(THREE) {
   const frameMaterial = new THREE.MeshStandardMaterial({ color: 0x1e222b, roughness: 0.55 });
   const frameAccent = new THREE.MeshStandardMaterial({ color: 0xff7a45, roughness: 0.48 });
   const tireMaterial = new THREE.MeshStandardMaterial({ color: 0x0a0b0e, roughness: 0.86 });
+  const metal = new THREE.MeshStandardMaterial({ color: 0xc5ccd4, roughness: 0.32 });
 
   const frontWheel = new THREE.Mesh(new THREE.TorusGeometry(0.72, 0.11, 18, 36), tireMaterial);
   const backWheel = new THREE.Mesh(new THREE.TorusGeometry(0.72, 0.11, 18, 36), tireMaterial);
-  frontWheel.rotation.z = Math.PI / 2;
-  backWheel.rotation.z = Math.PI / 2;
-  frontWheel.position.set(1.5, 0.72, 0);
-  backWheel.position.set(-1.45, 0.72, 0);
-  group.add(frontWheel);
-  group.add(backWheel);
+  const frontRim = new THREE.Mesh(new THREE.TorusGeometry(0.5, 0.04, 12, 24), metal);
+  const backRim = new THREE.Mesh(new THREE.TorusGeometry(0.5, 0.04, 12, 24), metal);
+  const frontHub = new THREE.Mesh(new THREE.CylinderGeometry(0.11, 0.11, 0.26, 16), metal);
+  const backHub = new THREE.Mesh(new THREE.CylinderGeometry(0.11, 0.11, 0.26, 16), metal);
+  frontHub.rotation.x = Math.PI / 2;
+  backHub.rotation.x = Math.PI / 2;
 
-  const frameBar1 = new THREE.Mesh(new THREE.BoxGeometry(2.1, 0.08, 0.12), frameAccent);
-  frameBar1.position.set(0, 1.42, 0);
-  frameBar1.rotation.z = -0.2;
+  const frontSpokeA = new THREE.Mesh(new THREE.BoxGeometry(0.06, 1.05, 0.04), metal);
+  const frontSpokeB = new THREE.Mesh(new THREE.BoxGeometry(1.05, 0.06, 0.04), metal);
+  const backSpokeA = frontSpokeA.clone();
+  const backSpokeB = frontSpokeB.clone();
+
+  const frontWheelSpin = new THREE.Group();
+  const backWheelSpin = new THREE.Group();
+  frontWheelSpin.position.set(1.5, 0.72, 0);
+  backWheelSpin.position.set(-1.45, 0.72, 0);
+  frontWheelSpin.add(frontWheel);
+  frontWheelSpin.add(frontRim);
+  frontWheelSpin.add(frontHub);
+  frontWheelSpin.add(frontSpokeA);
+  frontWheelSpin.add(frontSpokeB);
+  backWheelSpin.add(backWheel);
+  backWheelSpin.add(backRim);
+  backWheelSpin.add(backHub);
+  backWheelSpin.add(backSpokeA);
+  backWheelSpin.add(backSpokeB);
+  group.add(frontWheelSpin);
+  group.add(backWheelSpin);
+
+  const frameBar1 = new THREE.Mesh(new THREE.BoxGeometry(2.38, 0.1, 0.14), frameAccent);
+  frameBar1.position.set(0.08, 1.5, 0);
+  frameBar1.rotation.z = -0.18;
   group.add(frameBar1);
 
-  const frameBar2 = new THREE.Mesh(new THREE.BoxGeometry(1.75, 0.08, 0.12), frameMaterial);
-  frameBar2.position.set(-0.25, 1.1, 0);
-  frameBar2.rotation.z = 0.45;
+  const frameBar2 = new THREE.Mesh(new THREE.BoxGeometry(1.92, 0.09, 0.14), frameMaterial);
+  frameBar2.position.set(-0.16, 1.12, 0);
+  frameBar2.rotation.z = 0.56;
   group.add(frameBar2);
 
-  const frameBar3 = new THREE.Mesh(new THREE.BoxGeometry(1.55, 0.08, 0.12), frameMaterial);
-  frameBar3.position.set(0.35, 1.08, 0);
-  frameBar3.rotation.z = -0.62;
+  const frameBar3 = new THREE.Mesh(new THREE.BoxGeometry(1.72, 0.09, 0.14), frameMaterial);
+  frameBar3.position.set(0.54, 1.05, 0);
+  frameBar3.rotation.z = -0.76;
   group.add(frameBar3);
 
-  const seat = new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.16, 0.44), frameMaterial);
-  seat.position.set(-0.08, 1.58, 0);
+  const battery = new THREE.Mesh(new THREE.BoxGeometry(0.86, 1.02, 0.5), frameMaterial);
+  battery.position.set(-0.04, 1.14, 0);
+  group.add(battery);
+
+  const tank = new THREE.Mesh(new THREE.BoxGeometry(0.86, 0.5, 0.44), frameAccent);
+  tank.position.set(0.42, 1.56, 0);
+  tank.rotation.z = -0.16;
+  group.add(tank);
+
+  const seat = new THREE.Mesh(new THREE.BoxGeometry(1.48, 0.2, 0.48), frameMaterial);
+  seat.position.set(-0.2, 1.76, 0);
+  seat.rotation.z = 0.05;
   group.add(seat);
 
-  const fork = new THREE.Mesh(new THREE.BoxGeometry(0.12, 1.1, 0.12), frameMaterial);
-  fork.position.set(1.42, 1.28, 0);
-  fork.rotation.z = -0.12;
-  group.add(fork);
+  const tailPanel = new THREE.Mesh(new THREE.BoxGeometry(0.74, 0.16, 0.36), frameAccent);
+  tailPanel.position.set(-1.06, 1.9, 0);
+  tailPanel.rotation.z = 0.16;
+  group.add(tailPanel);
 
-  const handlebar = new THREE.Mesh(new THREE.BoxGeometry(0.82, 0.08, 0.08), frameMaterial);
-  handlebar.position.set(1.62, 1.94, 0);
-  handlebar.rotation.z = 0.12;
+  const swingArm = new THREE.Mesh(new THREE.BoxGeometry(1.52, 0.11, 0.16), metal);
+  swingArm.position.set(-0.88, 1.02, 0);
+  swingArm.rotation.z = -0.24;
+  group.add(swingArm);
+
+  const forkLeft = new THREE.Mesh(new THREE.BoxGeometry(0.08, 1.24, 0.08), metal);
+  const forkRight = forkLeft.clone();
+  forkLeft.position.set(1.46, 1.42, 0.14);
+  forkRight.position.set(1.46, 1.42, -0.14);
+  forkLeft.rotation.z = -0.12;
+  forkRight.rotation.z = -0.12;
+  group.add(forkLeft);
+  group.add(forkRight);
+
+  const handlebar = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.08, 0.08), frameMaterial);
+  handlebar.position.set(1.7, 2.02, 0);
+  handlebar.rotation.z = 0.18;
   group.add(handlebar);
+
+  const numberPlate = new THREE.Mesh(new THREE.BoxGeometry(0.52, 0.62, 0.08), frameAccent);
+  numberPlate.position.set(1.46, 1.74, 0);
+  numberPlate.rotation.z = -0.1;
+  group.add(numberPlate);
+
+  const frontFender = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.06, 0.14), frameMaterial);
+  frontFender.position.set(1.5, 1.48, 0);
+  frontFender.rotation.z = 0.16;
+  group.add(frontFender);
+
+  const rearFender = new THREE.Mesh(new THREE.BoxGeometry(0.82, 0.06, 0.18), frameMaterial);
+  rearFender.position.set(-1.18, 1.55, 0);
+  rearFender.rotation.z = 0.28;
+  group.add(rearFender);
+
+  const shock = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 0.88, 14), metal);
+  shock.position.set(-0.36, 1.36, 0);
+  shock.rotation.z = -0.55;
+  group.add(shock);
 
   const headlight = new THREE.PointLight(0xffe1a1, 0.2, 12);
   headlight.position.set(1.9, 1.84, 0);
@@ -742,14 +1075,15 @@ function createSurron(THREE) {
 
   return {
     group,
-    frontWheel,
-    backWheel,
+    frontWheelSpin,
+    backWheelSpin,
     headlight
   };
 }
 
 function createRoadScene(THREE) {
   const group = new THREE.Group();
+  const stripes = [];
 
   const ground = new THREE.Mesh(
     new THREE.PlaneGeometry(40, 30),
@@ -773,25 +1107,32 @@ function createRoadScene(THREE) {
       new THREE.MeshStandardMaterial({ color: 0xffdc90, emissive: 0xffa95c, emissiveIntensity: 0.15 })
     );
     stripe.position.set(-7.6 + i * 1.9, 0.04, 0);
+    stripe.userData.baseX = stripe.position.x;
+    stripes.push(stripe);
     group.add(stripe);
   }
 
   const skyline = new THREE.Group();
+  const skylineBlocks = [];
   for (let i = 0; i < 7; i += 1) {
     const building = new THREE.Mesh(
       new THREE.BoxGeometry(1.2 + i * 0.12, 1.8 + (i % 3) * 1.1, 1.2),
       new THREE.MeshStandardMaterial({ color: 0x223447, roughness: 0.82 })
     );
     building.position.set(-7 + i * 2.2, building.geometry.parameters.height / 2, -4.8 - (i % 2) * 1.1);
+    building.userData.baseY = building.position.y;
+    skylineBlocks.push(building);
     skyline.add(building);
   }
   group.add(skyline);
 
-  return { group };
+  return { group, stripes, skylineBlocks };
 }
 
 function createTrailScene(THREE) {
   const group = new THREE.Group();
+  const rocks = [];
+  const shrubs = [];
 
   const ground = new THREE.Mesh(
     new THREE.PlaneGeometry(40, 26),
@@ -814,10 +1155,167 @@ function createTrailScene(THREE) {
       new THREE.MeshStandardMaterial({ color: 0x9e8062, roughness: 1 })
     );
     rock.position.set(-7 + i * 1.6, 0.18, i % 2 === 0 ? 2.6 : -2.9);
+    rock.userData.baseY = rock.position.y;
+    rocks.push(rock);
     group.add(rock);
   }
 
-  return { group };
+  for (let i = 0; i < 7; i += 1) {
+    const shrub = new THREE.Mesh(
+      new THREE.ConeGeometry(0.22 + (i % 2) * 0.06, 0.7 + (i % 3) * 0.12, 8),
+      new THREE.MeshStandardMaterial({ color: 0x415334, roughness: 0.95 })
+    );
+    shrub.position.set(-6.8 + i * 2.1, 0.35, i % 2 === 0 ? 3.8 : -4.1);
+    shrub.userData.baseScale = shrub.scale.y;
+    shrubs.push(shrub);
+    group.add(shrub);
+  }
+
+  return { group, rocks, shrubs };
+}
+
+function createSnowScene(THREE) {
+  const group = new THREE.Group();
+  const pines = [];
+  const markers = [];
+  const peaks = [];
+
+  const ground = new THREE.Mesh(
+    new THREE.PlaneGeometry(42, 26),
+    new THREE.MeshStandardMaterial({ color: 0xe8f4ff, roughness: 1 })
+  );
+  ground.rotation.x = -Math.PI / 2;
+  group.add(ground);
+
+  const slope = new THREE.Mesh(
+    new THREE.PlaneGeometry(22, 5.8),
+    new THREE.MeshStandardMaterial({ color: 0xfafcff, roughness: 0.95 })
+  );
+  slope.rotation.x = -Math.PI / 2;
+  slope.position.set(0, 0.03, 0);
+  group.add(slope);
+
+  for (let index = 0; index < 6; index += 1) {
+    const marker = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.05, 0.05, 1.2, 10),
+      new THREE.MeshStandardMaterial({ color: index % 2 === 0 ? 0xff7a45 : 0x2b5677, roughness: 0.58 })
+    );
+    marker.position.set(-5 + index * 2.2, 0.6, index % 2 === 0 ? 1.75 : -1.75);
+    marker.userData.baseZ = marker.position.z;
+    markers.push(marker);
+    group.add(marker);
+  }
+
+  for (let index = 0; index < 8; index += 1) {
+    const pine = new THREE.Group();
+    const trunk = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.08, 0.1, 0.5, 10),
+      new THREE.MeshStandardMaterial({ color: 0x70513d, roughness: 0.9 })
+    );
+    trunk.position.y = 0.25;
+    pine.add(trunk);
+
+    const canopy = new THREE.Mesh(
+      new THREE.ConeGeometry(0.34 + (index % 2) * 0.08, 1.05 + (index % 3) * 0.12, 10),
+      new THREE.MeshStandardMaterial({ color: 0x395844, roughness: 0.95 })
+    );
+    canopy.position.y = 0.92;
+    pine.add(canopy);
+
+    pine.position.set(-8 + index * 2.2, 0, index % 2 === 0 ? 4.3 : -4.5);
+    pine.userData.baseY = pine.position.y;
+    pines.push(pine);
+    group.add(pine);
+  }
+
+  const peakSpecs = [
+    { x: -8.6, h: 4.8, r: 2.3 },
+    { x: -4.8, h: 3.6, r: 1.8 },
+    { x: -1.2, h: 5.4, r: 2.6 },
+    { x: 3.1, h: 4.2, r: 2.1 },
+    { x: 7.2, h: 5.1, r: 2.5 }
+  ];
+
+  peakSpecs.forEach((spec, index) => {
+    const peak = new THREE.Group();
+    const rock = new THREE.Mesh(
+      new THREE.ConeGeometry(spec.r, spec.h, 4),
+      new THREE.MeshStandardMaterial({ color: 0x9aa8b5, roughness: 0.96 })
+    );
+    rock.position.y = spec.h / 2;
+    rock.rotation.y = Math.PI / 4;
+    peak.add(rock);
+
+    const snowCap = new THREE.Mesh(
+      new THREE.ConeGeometry(spec.r * 0.56, spec.h * 0.34, 4),
+      new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.88 })
+    );
+    snowCap.position.y = spec.h * 0.78;
+    snowCap.rotation.y = Math.PI / 4;
+    peak.add(snowCap);
+
+    peak.position.set(spec.x, -0.2, -8.2 - (index % 2) * 1.4);
+    peaks.push(peak);
+    group.add(peak);
+  });
+
+  return { group, pines, markers, peaks };
+}
+
+function createGymScene(THREE) {
+  const group = new THREE.Group();
+  const slats = [];
+
+  const floor = new THREE.Mesh(
+    new THREE.PlaneGeometry(18, 16),
+    new THREE.MeshStandardMaterial({ color: 0x1d2733, roughness: 0.96 })
+  );
+  floor.rotation.x = -Math.PI / 2;
+  group.add(floor);
+
+  const mat = new THREE.Mesh(
+    new THREE.PlaneGeometry(5.6, 3.8),
+    new THREE.MeshStandardMaterial({ color: 0x111822, roughness: 0.92 })
+  );
+  mat.rotation.x = -Math.PI / 2;
+  mat.position.set(0.15, 0.02, 0.35);
+  group.add(mat);
+
+  const wall = new THREE.Mesh(
+    new THREE.PlaneGeometry(18, 10),
+    new THREE.MeshStandardMaterial({ color: 0x101722, roughness: 0.9 })
+  );
+  wall.position.set(0, 5, -4.3);
+  group.add(wall);
+
+  for (const x of [-1.65, 1.75]) {
+    const upright = new THREE.Mesh(
+      new THREE.BoxGeometry(0.14, 3.2, 0.14),
+      new THREE.MeshStandardMaterial({ color: 0xc8d0db, roughness: 0.34 })
+    );
+    upright.position.set(x, 1.6, -0.2);
+    group.add(upright);
+  }
+
+  const crossbar = new THREE.Mesh(
+    new THREE.BoxGeometry(3.58, 0.12, 0.14),
+    new THREE.MeshStandardMaterial({ color: 0xc8d0db, roughness: 0.34 })
+  );
+  crossbar.position.set(0.05, 3.1, -0.2);
+  group.add(crossbar);
+
+  for (let index = 0; index < 7; index += 1) {
+    const slat = new THREE.Mesh(
+      new THREE.BoxGeometry(0.3, 0.08, 0.01),
+      new THREE.MeshBasicMaterial({ color: 0x4df4cb })
+    );
+    slat.position.set(-0.92 + index * 0.34, 3.92 - (index % 3) * 0.18, -4.22);
+    slat.userData.baseY = slat.position.y;
+    slats.push(slat);
+    group.add(slat);
+  }
+
+  return { group, slats };
 }
 
 function createDeskScene(THREE) {
@@ -885,7 +1383,7 @@ function createDeskScene(THREE) {
     new THREE.BoxGeometry(1.15, 0.05, 0.38),
     new THREE.MeshStandardMaterial({ color: 0x1a2029, roughness: 0.5 })
   );
-  keyboard.position.set(0.72, 1.98, 0.18);
+  keyboard.position.set(0.54, 1.98, 0.26);
   group.add(keyboard);
 
   const mug = new THREE.Mesh(
@@ -894,6 +1392,13 @@ function createDeskScene(THREE) {
   );
   mug.position.set(1.72, 2.05, 0.28);
   group.add(mug);
+
+  const mouse = new THREE.Mesh(
+    new THREE.BoxGeometry(0.2, 0.04, 0.32),
+    new THREE.MeshStandardMaterial({ color: 0xe3e6ec, roughness: 0.45 })
+  );
+  mouse.position.set(1.22, 1.98, 0.28);
+  group.add(mouse);
 
   const lampLight = new THREE.PointLight(0xffdca3, 0.9, 18);
   lampLight.position.set(1.45, 4.2, 1.2);
@@ -907,6 +1412,13 @@ function createDeskScene(THREE) {
   lamp.rotation.z = Math.PI;
   group.add(lamp);
 
+  const tower = new THREE.Mesh(
+    new THREE.BoxGeometry(0.62, 1.38, 0.92),
+    new THREE.MeshStandardMaterial({ color: 0x18212a, roughness: 0.58 })
+  );
+  tower.position.set(-1.42, 0.72, -0.18);
+  group.add(tower);
+
   const screenBars = [];
   for (let index = 0; index < 6; index += 1) {
     const bar = new THREE.Mesh(
@@ -918,7 +1430,7 @@ function createDeskScene(THREE) {
     group.add(bar);
   }
 
-  return { group, screen, screenBars, lampLight };
+  return { group, screen, screenBars, lampLight, mug, mouse };
 }
 
 function createBedScene(THREE) {
@@ -973,6 +1485,20 @@ function createBedScene(THREE) {
   nightStand.position.set(2.05, 0.42, -0.28);
   group.add(nightStand);
 
+  const windowFrame = new THREE.Mesh(
+    new THREE.BoxGeometry(0.14, 2.2, 1.7),
+    new THREE.MeshStandardMaterial({ color: 0x203046, roughness: 0.7 })
+  );
+  windowFrame.position.set(-4.2, 4.2, -3.9);
+  group.add(windowFrame);
+
+  const windowGlow = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.4, 1.9),
+    new THREE.MeshBasicMaterial({ color: 0x365d88, transparent: true, opacity: 0.42 })
+  );
+  windowGlow.position.set(-4.06, 4.2, -3.8);
+  group.add(windowGlow);
+
   const lampLight = new THREE.PointLight(0xffdba3, 0.14, 10);
   lampLight.position.set(2.05, 1.1, -0.28);
   group.add(lampLight);
@@ -999,7 +1525,89 @@ function createBedScene(THREE) {
   }
   group.add(dreamParticles);
 
-  return { group, lampLight, dreamParticles };
+  const sleepFigure = new THREE.Group();
+  const pajamas = new THREE.MeshStandardMaterial({ color: 0x6f8ba8, roughness: 0.84 });
+  const skin = new THREE.MeshStandardMaterial({ color: 0xf2bf97, roughness: 0.82 });
+
+  const torso = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.28, 0.72), pajamas);
+  torso.position.set(-0.08, 0, 0);
+  sleepFigure.add(torso);
+
+  const legs = new THREE.Mesh(new THREE.BoxGeometry(1.18, 0.24, 0.62), pajamas);
+  legs.position.set(1.16, -0.02, 0);
+  sleepFigure.add(legs);
+
+  const arm = new THREE.Mesh(new THREE.BoxGeometry(0.88, 0.16, 0.22), pajamas);
+  arm.position.set(0.08, 0.11, 0.38);
+  arm.rotation.z = 0.1;
+  sleepFigure.add(arm);
+
+  const head = new THREE.Mesh(new THREE.SphereGeometry(0.24, 16, 16), skin);
+  head.position.set(-1.12, 0.14, 0.12);
+  sleepFigure.add(head);
+
+  sleepFigure.position.set(-0.32, 1.06, 0);
+  group.add(sleepFigure);
+
+  return { group, lampLight, dreamParticles, windowGlow, sleepFigure: { group: sleepFigure, chest: torso, head } };
+}
+
+function createSnowboard(THREE) {
+  const group = new THREE.Group();
+  const board = new THREE.Mesh(
+    new THREE.BoxGeometry(1.72, 0.08, 0.36),
+    new THREE.MeshStandardMaterial({ color: 0x18283c, roughness: 0.52 })
+  );
+  board.position.y = 0.1;
+  board.rotation.z = -0.08;
+  group.add(board);
+
+  const nose = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.18, 0.12, 18),
+    new THREE.MeshStandardMaterial({ color: 0xff7a45, roughness: 0.45 })
+  );
+  nose.rotation.z = Math.PI / 2;
+  nose.position.set(0.84, 0.11, 0);
+  group.add(nose);
+
+  const tail = nose.clone();
+  tail.position.x = -0.84;
+  group.add(tail);
+
+  const bindingA = new THREE.Mesh(
+    new THREE.BoxGeometry(0.22, 0.18, 0.18),
+    new THREE.MeshStandardMaterial({ color: 0xeff5ff, roughness: 0.4 })
+  );
+  const bindingB = bindingA.clone();
+  bindingA.position.set(0.3, 0.22, 0);
+  bindingB.position.set(-0.3, 0.22, 0);
+  group.add(bindingA);
+  group.add(bindingB);
+
+  return { group, board };
+}
+
+function createBarbell(THREE) {
+  const group = new THREE.Group();
+  const metal = new THREE.MeshStandardMaterial({ color: 0xc6d0db, roughness: 0.25 });
+  const plate = new THREE.MeshStandardMaterial({ color: 0x101217, roughness: 0.72 });
+
+  const bar = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 2.8, 16), metal);
+  bar.rotation.z = Math.PI / 2;
+  group.add(bar);
+
+  for (const side of [-1, 1]) {
+    const outerPlate = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.24, 0.14, 20), plate);
+    const innerPlate = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 0.1, 20), plate);
+    outerPlate.rotation.z = Math.PI / 2;
+    innerPlate.rotation.z = Math.PI / 2;
+    outerPlate.position.set(side * 1.18, 0, 0);
+    innerPlate.position.set(side * 0.96, 0, 0);
+    group.add(outerPlate);
+    group.add(innerPlate);
+  }
+
+  return { group };
 }
 
 function createMountains(THREE) {
@@ -1059,6 +1667,56 @@ function createCloudField(THREE) {
   return { group };
 }
 
+function createFakeShadows(THREE) {
+  const group = new THREE.Group();
+  const texture = createShadowTexture(THREE);
+
+  function makeShadow(size) {
+    const shadow = new THREE.Mesh(
+      new THREE.PlaneGeometry(size, size),
+      new THREE.MeshBasicMaterial({
+        map: texture,
+        transparent: true,
+        depthWrite: false,
+        opacity: 0
+      })
+    );
+    shadow.rotation.x = -Math.PI / 2;
+    shadow.renderOrder = 1;
+    group.add(shadow);
+    return shadow;
+  }
+
+  return {
+    group,
+    items: {
+      ride: makeShadow(2.8),
+      glider: makeShadow(4.2),
+      surron: makeShadow(3.4),
+      snowboard: makeShadow(3.1),
+      exercise: makeShadow(3.4),
+      desk: makeShadow(3.8),
+      sleep: makeShadow(3.6)
+    }
+  };
+}
+
+function createShadowTexture(THREE) {
+  const canvas = document.createElement("canvas");
+  canvas.width = 128;
+  canvas.height = 128;
+  const ctx = canvas.getContext("2d");
+  const gradient = ctx.createRadialGradient(64, 64, 10, 64, 64, 64);
+  gradient.addColorStop(0, "rgba(0,0,0,0.72)");
+  gradient.addColorStop(1, "rgba(0,0,0,0)");
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, 128, 128);
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.needsUpdate = true;
+  return texture;
+}
+
 function createStars(THREE) {
   const starCount = 220;
   const positions = new Float32Array(starCount * 3);
@@ -1084,6 +1742,67 @@ function createStars(THREE) {
   );
 }
 
+function animateRoadScene(roadScene, localTime) {
+  roadScene.stripes.forEach((stripe, index) => {
+    const offset = (localTime * 4.8 + index * 0.2) % 18;
+    stripe.position.x = -8.5 + offset;
+  });
+
+  roadScene.skylineBlocks.forEach((building, index) => {
+    building.position.y = building.userData.baseY + Math.sin(localTime * 0.8 + index * 0.45) * 0.03;
+  });
+}
+
+function animateGliderScene(context, localTime) {
+  context.clouds.group.children.forEach((cloud, index) => {
+    cloud.position.z += Math.sin(localTime * 0.3 + index) * 0.001;
+  });
+}
+
+function animateTrailScene(trailScene, localTime, progress) {
+  trailScene.rocks.forEach((rock, index) => {
+    rock.position.y = rock.userData.baseY + Math.sin(localTime * 4.4 + index) * 0.015;
+  });
+
+  trailScene.shrubs.forEach((shrub, index) => {
+    shrub.rotation.z = Math.sin(localTime * 1.6 + index * 0.7) * 0.03;
+  });
+
+  trailScene.group.rotation.z = Math.sin(progress * Math.PI * 2) * 0.01;
+}
+
+function animateSnowScene(snowScene, localTime, progress) {
+  snowScene.pines.forEach((pine, index) => {
+    pine.rotation.z = Math.sin(localTime * 0.9 + index * 0.35) * 0.02;
+  });
+
+  snowScene.markers.forEach((marker, index) => {
+    marker.position.z = marker.userData.baseZ + Math.sin(progress * Math.PI * 2 + index) * 0.12;
+  });
+
+  snowScene.peaks.forEach((peak, index) => {
+    peak.position.y = -0.2 + Math.sin(localTime * 0.45 + index * 0.4) * 0.03;
+  });
+}
+
+function animateGymScene(gymScene, barbell, localTime, press) {
+  gymScene.slats.forEach((slat, index) => {
+    slat.position.y = slat.userData.baseY + Math.sin(localTime * 5 + index * 0.6) * 0.035;
+  });
+
+  barbell.group.rotation.z = Math.sin(localTime * 2.4) * 0.03;
+  barbell.group.position.z = 0.18 - (1 - press) * 0.05;
+}
+
+function animateDeskScene(deskScene, localTime) {
+  deskScene.mug.rotation.y += 0.01;
+  deskScene.mouse.position.x = 1.22 + Math.sin(localTime * 3) * 0.04;
+}
+
+function animateSleepScene(bedScene, localTime) {
+  bedScene.windowGlow.material.opacity = 0.3 + Math.sin(localTime * 0.7) * 0.05;
+}
+
 function animateClouds(clouds, elapsed) {
   clouds.group.children.forEach((cloud) => {
     cloud.position.x = cloud.userData.baseX + Math.sin(elapsed * 0.12 + cloud.userData.phase) * 0.85;
@@ -1106,33 +1825,61 @@ function resetAvatarPose(avatar) {
 }
 
 function poseRide(avatar, localTime) {
-  avatar.leftArmPivot.rotation.z = 0.48 + Math.sin(localTime * 4.8) * 0.09;
-  avatar.rightArmPivot.rotation.z = -0.48 - Math.sin(localTime * 4.8) * 0.09;
-  avatar.leftArmPivot.rotation.x = -0.18;
-  avatar.rightArmPivot.rotation.x = -0.18;
-  avatar.leftLegPivot.rotation.x = -0.6 + Math.sin(localTime * 4.8) * 0.06;
-  avatar.rightLegPivot.rotation.x = -0.56 - Math.sin(localTime * 4.8) * 0.06;
+  avatar.leftArmPivot.rotation.z = 0.74 + Math.sin(localTime * 4.8) * 0.08;
+  avatar.rightArmPivot.rotation.z = -0.74 - Math.sin(localTime * 4.8) * 0.08;
+  avatar.leftArmPivot.rotation.x = -0.72;
+  avatar.rightArmPivot.rotation.x = -0.72;
+  avatar.leftLegPivot.rotation.x = -0.58 + Math.sin(localTime * 4.8) * 0.05;
+  avatar.rightLegPivot.rotation.x = -0.54 - Math.sin(localTime * 4.8) * 0.05;
+  avatar.leftLegPivot.rotation.z = 0.08;
+  avatar.rightLegPivot.rotation.z = -0.08;
   avatar.head.rotation.z = Math.sin(localTime * 2.2) * 0.04;
 }
 
 function poseSurron(avatar, localTime) {
-  avatar.leftArmPivot.rotation.x = -1.1;
-  avatar.rightArmPivot.rotation.x = -1.05;
-  avatar.leftArmPivot.rotation.z = 0.22;
-  avatar.rightArmPivot.rotation.z = -0.22;
-  avatar.leftLegPivot.rotation.x = -1.22 + Math.sin(localTime * 8) * 0.08;
-  avatar.rightLegPivot.rotation.x = -1.14 - Math.sin(localTime * 8) * 0.08;
-  avatar.head.rotation.x = 0.08;
+  avatar.leftArmPivot.rotation.x = -0.98;
+  avatar.rightArmPivot.rotation.x = -0.94;
+  avatar.leftArmPivot.rotation.z = 0.34;
+  avatar.rightArmPivot.rotation.z = -0.34;
+  avatar.leftLegPivot.rotation.x = -1.02 + Math.sin(localTime * 8) * 0.05;
+  avatar.rightLegPivot.rotation.x = -0.94 - Math.sin(localTime * 8) * 0.05;
+  avatar.leftLegPivot.rotation.z = 0.04;
+  avatar.rightLegPivot.rotation.z = -0.04;
+  avatar.head.rotation.x = 0.1;
+}
+
+function poseSnowboard(avatar, localTime, lean) {
+  avatar.leftArmPivot.rotation.x = -0.82 + Math.sin(localTime * 3.8) * 0.08;
+  avatar.rightArmPivot.rotation.x = -0.48 - Math.sin(localTime * 3.2) * 0.06;
+  avatar.leftArmPivot.rotation.z = 0.5 + lean * 0.45;
+  avatar.rightArmPivot.rotation.z = -0.34 - lean * 0.24;
+  avatar.leftLegPivot.rotation.x = -1.18;
+  avatar.rightLegPivot.rotation.x = -1.02;
+  avatar.leftLegPivot.rotation.z = 0.08 + lean * 0.12;
+  avatar.rightLegPivot.rotation.z = -0.08 - lean * 0.12;
+  avatar.head.rotation.z = -lean * 0.28;
+}
+
+function poseLift(avatar, localTime, press) {
+  const lockout = press * 0.92;
+  avatar.leftArmPivot.rotation.x = -1.34 - lockout;
+  avatar.rightArmPivot.rotation.x = -1.34 - lockout;
+  avatar.leftArmPivot.rotation.z = 0.06;
+  avatar.rightArmPivot.rotation.z = -0.06;
+  avatar.leftLegPivot.rotation.x = -0.22 + (1 - press) * 0.24;
+  avatar.rightLegPivot.rotation.x = -0.22 + (1 - press) * 0.24;
+  avatar.head.rotation.x = -0.02 + press * 0.16;
+  avatar.head.rotation.z = Math.sin(localTime * 1.2) * 0.02;
 }
 
 function poseCoding(avatar, localTime) {
-  avatar.leftArmPivot.rotation.x = -1.45 + Math.sin(localTime * 6.5) * 0.08;
-  avatar.rightArmPivot.rotation.x = -1.45 - Math.sin(localTime * 6.5) * 0.08;
-  avatar.leftArmPivot.rotation.z = 0.08;
-  avatar.rightArmPivot.rotation.z = -0.08;
-  avatar.leftLegPivot.rotation.x = -0.04;
-  avatar.rightLegPivot.rotation.x = 0.05;
-  avatar.head.rotation.z = Math.sin(localTime * 1.8) * 0.04;
+  avatar.leftArmPivot.rotation.x = -1.18 + Math.sin(localTime * 6.5) * 0.08;
+  avatar.rightArmPivot.rotation.x = -1.16 - Math.sin(localTime * 6.5) * 0.08;
+  avatar.leftArmPivot.rotation.z = 0.28;
+  avatar.rightArmPivot.rotation.z = -0.32;
+  avatar.leftLegPivot.rotation.x = -0.08;
+  avatar.rightLegPivot.rotation.x = 0.08;
+  avatar.head.rotation.z = Math.sin(localTime * 1.8) * 0.03;
 }
 
 function poseSleep(avatar, localTime) {
