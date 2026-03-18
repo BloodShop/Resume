@@ -4,245 +4,318 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Alon Kolyakov — Builder, Engineer, Pilot</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@300;400;500;700&display=swap"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@300;400;500;700&display=swap"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@300;400;500;700&display=swap" media="print" onload="this.media='all'"/>
+    <title>Alon Kolyakov | Builder, Engineer, Pilot</title>
+    <meta
+      name="description"
+      content="Resume site for Alon Kolyakov, backend software engineer, hardware builder, glider pilot, and founder of Blueboard."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+    >
     <link href="css/font-awesome/css/all.min.css?ver=1.2.0" rel="stylesheet">
-    <link href="css/bootstrap.min.css?ver=1.2.0" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/aos.css?ver=1.2.0" rel="stylesheet">
-    <link href="css/main.css?ver=1.2.0" rel="stylesheet">
+    <link href="css/main.css?ver=1.3.0" rel="stylesheet">
     <noscript>
       <style type="text/css">
         [data-aos] { opacity: 1 !important; transform: translate(0) scale(1) !important; }
       </style>
     </noscript>
-    <style>
-      body { overflow-x: hidden; }
-      #hero-canvas { width: 100%; height: 100%; display: block; }
-      .hero-container { position: relative; width: 100%; height: 500px; border-radius: 12px; overflow: hidden; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-      .maker-section { background: #f8f9fa; padding: 60px 0; }
-      .maker-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 24px; }
-      .maker-card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-      .maker-card h3 { margin-top: 0; color: #2c3e50; }
-      .surron-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 24px; }
-      .surron-img { width: 100%; height: 250px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
-      .skills-section span { color: #1f1a17 !important; font-weight: 700 !important; font-size: 1.05rem !important; opacity: 1 !important; }
-      .skills-section .progress { background-color: rgba(31,26,23,.15) !important; }
-    </style>
-    <script defer src="scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
-    <script defer src="scripts/aos.js?ver=1.2.0"></script>
-    <script defer src="scripts/main.js?ver=1.2.0"></script>
-    <script> location.hash = (location.hash) ? location.hash : " "; </script>
   </head>
-
   <body id="top">
-    <ul class="circles zi--1">
-      <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+    <ul class="circles zi--1" aria-hidden="true">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
     </ul>
-    
-    <header class="d-print-none sticky-top">
-      <div class="container">
-        <div class="py-0 clearfix">
-          <h1 class="site-title mb-0"><a class="container nav-link me-3" href="#top">Alon Kolyakov</a></h1>
-          <div class="site-nav navbar-inverse">
-            <nav role="navigation">
-              <ul class="nav justify-content-center">
-                <li class="menu-item"><a class="container nav-link me-3" href="#hero">Hero</a></li>
-                <li class="menu-item"><a class="container nav-link me-3" href="#specs">Skills</a></li>
-                <li class="menu-item"><a class="container nav-link me-3" href="#maker">Maker</a></li>
-                <li class="menu-item"><a class="container nav-link me-3" href="#portfol">Portfolio</a></li>
-                <li class="menu-item"><a class="container nav-link me-3" href="#work-exp">Experience</a></li>
-                <li class="menu-item"><a class="container nav-link me-3" href="#educate">Education</a></li>
-                <li class="menu-item"><a class="container nav-link me-3" href="https://blueboard.bloodshop.org" target="_blank">Blueboard ↗</a></li>
-                <li class="menu-item">
-                  <ul class="nav justify-content-center">
-                    <li class="nav-item"><a class="nav-link" target="_blank" href="https://twitter.com/AlonKolyakov" title="Twitter"><i class="fab fa-twitter"></i><span class="menu-title sr-only">Twitter</span></a></li>
-                    <li class="nav-item"><a class="nav-link" target="_blank" href="https://discord.gg/Ujfx22bB" title="Discord"><i class="fab fa-discord"></i><span class="menu-title sr-only">Discord</span></a></li>
-                    <li class="nav-item"><a class="nav-link" target="_blank" href="https://www.linkedin.com/in/alon-kolyakov/" title="LinkedIn"><i class="fab fa-linkedin"></i><span class="menu-title sr-only">LinkedIn</span></a></li>
-                    <li class="nav-item"><a class="nav-link" target="_blank" href="https://github.com/BloodShop?tab=repositories" title="Github"><i class="fab fa-github"></i><span class="menu-title sr-only">Github</span></a></li>
-                  </ul>
-                </li>
-              </ul>
-            </nav>
-          </div>
+
+    <header class="site-header d-print-none">
+      <div class="container site-header__inner">
+        <a class="site-brand" href="#top">
+          <span class="site-brand__eyebrow">Resume / 2026</span>
+          <span class="site-brand__name">Alon Kolyakov</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary">
+          <a class="site-nav__link" href="#intro">Intro</a>
+          <a class="site-nav__link" href="#hero">Motion</a>
+          <a class="site-nav__link" href="#specs">Skills</a>
+          <a class="site-nav__link" href="#maker">Hobbies</a>
+          <a class="site-nav__link" href="#portfol">Portfolio</a>
+          <a class="site-nav__link" href="#work-exp">Experience</a>
+          <a class="site-nav__link" href="#educate">Education</a>
+        </nav>
+
+        <div class="site-header__actions">
+          <a class="site-icon" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/alon-kolyakov/" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a class="site-icon" target="_blank" rel="noreferrer" href="https://github.com/BloodShop?tab=repositories" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a class="site-icon" target="_blank" rel="noreferrer" href="https://twitter.com/AlonKolyakov" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a class="site-icon" target="_blank" rel="noreferrer" href="https://discord.gg/Ujfx22bB" aria-label="Discord">
+            <i class="fab fa-discord"></i>
+          </a>
+          <a class="site-cta" target="_blank" rel="noreferrer" href="https://blueboard.bloodshop.org">Blueboard</a>
         </div>
       </div>
     </header>
 
-    <div class="page-content">
-      <div class="container">
-        <hr class="d-print-none"/>
+    <main class="page-content">
+      <div class="container page-shell">
+        <section id="intro" class="section-card intro-panel shadow-lg" data-aos="fade-up">
+          <div class="intro-panel__copy">
+            <p class="eyebrow">Software Engineer / Hardware Builder / Glider Pilot</p>
+            <h1>Backend systems by trade. Motion systems, flying, and electric builds by obsession.</h1>
+            <p class="intro-panel__lede">
+              I build production backend systems, ship hardware-heavy projects, and spend my time outside of work riding, flying,
+              and designing electric motion products. This page is structured like a living profile instead of a static CV so it
+              can keep growing with new projects, hobbies, and scenes.
+            </p>
 
-        <div class="cover shadow-lg bg-white">
-          <div class="cover-bg p-3 p-lg-4 text-white zi--2">
-            <div class="row">
-              <div class="col-lg-10 col-md-7 text-center text-md-start">
-                <h2 class="h1 mt-2" data-aos="fade-left" data-aos-delay="0">Alon Kolyakov</h2>
-                <h4 data-aos="fade-left" data-aos-delay="100">
-                  Software Engineer | Backend | C# | Node.js | Python<br>
-                  Tech-Warriors 8200 Graduated & Physics B.Sc. student<br>
-                  5+ Years Experience | Founder of Blueboard
-                </h4>
-                <div class="d-print-none" data-aos="fade-left" data-aos-delay="200">
-                  <a class="btn btn-light text-dark shadow-sm mt-1 me-1" href="AlonKolyakovCV.pdf" target="_blank">CV PDF</a>
-                  <a class="btn btn-light text-dark shadow-sm mt-1 me-1" href="AlonKolyakovCV.docx">CV DOCX</a>
-                  <a class="btn btn-success text-dark shadow-sm mt-1" href="mailto:koliakovcr7@gmail.com?subject=Let's%20build%20something">Hire Me</a>
-                </div>
-              </div>
+            <div class="intro-panel__actions d-print-none">
+              <a class="btn btn-light text-dark shadow-sm" href="AlonKolyakovCV.pdf" target="_blank" rel="noreferrer">Open CV PDF</a>
+              <a class="btn btn-outline-light shadow-sm" href="AlonKolyakovCV.docx">Download DOCX</a>
+              <a class="btn btn-accent shadow-sm" href="mailto:koliakovcr7@gmail.com?subject=Let%27s%20build%20something">Hire Me</a>
+            </div>
+
+            <div class="intro-metrics">
+              <article class="intro-metric">
+                <span class="intro-metric__value">5+</span>
+                <span class="intro-metric__label">Years shipping production systems</span>
+              </article>
+              <article class="intro-metric">
+                <span class="intro-metric__value">10+</span>
+                <span class="intro-metric__label">Client and internal systems delivered</span>
+              </article>
+              <article class="intro-metric">
+                <span class="intro-metric__value">1</span>
+                <span class="intro-metric__label">Blueboard founder building rideable hardware</span>
+              </article>
             </div>
           </div>
 
-          <div class="about-section pt-4 px-3 px-lg-4 mt-1">
-            <div class="row">
-              <div class="col-md-6">
-                <h2 class="h2 mb-3">About Me</h2>
-                <p>
-                  I enjoy traveling around the world 🌎, exercising 🏋️ and mostly software 🧑‍💻.
-                </p>
-                <p>
-                  I work full-time at abra R&D (formerly Devalore) as a Backend Software Engineer and freelance at SAFE.AI as a Backend Developer.
-                </p>
-                <p>
-                  Currently, I am studying physics at the Open University and have completed a Software Development Course at Sela (Tech-Warriors 8200) from the army.
-                </p>
-                <p>
-                  I am highly motivated to learn and explore new fields. Beyond software, I design and build electric motion systems through Blueboard, fly gliders at the Negev Gliding Center, and tinker with everything from electric skateboards to Surron bikes.
-                </p>
-              </div>
-              <div class="col-md-5 offset-md-1">
-                <div class="row mt-2">
-                  <div class="col-sm-4"><div class="pb-1">Phone</div></div>
-                  <div class="col-sm-8"><div class="pb-1 text-secondary"><a style="text-decoration: none;" target="_blank" href="https://api.whatsapp.com/send?phone=972502567324">+972 50-256-7324</a></div></div>
-                  <div class="col-sm-4"><div class="pb-1">Email</div></div>
-                  <div class="col-sm-8"><div class="pb-1 text-secondary"><a style="text-decoration: none;" href="mailto:koliakovcr7@gmail.com">koliakovcr7@gmail.com</a></div></div>
-                </div>
+          <aside class="intro-panel__aside">
+            <div class="profile-card">
+              <img class="profile-card__image" src="images/profile1.png" alt="Portrait of Alon Kolyakov">
+              <div class="profile-card__content">
+                <p class="profile-card__title">Current focus</p>
+                <ul class="profile-card__list">
+                  <li>Hardware / Software Engineer at HEQA Security</li>
+                  <li>Backend systems with C#, Node.js, Python, cloud infrastructure</li>
+                  <li>Physics B.Sc. student at the Open University</li>
+                  <li>Founder of Blueboard electric motion systems</li>
+                </ul>
               </div>
             </div>
-          </div>
-        </div>
 
-        <hr class="d-print-none"/>
-        <div class="page-break"></div>
-
-        <!-- Hero Section with Three.js Animation -->
-        <section id="hero" class="mb-5">
-          <h2 class="h2 mb-3">Your Journey in Motion</h2>
-          <p class="mb-4" style="max-width: 70ch; color: #2c3e50; font-weight: 500;">A visual loop through the work, play, and building that defines the last few years: riding, flying, coding, and constantly learning.</p>
-          <div class="hero-container">
-            <canvas id="hero-canvas"></canvas>
-            <div style="position: absolute; bottom: 20px; left: 20px; background: rgba(255,255,255,0.95); padding: 12px 16px; border-radius: 8px; font-weight: bold; font-size: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-              <span id="scene-label">OneWheel mode</span>
+            <div class="contact-card">
+              <div class="contact-card__row">
+                <span class="contact-card__label">Phone</span>
+                <a target="_blank" rel="noreferrer" href="https://api.whatsapp.com/send?phone=972502567324">+972 50-256-7324</a>
+              </div>
+              <div class="contact-card__row">
+                <span class="contact-card__label">Email</span>
+                <a href="mailto:koliakovcr7@gmail.com">koliakovcr7@gmail.com</a>
+              </div>
+              <div class="contact-card__row">
+                <span class="contact-card__label">Base</span>
+                <span>Israel</span>
+              </div>
             </div>
-          </div>
+          </aside>
         </section>
 
-        <hr class="d-print-none"/>
-        <div class="page-break"></div>
-
-        <!-- Skills Section -->
-        <div id="specs" class="skills-section px-3 px-lg-4">
-          <h1 class="h1 mb-3">Professional Skills 🌟</h1>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="mb-2"><span>.NET Core / C#</span>
-                <div class="progress my-1">
-                  <div class="progress-bar bg-custom" role="progressbar" data-aos="zoom-in-right" data-aos-delay="100" data-aos-anchor=".skills-section" style="width: 99%" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-              <div class="mb-2"><span>Node.js / TypeScript</span>
-                <div class="progress my-1">
-                  <div class="progress-bar bg-custom" role="progressbar" data-aos="zoom-in-right" data-aos-delay="200" data-aos-anchor=".skills-section" style="width: 99%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-              <div class="mb-2"><span>Python / Flask</span>
-                <div class="progress my-1">
-                  <div class="progress-bar bg-custom" role="progressbar" data-aos="zoom-in-right" data-aos-delay="300" data-aos-anchor=".skills-section" style="width: 92%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-              <div class="mb-2"><span>AWS</span>
-                <div class="progress my-1">
-                  <div class="progress-bar bg-custom" role="progressbar" data-aos="zoom-in-right" data-aos-delay="300" data-aos-anchor=".skills-section" style="width: 96%" aria-valuenow="96" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-              <div class="mb-2"><span>Azure Cloud</span>
-                <div class="progress my-1">
-                  <div class="progress-bar bg-custom" role="progressbar" data-aos="zoom-in-right" data-aos-delay="300" data-aos-anchor=".skills-section" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="mb-2"><span>OpenClaw / Automation</span>
-                <div class="progress my-1">
-                  <div class="progress-bar bg-custom" role="progressbar" data-aos="zoom-in-right" data-aos-delay="400" data-aos-anchor=".skills-section" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-              <div class="mb-2"><span>n8n / Workflow Automation</span>
-                <div class="progress my-1">
-                  <div class="progress-bar bg-custom" role="progressbar" data-aos="zoom-in-right" data-aos-delay="500" data-aos-anchor=".skills-section" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-              <div class="mb-2"><span>PostgreSQL / NoSQL</span>
-                <div class="progress my-1">
-                  <div class="progress-bar bg-custom" role="progressbar" data-aos="zoom-in-right" data-aos-delay="600" data-aos-anchor=".skills-section" style="width: 90%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-              <div class="mb-2"><span>React / Svelte</span>
-                <div class="progress my-1">
-                  <div class="progress-bar bg-custom" role="progressbar" data-aos="zoom-in-right" data-aos-delay="700" data-aos-anchor=".skills-section" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-              <div class="mb-2"><span>ELK / Observability</span>
-                <div class="progress my-1">
-                  <div class="progress-bar bg-custom" role="progressbar" data-aos="zoom-in-right" data-aos-delay="700" data-aos-anchor=".skills-section" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
+        <section id="hero" class="section-card motion-section" data-aos="fade-up" data-aos-delay="50">
+          <div class="section-heading">
+            <p class="eyebrow">Animated Hero</p>
+            <h2>Ride, fly, build, code, sleep, repeat.</h2>
+            <p>
+              The animation below is now a staged loop instead of a rotating placeholder. It cycles through the sequence you asked
+              for and is wired in code as individual scenes so new moments can be added later without rewriting the whole section.
+            </p>
           </div>
-          <hr class="d-print-none"/>
-        </div>
 
-        <!-- Maker Section -->
-        <section id="maker" class="maker-section">
-          <div class="container">
-            <h1 class="h1 text-center mb-4">Maker & Hardware 🔧</h1>
-            <div class="maker-grid">
-              <div class="maker-card">
-                <h3>⚡ Blueboard</h3>
-                <p>Founder and lead engineer. Building electric skateboard systems, motion control firmware, and hardware integration. <a href="https://blueboard.bloodshop.org" target="_blank">blueboard.bloodshop.org</a></p>
-              </div>
-              <div class="maker-card">
-                <h3>🛹 Electric Rideables</h3>
-                <p>Building, fixing, and optimizing OneWheel, electric skateboards, and other personal electric vehicles. Hands-on engineering and troubleshooting.</p>
-              </div>
-              <div class="maker-card">
-                <h3>🏍️ Surron & E-Bikes</h3>
-                <p>Designing and building electric motion systems. Custom firmware, power management, and performance optimization for electric bikes.</p>
-              </div>
-              <div class="maker-card">
-                <h3>✈️ Glider Pilot</h3>
-                <p>Certified glider pilot at Negev Gliding Center. Flying sharpens systems thinking, risk assessment, and decision-making under pressure.</p>
+          <div class="motion-layout">
+            <div class="motion-copy">
+              <div class="scene-track" id="scene-track">
+                <article class="scene-step is-active" data-scene-step="onewheel">
+                  <span class="scene-step__index">01</span>
+                  <div>
+                    <h3>Onewheel commute</h3>
+                    <p>Low-slung ride posture, dusk lighting, road motion, and camera tracking.</p>
+                  </div>
+                </article>
+                <article class="scene-step" data-scene-step="glider">
+                  <span class="scene-step__index">02</span>
+                  <div>
+                    <h3>Glider flight</h3>
+                    <p>Wide sky framing, cloud drift, banking turns, and a dedicated glider rig.</p>
+                  </div>
+                </article>
+                <article class="scene-step" data-scene-step="surron">
+                  <span class="scene-step__index">03</span>
+                  <div>
+                    <h3>Surron run</h3>
+                    <p>Trail palette, wheel spin, rider lean, and a more aggressive camera line.</p>
+                  </div>
+                </article>
+                <article class="scene-step" data-scene-step="coding">
+                  <span class="scene-step__index">04</span>
+                  <div>
+                    <h3>Standing desk coding</h3>
+                    <p>Desk rig, screen glow, typing motion, and a work-focused framing.</p>
+                  </div>
+                </article>
+                <article class="scene-step" data-scene-step="sleep">
+                  <span class="scene-step__index">05</span>
+                  <div>
+                    <h3>Sleep reset</h3>
+                    <p>Night palette, room lighting, breathing motion, and quiet pacing before restart.</p>
+                  </div>
+                </article>
               </div>
             </div>
 
-            <!-- Surron Images Gallery -->
-            <div style="margin-top: 48px;">
-              <h3 class="text-center mb-4">Surron & Electric Bike Builds</h3>
-              <div class="surron-gallery" id="surron-gallery">
-                <!-- Images will be loaded dynamically -->
+            <div class="motion-stage">
+              <canvas id="hero-canvas" aria-label="Animated 3D sequence of Alon's hobbies and work"></canvas>
+              <div class="motion-stage__overlay">
+                <div class="motion-stage__eyebrow">
+                  Scene <span id="scene-index">01</span> / 05
+                </div>
+                <h3 id="scene-label">Onewheel commute</h3>
+                <p id="scene-detail">Dusk city ride with a moving board, rider lean, and camera tracking.</p>
               </div>
             </div>
           </div>
         </section>
 
-        <hr class="d-print-none"/>
-        <div class="page-break"></div>
+        <section id="specs" class="section-card skills-section" data-aos="fade-up" data-aos-delay="100">
+          <div class="section-heading">
+            <p class="eyebrow">Professional Skills</p>
+            <h2>Backend-first, but comfortable across the full system.</h2>
+          </div>
 
-        <!-- Portfolio Section -->
-        <section id="portfolio">
-          <h1 id="portfol" class="h1 text-white mb-2">Portfolio 🔮</h1>
+          <div class="skills-grid">
+            <div class="skill-cluster">
+              <h3>Core stack</h3>
+              <div class="skill-item">
+                <span>.NET Core / C#</span>
+                <div class="progress my-1"><div class="progress-bar bg-custom" style="width: 99%"></div></div>
+              </div>
+              <div class="skill-item">
+                <span>Node.js / TypeScript</span>
+                <div class="progress my-1"><div class="progress-bar bg-custom" style="width: 99%"></div></div>
+              </div>
+              <div class="skill-item">
+                <span>Python / Flask</span>
+                <div class="progress my-1"><div class="progress-bar bg-custom" style="width: 92%"></div></div>
+              </div>
+              <div class="skill-item">
+                <span>PostgreSQL / NoSQL</span>
+                <div class="progress my-1"><div class="progress-bar bg-custom" style="width: 90%"></div></div>
+              </div>
+            </div>
+
+            <div class="skill-cluster">
+              <h3>Cloud and delivery</h3>
+              <div class="skill-item">
+                <span>AWS</span>
+                <div class="progress my-1"><div class="progress-bar bg-custom" style="width: 96%"></div></div>
+              </div>
+              <div class="skill-item">
+                <span>Azure Cloud</span>
+                <div class="progress my-1"><div class="progress-bar bg-custom" style="width: 80%"></div></div>
+              </div>
+              <div class="skill-item">
+                <span>ELK / Observability</span>
+                <div class="progress my-1"><div class="progress-bar bg-custom" style="width: 85%"></div></div>
+              </div>
+              <div class="skill-item">
+                <span>Automation / OpenClaw / n8n</span>
+                <div class="progress my-1"><div class="progress-bar bg-custom" style="width: 84%"></div></div>
+              </div>
+            </div>
+
+            <div class="skill-cluster skill-cluster--wide">
+              <h3>How I like to work</h3>
+              <div class="skill-notes">
+                <p>Translate unclear requirements into concrete technical plans.</p>
+                <p>Ship backend systems that are observable, maintainable, and easy to extend.</p>
+                <p>Stay close to hardware, product, and customer constraints instead of coding in isolation.</p>
+                <p>Move comfortably between firmware, APIs, cloud pipelines, and operational debugging.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="maker" class="section-card maker-section" data-aos="fade-up" data-aos-delay="150">
+          <div class="section-heading">
+            <p class="eyebrow">Hobbies And Builds</p>
+            <h2>Not filler hobbies. Real systems, real tools, real time outside the laptop.</h2>
+            <p>
+              This part is now split into reusable cards plus independent horizontal media rails. Adding another hobby later is a
+              data change instead of another one-off HTML block.
+            </p>
+          </div>
+
+          <div class="hobby-strip" id="hobby-strip"></div>
+
+          <div class="gallery-block">
+            <div class="gallery-block__header">
+              <div>
+                <p class="eyebrow">Scrollable Media</p>
+                <h3>Glider flights</h3>
+              </div>
+              <div class="rail-controls">
+                <button class="rail-nav" type="button" data-scroll-target="glider-gallery" data-scroll-direction="prev" aria-label="Scroll glider gallery left">
+                  <i class="fas fa-arrow-left"></i>
+                </button>
+                <button class="rail-nav" type="button" data-scroll-target="glider-gallery" data-scroll-direction="next" aria-label="Scroll glider gallery right">
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+            <div class="media-rail" id="glider-gallery" data-gallery="glider" aria-label="Scrollable glider photos"></div>
+          </div>
+
+          <div class="gallery-block">
+            <div class="gallery-block__header">
+              <div>
+                <p class="eyebrow">Scrollable Media</p>
+                <h3>Surron and e-bike builds</h3>
+              </div>
+              <div class="rail-controls">
+                <button class="rail-nav" type="button" data-scroll-target="surron-gallery" data-scroll-direction="prev" aria-label="Scroll Surron gallery left">
+                  <i class="fas fa-arrow-left"></i>
+                </button>
+                <button class="rail-nav" type="button" data-scroll-target="surron-gallery" data-scroll-direction="next" aria-label="Scroll Surron gallery right">
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+            <div class="media-rail" id="surron-gallery" data-gallery="surron" aria-label="Scrollable Surron photos"></div>
+          </div>
+        </section>
+
+        <section id="portfolio" class="section-card portfolio-shell" data-aos="fade-up" data-aos-delay="200">
+          <div class="section-heading">
+            <p class="eyebrow">Portfolio</p>
+            <h2 id="portfol">Selected software work.</h2>
+          </div>
           <div class="content portfolio--content">
             <div class="item">
               <a href="#portfolio-modal-1" data-bs-toggle="modal">
@@ -280,47 +353,42 @@
                 <img src="images/portfolio/petshop.png" alt="Pet Shop WebApp">
               </a>
             </div>
-            <hr class="d-print-none"/>
           </div>
         </section>
 
-        <hr class="d-print-none"/>
-
-        <!-- Work Experience -->
-        <div class="work-experience-section px-3">
-          <h1 id="work-exp" class="h1 text-white mb-4">Work Experience 🔨</h1>
+        <section class="section-card" data-aos="fade-up" data-aos-delay="250">
+          <div class="section-heading">
+            <p class="eyebrow">Experience</p>
+            <h2 id="work-exp">Work history</h2>
+          </div>
           <div class="timeline">
             <div class="timeline-card timeline-card-primary card shadow-sm">
               <div class="card-body">
                 <div class="h4 mb-1">Hardware / Software Engineer <span class="text-muted h6">at HEQA Security · Full-time</span></div>
                 <div class="h5 text-muted mb-2">2025 - Present</div>
                 <div class="mb-2">
-                  Building quantum key distribution (QKD) machines and quantum-safe security solutions. Working across hardware and firmware with physics and electrical engineers.
-                  <br/><br/>
-                  · FPGA and SPAD component design and integration
-                  <br/><br/>
-                  · Firmware development: PCIe drivers, Linux-based operations, hardware abstraction
-                  <br/><br/>
-                  · Backend systems: C#, Python, full pipeline orchestration with Azure DevOps
-                  <br/><br/>
-                  · Quantum physics applied to secure communication and cryptographic hardware
+                  Building quantum key distribution machines and quantum-safe security solutions across hardware, firmware, and backend orchestration.
+                  <br><br>
+                  FPGA and SPAD component design and integration.
+                  <br><br>
+                  Firmware development with PCIe drivers, Linux-based operations, and hardware abstraction.
+                  <br><br>
+                  Backend systems in C# and Python with Azure DevOps pipeline orchestration.
                 </div>
               </div>
             </div>
             <div class="timeline-card timeline-card-primary card shadow-sm">
               <div class="card-body">
-                <div class="h4 mb-1">Software Engineer <span class="text-muted h6">at abra R&D Solutions (formerly Devalore) · Full-time</span></div>
+                <div class="h4 mb-1">Software Engineer <span class="text-muted h6">at abra R&amp;D Solutions (formerly Devalore) · Full-time</span></div>
                 <div class="h5 text-muted mb-2">2022 - 2025</div>
                 <div class="mb-2">
-                  Contributed to the development of over 10 production systems with distinct requirements, ranging from e-commerce platforms to internal use apps with .NET:
-                  <br/><br/>
-                  · Engineered CMS and Campaigns backend applications, integrating DynamoDB, S3, SQS, Lambdas, and more.
-                  <br/><br/>
-                  · Constructed server-side applications using the .NET framework, integrated with multiple databases including PostgreSQL and AS400, employing stored procedures for efficient data handling. Anticipated scalability to accommodate thousands of users.
-                  <br/><br/>
-                  · Demonstrated versatility utilizing modern backend technologies, including .NET Core, Node with Typescript, AWS serverless computing services and more.
-                  <br/><br/>
-                  · Proficient in direct customer communication, adept at understanding requirements from inception to execution, and skilled in resolving any issues that arise.
+                  Built and maintained production systems across e-commerce and internal tools with a strong backend focus.
+                  <br><br>
+                  Engineered CMS and campaigns backends with DynamoDB, S3, SQS, Lambda, and other AWS services.
+                  <br><br>
+                  Delivered .NET server-side applications backed by PostgreSQL and AS400 with stored procedure-heavy workflows.
+                  <br><br>
+                  Worked directly with customers to turn requirements into shipped systems.
                 </div>
               </div>
             </div>
@@ -329,82 +397,120 @@
                 <div class="h4 mb-1">Backend Developer <span class="text-muted h6">at SAFE.AI · Freelance</span></div>
                 <div class="h5 text-muted mb-2">2024 - 2025</div>
                 <div class="mb-2">
-                  SAFE.AI is an innovative mental health app offering a unique AI-powered virtual companion to help individuals navigate mental challenges.
-                  <br/><br/>
-                  · Expertise in Python, Flask, SQLAlchemy implementations using Amazon Aurora MySQL.
-                  <br/><br/>
-                  · Contributed to integrating AI techniques and optimizing LLM API usage for enhanced performance.
-                  <br/><br/>
-                  · Lead backend development efforts for scalable application using AWS resources: EC2, RDS, Elastic Beanstalk, S3, Cloudfront etc.
+                  Led backend development for an AI-powered mental health app.
+                  <br><br>
+                  Python, Flask, SQLAlchemy, and Amazon Aurora MySQL.
+                  <br><br>
+                  AWS deployment using EC2, RDS, Elastic Beanstalk, S3, and CloudFront.
+                  <br><br>
+                  Performance-oriented LLM API integration and operational improvements.
                 </div>
               </div>
             </div>
             <div class="timeline-card timeline-card-primary card shadow-sm">
               <div class="card-body">
-                <div class="h4 mb-1">Air Support Officer, cooperation unit 5620 <span class="text-muted h6">at Israel Defense Forces · Reserve service</span></div>
+                <div class="h4 mb-1">Air Support Officer, cooperation unit 5620 <span class="text-muted h6">Israel Defense Forces · Reserve service</span></div>
                 <div class="h5 text-muted mb-2">2022 - Present</div>
-                <div class="mb-2">As an Air Support Officer in a maneuvering brigade, I manage air support based on brigade needs. Actively oversee battle management, analyze and verify maneuvering forces requirements, liaise with intelligence agencies, and translate these into Air Force directives.</div>
+                <div class="mb-2">
+                  Manage air support requirements for maneuvering brigade operations by translating field needs into Air Force directives and battle-management actions.
+                </div>
               </div>
             </div>
             <div class="timeline-card timeline-card-primary card shadow-sm">
               <div class="card-body">
-                <div class="h4 mb-1">Deputy Company Commander <span class="text-muted h6">at Israel Defense Forces · Full-time</span></div>
+                <div class="h4 mb-1">Deputy Company Commander <span class="text-muted h6">Israel Defense Forces · Full-time</span></div>
                 <div class="h5 text-muted mb-2">2018 - 2022</div>
-                <div class="mb-2">Deputy Company Commander, Division 7. Coordinating all professional training for the fighting company and consulting the deputy commander about future activities.</div>
+                <div class="mb-2">
+                  Coordinated professional training for the fighting company and planned future operational activity with the command team.
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        <!-- Education Section -->
-        <div class="education-section">
-          <hr class="d-print-none"/>
-          <h1 id="educate" class="h1 text-white mb-4">Education 🎓</h1>
+        <section class="section-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="section-heading">
+            <p class="eyebrow">Education</p>
+            <h2 id="educate">Formal training</h2>
+          </div>
           <div class="timeline">
-            <div class="timeline-card timeline-card-primary card shadow-sm">
+            <div class="timeline-card timeline-card-success card shadow-sm">
               <div class="card-body">
-                <div class="h4 mb-1">Physics B.Sc. <span class="text-muted h6">at Open University</span></div>
+                <div class="h4 mb-1">Physics B.Sc. <span class="text-muted h6">Open University</span></div>
                 <div class="h5 text-muted mb-2">2023 - Present</div>
-                <div class="mb-2">Studying physics at the Open University has been an engaging experience of learning fundamental principles through interactive online lectures and practical experiments. It has deepened my analytical skills and passion for understanding the complexities of the universe, all while allowing me to maintain flexibility in my studies and personal life.</div>
+                <div class="mb-2">
+                  Building a stronger analytical base in physics while continuing full-time engineering work.
+                </div>
               </div>
             </div>
-            <div class="timeline-card timeline-card-primary card shadow-sm">
+            <div class="timeline-card timeline-card-success card shadow-sm">
               <div class="card-body">
-                <div class="h4 mb-1">Software Developer <span class="text-muted h6">at Sela College</span></div>
+                <div class="h4 mb-1">Software Developer <span class="text-muted h6">Sela College</span></div>
                 <div class="h5 text-muted mb-2">2022 - 2023</div>
-                <div class="mb-2">Software Developer (Tech warriors - 8200) From Scratch In 1 year. ASP.NET, C#, Algorithms and DataStructures, Javascript, OOP, Entityframework & Core, Azure, Design Patterns, Angular, MSSQL, MongoDb, Git and etc. I've learned the foundations of programming and practiced with a variety of popular platforms. In addition I've been learning from a side several subjects that I was intrested in like - Solidity, Blockchain, Web3, Unity 2D/3D, Svelte, aws and more technologies.</div>
+                <div class="mb-2">
+                  Tech-Warriors 8200 track covering ASP.NET, C#, algorithms, data structures, OOP, Entity Framework, Azure, Angular, MSSQL, MongoDB, and more.
+                </div>
               </div>
             </div>
-            <div class="timeline-card timeline-card-primary card shadow-sm">
+            <div class="timeline-card timeline-card-success card shadow-sm">
               <div class="card-body">
-                <div class="h4 mb-1">Computer Programming <span class="text-muted h6">at Technion - Israel Institute of Technology</span></div>
+                <div class="h4 mb-1">Computer Programming <span class="text-muted h6">Technion - Israel Institute of Technology</span></div>
                 <div class="h5 text-muted mb-2">2016 - 2017</div>
-                <div class="mb-2">The scientific-technological major is intended for outstanding students in the fields of science, engineering and entrepreneurship, who show a willingness to work in a team and wish to contribute to society.</div>
+                <div class="mb-2">
+                  Science and technology track for strong students in engineering, entrepreneurship, and collaborative work.
+                </div>
               </div>
             </div>
-            <div class="timeline-card timeline-card-primary card shadow-sm">
+            <div class="timeline-card timeline-card-success card shadow-sm">
               <div class="card-body">
-                <div class="h4 mb-1">High School Studies <span class="text-muted h6">at Ort Zimtbaum</span></div>
+                <div class="h4 mb-1">High School Studies <span class="text-muted h6">Ort Zimtbaum</span></div>
                 <div class="h5 text-muted mb-2">2012 - 2017</div>
-                <div class="mb-2">As a high school graduate, I received honors in science subjects [Science Engineering Program]. Aside from these, I volunteered at the Rescue Unit Arad and assisted people with disabilities.</div>
+                <div class="mb-2">
+                  Graduated with honors in science subjects and volunteered with rescue and disability-support initiatives.
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
+      </div>
+    </main>
 
-        <hr class="d-print-none"/>
-        <div class="col d-none d-print-block">
-          <div class="mt-2">
-            <div><div class="text-dark"><i class="fab fa-twitter mr-1"></i><span>https://twitter.com/AlonKolyakov</span></div></div>
-            <div><div class="text-dark"><i class="fab fa-discord mr-1"></i><span>https://discord.gg/Ujfx22bB</span></div></div>
-            <div><div class="text-dark"><i class="fab fa-linkedin mr-1"></i><span>https://www.linkedin.com/in/alon-kolyakov/</span></div></div>
-            <div><div class="text-dark"><i class="fab fa-github mr-1"></i><span>https://github.com/BloodShop</span></div></div>
-          </div>
+    <footer class="site-footer d-print-none">
+      <div class="container site-footer__grid">
+        <div>
+          <p class="eyebrow">Closing Loop</p>
+          <h2>Engineering with a builder mindset.</h2>
+          <p>
+            The page now has a clearer top navigation, a real footer, data-driven hobby/media sections, and a dedicated animation
+            module so future changes stay additive instead of becoming more inline clutter.
+          </p>
         </div>
+        <div>
+          <p class="site-footer__title">Quick links</p>
+          <a href="#hero">Motion</a>
+          <a href="#maker">Hobbies</a>
+          <a href="#portfol">Portfolio</a>
+          <a href="#work-exp">Experience</a>
+        </div>
+        <div>
+          <p class="site-footer__title">Contact</p>
+          <a href="mailto:koliakovcr7@gmail.com">koliakovcr7@gmail.com</a>
+          <a target="_blank" rel="noreferrer" href="https://api.whatsapp.com/send?phone=972502567324">WhatsApp</a>
+          <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/alon-kolyakov/">LinkedIn</a>
+          <a target="_blank" rel="noreferrer" href="https://blueboard.bloodshop.org">Blueboard</a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="col d-none d-print-block">
+      <div class="mt-2">
+        <div><div class="text-dark"><i class="fab fa-twitter mr-1"></i><span>https://twitter.com/AlonKolyakov</span></div></div>
+        <div><div class="text-dark"><i class="fab fa-discord mr-1"></i><span>https://discord.gg/Ujfx22bB</span></div></div>
+        <div><div class="text-dark"><i class="fab fa-linkedin mr-1"></i><span>https://www.linkedin.com/in/alon-kolyakov/</span></div></div>
+        <div><div class="text-dark"><i class="fab fa-github mr-1"></i><span>https://github.com/BloodShop</span></div></div>
       </div>
     </div>
 
-    <!-- Portfolio Modals -->
     <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-1">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -414,14 +520,16 @@
               <div class="row">
                 <div class="col-lg-0">
                   <h2 class="text-uppercase text-secondary mb-0">Box Manager - BST</h2>
-                  <hr class="star-dark mb-5"><img class="img-fluid mb-1" src="images/portfolio/box.png">
-                  <p class="mb-0">DataStructures and Algorithms Complexity Box WareHouse. Most searches Time complexity of Θ(log n). The main WareHouse stores a BSTree of generic type double, BSTree<double, Box>, TKey and TValue - an inner Tree. The WareHouse class uses it's own function and condition in order to implement the Binary Search Tree Time comlexity of Insertion, Deletion, Add, Search and etc.</p>
+                  <hr class="star-dark mb-5">
+                  <img class="img-fluid mb-1" src="images/portfolio/box.png" alt="Box Manager screenshot">
+                  <p class="mb-0">DataStructures and Algorithms Complexity Box WareHouse. Most searches Time complexity of THETA(log n). The main WareHouse stores a BSTree of generic type double, BSTree&lt;double, Box&gt;, TKey and TValue - an inner Tree.</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="modal-footer pb-2"><a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" href="https://github.com/BloodShop/Box-Project-MVVM-UWP" target="_blank"><i></i>&nbsp;Project Repo</a>
-            <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a>
+          <div class="modal-footer pb-2">
+            <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" href="https://github.com/BloodShop/Box-Project-MVVM-UWP" target="_blank" rel="noreferrer">Project Repo</a>
+            <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" data-bs-dismiss="modal">Close Project</a>
           </div>
         </div>
       </div>
@@ -436,14 +544,16 @@
               <div class="row">
                 <div class="col-lg-0">
                   <h2 class="text-uppercase text-secondary mb-0">Library</h2>
-                  <hr class="star-dark mb-5"><img class="img-fluid mb-1" src="images/portfolio/Library.png">
-                  <p class="mb-0">Our application is a simple way to view what kind of Library Items we have in our stock and make a quick orders. Everyone can access this application without any commitment you can browse the application as a guest without logging in, or you could just simply register as a customer and you will remain our lovely user.<br></p>
+                  <hr class="star-dark mb-5">
+                  <img class="img-fluid mb-1" src="images/portfolio/Library.png" alt="Library manager screenshot">
+                  <p class="mb-0">A library management application for browsing stock and placing quick orders, with guest access and registered customer flows.</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="modal-footer pb-2"><a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" href="https://github.com/BloodShop/AradLibrary" target="_blank"><i></i>&nbsp;Project Repo</a>
-            <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a>
+          <div class="modal-footer pb-2">
+            <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" href="https://github.com/BloodShop/AradLibrary" target="_blank" rel="noreferrer">Project Repo</a>
+            <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" data-bs-dismiss="modal">Close Project</a>
           </div>
         </div>
       </div>
@@ -458,14 +568,16 @@
               <div class="row">
                 <div class="col-lg-0">
                   <h2 class="text-uppercase text-secondary mb-0">TileVania-2D</h2>
-                  <hr class="star-dark mb-5"><img class="img-fluid mb-2" src="images/portfolio/tilevania.png">
-                  <p class="mb-0">TileVania-2D-Game MVP Gameplay. Player Experience: Under pressure Core Mechanic: Run and jump Core game loop: Get from A to B by navigating platforms and avoiding traps and enemies</p>
+                  <hr class="star-dark mb-5">
+                  <img class="img-fluid mb-2" src="images/portfolio/tilevania.png" alt="TileVania screenshot">
+                  <p class="mb-0">TileVania-2D game MVP focused on traversal, pressure, and a simple run-and-jump gameplay loop.</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="modal-footer pb-2"><a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" href="https://github.com/BloodShop/TileVania-2D-Game" target="_blank"><i></i>&nbsp;Project Repo</a>
-            <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a>
+          <div class="modal-footer pb-2">
+            <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" href="https://github.com/BloodShop/TileVania-2D-Game" target="_blank" rel="noreferrer">Project Repo</a>
+            <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" data-bs-dismiss="modal">Close Project</a>
           </div>
         </div>
       </div>
@@ -480,14 +592,16 @@
               <div class="row">
                 <div class="col-lg-0">
                   <h2 class="text-uppercase text-secondary mb-0">Svelte Reviews OS</h2>
-                  <hr class="star-dark mb-5"><img class="img-fluid mb-1" src="images/portfolio/Svelte.png">
-                  <p class="mb-0">This is a project template for Svelte apps.<br></p>
+                  <hr class="star-dark mb-5">
+                  <img class="img-fluid mb-1" src="images/portfolio/Svelte.png" alt="Svelte reviews screenshot">
+                  <p class="mb-0">A Svelte-based review system project exploring lightweight frontend structure and UI patterns.</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="modal-footer pb-2"><a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" href="https://github.com/BloodShop/TempSVELTE" target="_blank"><i></i>&nbsp;Project Repo</a>
-            <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a>
+          <div class="modal-footer pb-2">
+            <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" href="https://github.com/BloodShop/TempSVELTE" target="_blank" rel="noreferrer">Project Repo</a>
+            <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" data-bs-dismiss="modal">Close Project</a>
           </div>
         </div>
       </div>
@@ -502,14 +616,16 @@
               <div class="row">
                 <div class="col-lg-0">
                   <h2 class="text-uppercase text-secondary mb-0">PetShop WebApp</h2>
-                  <hr class="star-dark mb-5"><img class="img-fluid mb-1" src="images/portfolio/petshop.png">
-                  <p class="mb-0">This is a sample which shows most of the common features of ASP.NET Identity. When you create a User using a username or password, the Identity system performs validation on the username and password. ASP.NET Core SignalR, JS, Html, css, JQuery, Cors, Routing and more.</p>
+                  <hr class="star-dark mb-5">
+                  <img class="img-fluid mb-1" src="images/portfolio/petshop.png" alt="Pet shop screenshot">
+                  <p class="mb-0">Sample ASP.NET Identity application demonstrating common web app features with SignalR, routing, JS, HTML, CSS, and jQuery.</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="modal-footer pb-2"><a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" href="https://github.com/BloodShop/pet-shop" target="_blank"><i></i>&nbsp;Project Repo</a>
-            <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a>
+          <div class="modal-footer pb-2">
+            <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" href="https://github.com/BloodShop/pet-shop" target="_blank" rel="noreferrer">Project Repo</a>
+            <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" data-bs-dismiss="modal">Close Project</a>
           </div>
         </div>
       </div>
@@ -523,242 +639,25 @@
             <div class="container text-center">
               <div class="row">
                 <div class="col-lg-0">
-                  <h2><a target="_blank" href="https://dxclrt.pages.dev/" class="text-uppercase text-secondary mb-0">dexcelerate cryptocurrencies trading</a></h2>
-                  <hr class="star-dark mb-0"><img class="img-fluid mb-1" src="images/portfolio/dexcelerate.png">
-                  <p class="mb-0">State-of-the-art trading platform powered by blockchain technology - designed for professional traders seeking maximum speed and reliability. [<a href="https://dxclrt.pages.dev/" target="_blank">dev-link</a>][<a href="https://app.dexcelerate.com" target="_blank">prod-link</a>][<a href="https://www.dexcelerate.com" target="_blank">Site</a>]</p>
+                  <h2><a target="_blank" rel="noreferrer" href="https://dxclrt.pages.dev/" class="text-uppercase text-secondary mb-0">dexcelerate cryptocurrencies trading</a></h2>
+                  <hr class="star-dark mb-0">
+                  <img class="img-fluid mb-1" src="images/portfolio/dexcelerate.png" alt="dexcelerate screenshot">
+                  <p class="mb-0">Blockchain-oriented trading platform designed for professional traders focused on speed and reliability.</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="modal-footer pb-2"><a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" href="https://github.com/BloodShop/jewbot" target="_blank"><i></i>&nbsp;Project Repo</a>
-            <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a>
+          <div class="modal-footer pb-2">
+            <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" href="https://github.com/BloodShop/jewbot" target="_blank" rel="noreferrer">Project Repo</a>
+            <a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" data-bs-dismiss="modal">Close Project</a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Three.js Script -->
-    <script type="module">
-      import * as THREE from 'https://cdn.jsdelivr.net/npm/three@r128/build/three.module.js';
-
-      const canvas = document.getElementById('hero-canvas');
-      const labelEl = document.getElementById('scene-label');
-
-      if (!canvas) {
-        console.error('Canvas not found');
-        // Fallback: show message
-        document.body.insertAdjacentHTML('beforeend', '<p style="color: red; padding: 20px;">3D animation loading...</p>');
-        return;
-      }
-
-      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      renderer.setClearColor(0xfafafa);
-
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(60, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-      camera.position.set(0, 1.2, 4);
-
-      // Simple lighting
-      const light1 = new THREE.DirectionalLight(0xffffff, 1.0);
-      light1.position.set(5, 8, 5);
-      scene.add(light1);
-
-      const light2 = new THREE.AmbientLight(0xffffff, 0.6);
-      scene.add(light2);
-
-      const character = new THREE.Group();
-      scene.add(character);
-
-      // Head
-      const head = new THREE.Mesh(
-        new THREE.SphereGeometry(0.35, 32, 32),
-        new THREE.MeshPhongMaterial({ color: 0xf5b895 })
-      );
-      head.position.y = 1.45;
-      character.add(head);
-
-      // Body
-      const body = new THREE.Mesh(
-        new THREE.BoxGeometry(0.5, 0.85, 0.3),
-        new THREE.MeshPhongMaterial({ color: 0x2a3f5f })
-      );
-      body.position.y = 0.5;
-      character.add(body);
-
-      // Arms
-      const armL = new THREE.Mesh(
-        new THREE.CylinderGeometry(0.1, 0.1, 0.6, 16),
-        new THREE.MeshPhongMaterial({ color: 0xf5b895 })
-      );
-      armL.position.set(-0.35, 0.75, 0);
-      character.add(armL);
-
-      const armR = armL.clone();
-      armR.position.set(0.35, 0.75, 0);
-      character.add(armR);
-
-      // Legs
-      const legL = new THREE.Mesh(
-        new THREE.CylinderGeometry(0.12, 0.12, 0.8, 16),
-        new THREE.MeshPhongMaterial({ color: 0x1f1f1f })
-      );
-      legL.position.set(-0.15, -0.25, 0);
-      character.add(legL);
-
-      const legR = legL.clone();
-      legR.position.set(0.15, -0.25, 0);
-      character.add(legR);
-
-      // Onewheel
-      const wheel = new THREE.Mesh(
-        new THREE.TorusGeometry(0.45, 0.1, 16, 100),
-        new THREE.MeshPhongMaterial({ color: 0x0a0a0a })
-      );
-      wheel.rotation.z = Math.PI / 2;
-      wheel.position.y = -0.15;
-      character.add(wheel);
-
-      // Skateboard
-      const skate = new THREE.Mesh(
-        new THREE.BoxGeometry(2.2, 0.12, 0.5),
-        new THREE.MeshPhongMaterial({ color: 0xc84d2a })
-      );
-      skate.position.y = -0.25;
-      character.add(skate);
-
-      // Glider wing
-      const glider = new THREE.Mesh(
-        new THREE.BoxGeometry(4.5, 0.08, 0.6),
-        new THREE.MeshPhongMaterial({ color: 0xddd0bf })
-      );
-      glider.position.y = 0.05;
-      character.add(glider);
-
-      // Desk
-      const desk = new THREE.Mesh(
-        new THREE.BoxGeometry(2.2, 0.1, 0.9),
-        new THREE.MeshPhongMaterial({ color: 0x8b6f47 })
-      );
-      desk.position.y = -0.4;
-      character.add(desk);
-
-      // Bed
-      const bed = new THREE.Mesh(
-        new THREE.BoxGeometry(2.6, 0.2, 1.2),
-        new THREE.MeshPhongMaterial({ color: 0xf4ede5 })
-      );
-      bed.position.y = -0.5;
-      character.add(bed);
-
-      const states = ['OneWheel mode', 'Electric skateboard', 'Glider flight', 'Lifted desk coding', 'Sleep / reset'];
-      const stateDuration = 3.5;
-      const clock = new THREE.Clock();
-
-      function animate() {
-        try {
-          const elapsed = clock.getElapsedTime();
-          const cycle = elapsed % (states.length * stateDuration);
-          const stateIdx = Math.floor(cycle / stateDuration);
-
-          labelEl.textContent = states[stateIdx];
-
-          // Rotate character
-          character.rotation.y += 0.003;
-
-          // Bobbing motion
-          const bob = Math.sin(elapsed * 2.2) * 0.08;
-
-          // Show/hide vehicles
-          wheel.visible = stateIdx === 0;
-          skate.visible = stateIdx === 1;
-          glider.visible = stateIdx === 2;
-          desk.visible = stateIdx === 3;
-          bed.visible = stateIdx === 4;
-
-          // Apply animations
-          if (stateIdx === 0) {
-            // OneWheel
-            character.position.y = bob;
-            wheel.rotation.x += 0.08;
-            armL.rotation.z = Math.sin(elapsed * 2.5) * 0.3;
-            armR.rotation.z = -Math.sin(elapsed * 2.5) * 0.3;
-          } else if (stateIdx === 1) {
-            // Skateboard
-            character.position.y = bob;
-            skate.rotation.x += 0.05;
-            armL.rotation.z = Math.sin(elapsed * 3) * 0.4;
-            armR.rotation.z = -Math.sin(elapsed * 3) * 0.4;
-          } else if (stateIdx === 2) {
-            // Glider
-            character.position.y = Math.sin(elapsed * 1.5) * 0.3 + 0.3;
-            character.position.x = Math.cos(elapsed * 0.8) * 0.3;
-            armL.rotation.z = -0.6;
-            armR.rotation.z = 0.6;
-            glider.rotation.x = Math.sin(elapsed * 0.8) * 0.15;
-          } else if (stateIdx === 3) {
-            // Coding
-            character.position.y = bob * 0.3;
-            armL.rotation.x = -1.0;
-            armR.rotation.x = -1.0;
-            head.rotation.z = Math.sin(elapsed * 1.2) * 0.1;
-          } else if (stateIdx === 4) {
-            // Sleep
-            character.position.y = -0.2;
-            character.rotation.z = Math.PI / 2.8;
-            head.rotation.z = 0.2;
-            legL.rotation.x = 0.1;
-            legR.rotation.x = -0.05;
-          }
-
-          renderer.render(scene, camera);
-          requestAnimationFrame(animate);
-        } catch (e) {
-          console.error('Animation error:', e);
-        }
-      }
-
-      function onWindowResize() {
-        const w = canvas.clientWidth;
-        const h = canvas.clientHeight;
-        camera.aspect = w / h;
-        camera.updateProjectionMatrix();
-        renderer.setSize(w, h, false);
-      }
-
-      window.addEventListener('resize', onWindowResize);
-      onWindowResize();
-      animate();
-
-      // Load Surron and Glider images
-      const gallery = document.getElementById('surron-gallery');
-      const surronImages = [
-        'surron_IMG20250828183413.jpg',
-        'surron_IMG-20250918-WA0086.jpg',
-        'surron_IMG20250930075650.jpg',
-        'surron_IMG20260130110701.jpg'
-      ];
-      const gliderImages = [
-        'glider_9b035380755aae15dd2183bedb6d967d_336235.89999992255_1773847784943.jpg',
-        'glider_c38b39c283c8194c12cad330375c5688_2206637.766666512_1773848033911.jpg',
-        'glider_IMG20251128111432.jpg'
-      ];
-
-      const allImages = [...surronImages, ...gliderImages];
-      allImages.forEach(img => {
-        const imgEl = document.createElement('img');
-        imgEl.src = `images/${img}`;
-        imgEl.className = 'surron-img';
-        imgEl.alt = img;
-        imgEl.loading = 'lazy';
-        gallery.appendChild(imgEl);
-      });
-
-      console.log('Loading', allImages.length, 'images');
-    </script>
-
     <script defer src="scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
     <script defer src="scripts/aos.js?ver=1.2.0"></script>
-    <script defer src="scripts/main.js?ver=1.2.0"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+    <script defer src="scripts/main.js?ver=1.3.0"></script>
   </body>
 </html>
