@@ -29,6 +29,7 @@
       .maker-card h3 { margin-top: 0; color: #2c3e50; }
       .surron-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 24px; }
       .surron-img { width: 100%; height: 250px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+      .skills-section span { color: #2c3e50 !important; font-weight: 600 !important; }
     </style>
     <script defer src="scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
     <script defer src="scripts/aos.js?ver=1.2.0"></script>
@@ -285,6 +286,17 @@
           <div class="timeline">
             <div class="timeline-card timeline-card-primary card shadow-sm">
               <div class="card-body">
+                <div class="h4 mb-1">Software Engineer / Security Engineer <span class="text-muted h6">at HEQA Security · Full-time</span></div>
+                <div class="h5 text-muted mb-2">2025 - Present</div>
+                <div class="mb-2">
+                  Building security solutions and infrastructure. Advanced backend systems, cloud security, and integration with modern security frameworks.
+                  <br/><br/>
+                  · Update details from your LinkedIn profile as needed
+                </div>
+              </div>
+            </div>
+            <div class="timeline-card timeline-card-primary card shadow-sm">
+              <div class="card-body">
                 <div class="h4 mb-1">Software Engineer <span class="text-muted h6">at abra R&D Solutions (formerly Devalore) · Full-time</span></div>
                 <div class="h5 text-muted mb-2">2022 - Present</div>
                 <div class="mb-2">
@@ -527,67 +539,166 @@
       scene.background = new THREE.Color(0xf5f5f5);
 
       const camera = new THREE.PerspectiveCamera(50, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-      camera.position.set(0, 2, 6);
+      camera.position.set(0, 1.8, 5);
+      camera.lookAt(0, 0.5, 0);
 
-      const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+      const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
       scene.add(ambientLight);
 
-      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-      directionalLight.position.set(5, 5, 5);
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);
+      directionalLight.position.set(6, 8, 4);
       scene.add(directionalLight);
 
-      // Simple character
+      const rimLight = new THREE.DirectionalLight(0x7da3d8, 0.6);
+      rimLight.position.set(-6, 3, -3);
+      scene.add(rimLight);
+
+      // Better character model
       const character = new THREE.Group();
       scene.add(character);
 
-      const body = new THREE.Mesh(
-        new THREE.BoxGeometry(0.5, 1, 0.3),
-        new THREE.MeshPhongMaterial({ color: 0x333333 })
-      );
-      body.position.y = 0.5;
-      character.add(body);
-
+      // Head
       const head = new THREE.Mesh(
-        new THREE.SphereGeometry(0.3, 32, 32),
-        new THREE.MeshPhongMaterial({ color: 0xffdbac })
+        new THREE.SphereGeometry(0.35, 32, 32),
+        new THREE.MeshPhongMaterial({ color: 0xf4a26b, shininess: 30 })
       );
-      head.position.y = 1.4;
+      head.position.y = 1.35;
       character.add(head);
 
-      // Vehicles
-      const onewheel = new THREE.Mesh(
-        new THREE.TorusGeometry(0.4, 0.1, 16, 32),
-        new THREE.MeshPhongMaterial({ color: 0x222222 })
+      // Torso
+      const torso = new THREE.Mesh(
+        new THREE.BoxGeometry(0.45, 0.75, 0.35),
+        new THREE.MeshPhongMaterial({ color: 0x2c3e50, shininess: 20 })
       );
-      onewheel.rotation.y = Math.PI / 2;
-      onewheel.position.y = -0.2;
+      torso.position.y = 0.65;
+      character.add(torso);
+
+      // Arms
+      const armL = new THREE.Mesh(
+        new THREE.BoxGeometry(0.15, 0.7, 0.15),
+        new THREE.MeshPhongMaterial({ color: 0xf4a26b, shininess: 20 })
+      );
+      armL.position.set(-0.35, 0.7, 0);
+      character.add(armL);
+
+      const armR = new THREE.Mesh(
+        new THREE.BoxGeometry(0.15, 0.7, 0.15),
+        new THREE.MeshPhongMaterial({ color: 0xf4a26b, shininess: 20 })
+      );
+      armR.position.set(0.35, 0.7, 0);
+      character.add(armR);
+
+      // Legs
+      const legL = new THREE.Mesh(
+        new THREE.BoxGeometry(0.18, 0.8, 0.18),
+        new THREE.MeshPhongMaterial({ color: 0x1a1a1a, shininess: 10 })
+      );
+      legL.position.set(-0.15, -0.2, 0);
+      character.add(legL);
+
+      const legR = new THREE.Mesh(
+        new THREE.BoxGeometry(0.18, 0.8, 0.18),
+        new THREE.MeshPhongMaterial({ color: 0x1a1a1a, shininess: 10 })
+      );
+      legR.position.set(0.15, -0.2, 0);
+      character.add(legR);
+
+      // Vehicles - More detailed
+      const onewheel = new THREE.Group();
+      const owWheel = new THREE.Mesh(
+        new THREE.TorusGeometry(0.45, 0.12, 20, 40),
+        new THREE.MeshPhongMaterial({ color: 0x1a1a1a, shininess: 60 })
+      );
+      owWheel.rotation.z = Math.PI / 2;
+      onewheel.add(owWheel);
+      const owHub = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.1, 0.1, 0.15, 32),
+        new THREE.MeshPhongMaterial({ color: 0x444444 })
+      );
+      owHub.rotation.z = Math.PI / 2;
+      onewheel.add(owHub);
+      onewheel.position.y = -0.15;
       character.add(onewheel);
 
-      const skateboard = new THREE.Mesh(
-        new THREE.BoxGeometry(2, 0.2, 0.5),
-        new THREE.MeshPhongMaterial({ color: 0xaa5533 })
+      // Skateboard
+      const skateboard = new THREE.Group();
+      const skBoard = new THREE.Mesh(
+        new THREE.BoxGeometry(2.2, 0.15, 0.6),
+        new THREE.MeshPhongMaterial({ color: 0xb8601b, shininess: 40 })
       );
-      skateboard.position.y = -0.3;
+      skateboard.add(skBoard);
+      const skWheel1 = new THREE.Mesh(
+        new THREE.TorusGeometry(0.3, 0.08, 16, 32),
+        new THREE.MeshPhongMaterial({ color: 0x1a1a1a })
+      );
+      skWheel1.position.set(-0.7, -0.15, 0);
+      skWheel1.rotation.z = Math.PI / 2;
+      skateboard.add(skWheel1);
+      const skWheel2 = skWheel1.clone();
+      skWheel2.position.set(0.7, -0.15, 0);
+      skateboard.add(skWheel2);
+      skateboard.position.y = -0.25;
       character.add(skateboard);
 
-      const glider = new THREE.Mesh(
-        new THREE.BoxGeometry(4, 0.1, 0.5),
-        new THREE.MeshPhongMaterial({ color: 0xcccccc })
+      // Glider
+      const glider = new THREE.Group();
+      const glWing = new THREE.Mesh(
+        new THREE.BoxGeometry(4.5, 0.08, 0.6),
+        new THREE.MeshPhongMaterial({ color: 0xd4c5b0, shininess: 50 })
       );
-      glider.position.y = 0;
+      glider.add(glWing);
+      const glFuselage = new THREE.Mesh(
+        new THREE.BoxGeometry(2.2, 0.12, 0.35),
+        new THREE.MeshPhongMaterial({ color: 0xa85d3a, shininess: 30 })
+      );
+      glider.add(glFuselage);
+      glider.position.y = 0.05;
       character.add(glider);
 
-      const desk = new THREE.Mesh(
-        new THREE.BoxGeometry(2, 0.1, 1),
-        new THREE.MeshPhongMaterial({ color: 0x8b6f47 })
+      // Desk
+      const desk = new THREE.Group();
+      const deskTop = new THREE.Mesh(
+        new THREE.BoxGeometry(2.2, 0.12, 1.0),
+        new THREE.MeshPhongMaterial({ color: 0x8b6f47, shininess: 35 })
       );
-      desk.position.y = -0.3;
+      desk.add(deskTop);
+      const deskLeg1 = new THREE.Mesh(
+        new THREE.BoxGeometry(0.12, 0.8, 0.12),
+        new THREE.MeshPhongMaterial({ color: 0x3d2817 })
+      );
+      deskLeg1.position.set(-1.0, -0.4, 0);
+      desk.add(deskLeg1);
+      const deskLeg2 = deskLeg1.clone();
+      deskLeg2.position.set(1.0, -0.4, 0);
+      desk.add(deskLeg2);
+      const monitor = new THREE.Mesh(
+        new THREE.BoxGeometry(1.0, 0.65, 0.08),
+        new THREE.MeshPhongMaterial({ color: 0x1a1a1a })
+      );
+      monitor.position.set(0.3, 0.6, -0.4);
+      desk.add(monitor);
+      desk.position.y = -0.35;
       character.add(desk);
 
-      const bed = new THREE.Mesh(
-        new THREE.BoxGeometry(2, 0.15, 1.2),
-        new THREE.MeshPhongMaterial({ color: 0xe0d5cc })
+      // Bed
+      const bed = new THREE.Group();
+      const mattress = new THREE.Mesh(
+        new THREE.BoxGeometry(2.4, 0.2, 1.2),
+        new THREE.MeshPhongMaterial({ color: 0xf0e8d8, shininess: 20 })
       );
+      bed.add(mattress);
+      const pillow = new THREE.Mesh(
+        new THREE.BoxGeometry(0.7, 0.25, 0.5),
+        new THREE.MeshPhongMaterial({ color: 0xffffff, shininess: 15 })
+      );
+      pillow.position.set(-0.7, 0.15, -0.25);
+      bed.add(pillow);
+      const blanket = new THREE.Mesh(
+        new THREE.BoxGeometry(1.4, 0.15, 0.8),
+        new THREE.MeshPhongMaterial({ color: 0x1c6d72, shininess: 25 })
+      );
+      blanket.position.set(0.5, 0.12, 0.1);
+      bed.add(blanket);
       bed.position.y = -0.5;
       character.add(bed);
 
@@ -602,7 +713,7 @@
         currentStateIndex = Math.floor(cycle / stateDuration);
         labelEl.textContent = states[currentStateIndex];
 
-        character.rotation.y += 0.005;
+        character.rotation.y += 0.004;
 
         // Show/hide vehicles based on state
         onewheel.visible = currentStateIndex === 0;
@@ -611,7 +722,26 @@
         desk.visible = currentStateIndex === 3;
         bed.visible = currentStateIndex === 4;
 
-        body.position.y = 0.5 + Math.sin(elapsed * 2) * 0.1;
+        // Subtle bobbing animation
+        const bob = Math.sin(elapsed * 2.2) * 0.12;
+        torso.position.y = 0.65 + bob;
+        head.position.y = 1.35 + bob;
+        legL.position.y = -0.2 + bob * 0.5;
+        legR.position.y = -0.2 + bob * 0.5;
+        armL.position.y = 0.7 + bob * 0.3;
+        armR.position.y = 0.7 + bob * 0.3;
+
+        // Arm swinging
+        if (currentStateIndex === 0 || currentStateIndex === 1) {
+          armL.rotation.z = Math.sin(elapsed * 3) * 0.4;
+          armR.rotation.z = -Math.sin(elapsed * 3) * 0.4;
+        } else if (currentStateIndex === 3) {
+          armL.rotation.z = -0.8;
+          armR.rotation.z = 0.8;
+        } else {
+          armL.rotation.z = 0;
+          armR.rotation.z = 0;
+        }
 
         renderer.render(scene, camera);
         requestAnimationFrame(updateScene);
@@ -629,28 +759,43 @@
       onWindowResize();
       updateScene();
 
-      // Load Surron images
+      // Load Surron and Glider images dynamically
       const gallery = document.getElementById('surron-gallery');
-      const surronImages = ['surron1.jpg', 'surron2.jpg', 'surron3.jpg', 'surron4.jpg', 'surron5.jpg'].filter(name => {
-        // Check if file might exist
-        return true;
+      const imagesToLoad = [
+        'surron_IMG20250828183413.jpg',
+        'surron_IMG-20250918-WA0086.jpg',
+        'surron_IMG20250930075650.jpg',
+        'surron_IMG20260130110701.jpg'
+      ];
+
+      // Try to load each image
+      imagesToLoad.forEach(img => {
+        const imgPath = `images/${img}`;
+        const imgEl = document.createElement('img');
+        imgEl.src = imgPath;
+        imgEl.className = 'surron-img';
+        imgEl.alt = img;
+        imgEl.onerror = function() { console.log('Failed to load:', imgPath); };
+        imgEl.onload = function() { console.log('Loaded:', imgPath); };
+        gallery.appendChild(imgEl);
       });
 
-      // Try to load all surron* images from the images folder
-      fetch('/images')
-        .catch(() => {
-          // Fallback: manually check common surron image names
-          const imagesToTry = ['surron.jpg', 'surron1.jpg', 'surron2.jpg', 'surron3.jpg', 'surron_bike.jpg', 'surron_build.jpg'];
-          imagesToTry.forEach(img => {
-            const imgPath = `images/${img}`;
-            const imgEl = document.createElement('img');
-            imgEl.src = imgPath;
-            imgEl.className = 'surron-img';
-            imgEl.alt = img;
-            imgEl.onerror = function() { this.style.display = 'none'; };
-            gallery.appendChild(imgEl);
-          });
-        });
+      // Also try to load any glider* images
+      const gliderTries = ['glider1.jpg', 'glider2.jpg', 'glider.jpg', 'glider_flying.jpg'];
+      gliderTries.forEach(img => {
+        const imgPath = `images/${img}`;
+        const imgEl = document.createElement('img');
+        imgEl.src = imgPath;
+        imgEl.className = 'surron-img';
+        imgEl.alt = img;
+        imgEl.style.display = 'none';
+        imgEl.onerror = function() { /* silently skip if not found */ };
+        imgEl.onload = function() { 
+          this.style.display = 'block';
+          console.log('Loaded glider image:', imgPath); 
+        };
+        gallery.appendChild(imgEl);
+      });
     </script>
 
     <script defer src="scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
