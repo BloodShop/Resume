@@ -4,24 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alon Kolyakov — Builder, Engineer, Pilot</title>
-  <meta name="description" content="Resume and portfolio of Alon Kolyakov — software engineer, builder, founder, and glider pilot." />
+  <meta name="description" content="Alon Kolyakov — software engineer, founder, maker, glider pilot." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f4efe6;
-      --paper: #fbf7f0;
-      --ink: #1f2321;
-      --muted: #5b625d;
-      --line: rgba(31, 35, 33, 0.14);
-      --accent: #cb5c32;
-      --accent-2: #236a52;
-      --accent-3: #c89b2a;
-      --panel: rgba(251, 247, 240, 0.78);
-      --shadow: 0 16px 60px rgba(63, 42, 20, 0.12);
-      --radius: 26px;
-      --max: 1240px;
+      --bg: #f4efe7;
+      --bg-2: #e6ded2;
+      --paper: #fbf8f2;
+      --ink: #1f1a17;
+      --muted: #665b52;
+      --line: rgba(31, 26, 23, 0.14);
+      --accent: #b9502d;
+      --accent-2: #1c6d72;
+      --accent-3: #d7a742;
+      --shadow: 0 18px 60px rgba(54, 39, 24, 0.12);
+      --radius: 28px;
+      --container: min(1200px, calc(100vw - 32px));
     }
 
     * { box-sizing: border-box; }
@@ -29,11 +29,11 @@
     body {
       margin: 0;
       font-family: 'Manrope', sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(203,92,50,0.16), transparent 26%),
-        radial-gradient(circle at 90% 12%, rgba(35,106,82,0.12), transparent 18%),
-        linear-gradient(180deg, #f7f1e7 0%, #efe6d8 100%);
       color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(215,167,66,.18), transparent 30%),
+        radial-gradient(circle at 85% 10%, rgba(28,109,114,.12), transparent 24%),
+        linear-gradient(180deg, var(--bg), #efe6da 36%, #f6f1e9 100%);
       line-height: 1.5;
     }
 
@@ -41,728 +41,1098 @@
       content: '';
       position: fixed;
       inset: 0;
-      background-image:
-        linear-gradient(rgba(31,35,33,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(31,35,33,0.03) 1px, transparent 1px);
-      background-size: 32px 32px;
-      mask-image: radial-gradient(circle at center, black 55%, transparent 92%);
       pointer-events: none;
+      opacity: .17;
+      background-image:
+        linear-gradient(to right, transparent 0 calc(100% - 1px), rgba(43, 34, 27, 0.05) calc(100% - 1px)),
+        linear-gradient(to bottom, transparent 0 calc(100% - 1px), rgba(43, 34, 27, 0.05) calc(100% - 1px));
+      background-size: 40px 40px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,.75), transparent 92%);
       z-index: -1;
     }
 
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
 
-    .shell {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 24px auto 56px;
+    .shell { width: var(--container); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(244, 239, 231, 0.72);
+      border-bottom: 1px solid rgba(31, 26, 23, 0.07);
     }
 
-    .nav {
-      position: sticky;
-      top: 14px;
-      z-index: 20;
+    .topbar-inner {
+      width: var(--container);
+      margin: 0 auto;
       display: flex;
-      gap: 18px;
       align-items: center;
       justify-content: space-between;
-      padding: 14px 18px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(251, 247, 240, 0.8);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 8px 34px rgba(63,42,20,0.08);
-      margin-bottom: 24px;
+      gap: 18px;
+      min-height: 72px;
     }
 
     .brand {
-      display: flex; align-items: center; gap: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
       font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      font-size: 0.82rem;
+      letter-spacing: -.03em;
     }
 
     .brand-mark {
-      width: 42px; height: 42px; border-radius: 14px;
-      display: grid; place-items: center;
-      background: linear-gradient(135deg, var(--accent), #e58c49);
-      color: #fff8f2;
-      font-family: 'Syne', sans-serif;
-      font-size: 1.15rem;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.4);
-    }
-
-    .nav-links { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
-    .nav-links a {
-      font-size: 0.94rem;
-      color: var(--muted);
-      padding: 8px 10px;
-      border-radius: 999px;
-      transition: .2s ease;
-    }
-    .nav-links a:hover { background: rgba(31,35,33,0.06); color: var(--ink); }
-
-    .hero {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
       display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.9fr);
-      gap: 26px;
-      align-items: stretch;
-      margin-bottom: 26px;
-    }
-
-    .hero-main, .hero-side, .panel {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--panel);
-      backdrop-filter: blur(10px);
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), #d87b4d);
+      color: #fff7ef;
+      font-family: 'Syne', sans-serif;
       box-shadow: var(--shadow);
     }
 
-    .hero-main {
-      padding: clamp(26px, 4vw, 50px);
-      position: relative;
-      overflow: hidden;
-      min-height: 530px;
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      justify-content: flex-end;
+      font-size: .95rem;
+      color: var(--muted);
     }
 
-    .hero-main::after {
+    .nav a { position: relative; }
+    .nav a::after {
       content: '';
       position: absolute;
-      right: -60px;
-      bottom: -80px;
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(35,106,82,0.2) 0%, rgba(35,106,82,0.03) 55%, transparent 75%);
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 1px;
+      background: var(--ink);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .24s ease;
+    }
+    .nav a:hover::after { transform: scaleX(1); }
+
+    .hero {
+      padding: 42px 0 28px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: clamp(22px, 4vw, 44px);
+      align-items: stretch;
     }
 
     .eyebrow {
       display: inline-flex;
-      gap: 10px;
-      align-items: center;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(31,35,33,0.05);
-      color: var(--muted);
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      font-size: .77rem;
-      margin-bottom: 24px;
-    }
-
-    h1, h2, h3, .display {
-      margin: 0;
-      font-family: 'Syne', sans-serif;
-      line-height: .95;
-      letter-spacing: -0.04em;
-    }
-
-    .display {
-      font-size: clamp(3rem, 8vw, 6.7rem);
-      max-width: 10ch;
-      margin-bottom: 20px;
-    }
-
-    .lead {
-      max-width: 62ch;
-      font-size: clamp(1rem, 1.8vw, 1.18rem);
-      color: var(--muted);
-      margin-bottom: 26px;
-    }
-
-    .hero-tags, .chips {
-      display: flex; flex-wrap: wrap; gap: 10px;
-    }
-
-    .hero-tags span, .chip {
-      display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(31,35,33,0.1);
-      background: rgba(255,255,255,0.45);
-      font-weight: 700;
-      font-size: 0.92rem;
-    }
-
-    .hero-cta {
-      display: flex; flex-wrap: wrap; gap: 12px;
-      margin-top: 28px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 18px;
-      border-radius: 18px;
-      font-weight: 800;
+      padding: 8px 14px;
       border: 1px solid var(--line);
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-    }
-    .button:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(63,42,20,0.12); }
-    .button.primary { background: var(--ink); color: var(--paper); }
-    .button.secondary { background: rgba(255,255,255,0.5); }
-
-    .hero-side {
-      padding: 20px;
-      display: grid;
-      grid-template-rows: auto auto 1fr;
-      gap: 18px;
+      border-radius: 999px;
+      background: rgba(251, 248, 242, 0.7);
+      color: var(--muted);
+      font-size: .9rem;
     }
 
-    .portrait {
-      position: relative;
-      aspect-ratio: 4 / 4.6;
-      overflow: hidden;
-      border-radius: 24px;
-      border: 1px solid rgba(31,35,33,0.12);
-      background: linear-gradient(135deg, rgba(35,106,82,0.14), rgba(203,92,50,0.12));
+    .hero-copy {
+      padding: clamp(14px, 2vw, 24px) 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
-    .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 
-    .stamp-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    h1, h2, h3 {
+      font-family: 'Syne', sans-serif;
+      letter-spacing: -.04em;
+      line-height: .95;
+      margin: 0;
+    }
+
+    .hero h1 {
+      margin-top: 18px;
+      font-size: clamp(3.6rem, 8vw, 7rem);
+      max-width: 10ch;
+    }
+
+    .hero-sub {
+      margin: 22px 0 26px;
+      max-width: 58ch;
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      color: var(--muted);
+    }
+
+    .hero-sub strong { color: var(--ink); }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
       gap: 12px;
-    }
-
-    .stamp {
-      padding: 14px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.46);
-      border: 1px solid rgba(31,35,33,0.09);
-    }
-    .stamp strong { display: block; font-size: 1.5rem; font-family: 'Syne', sans-serif; }
-    .stamp span { font-size: .84rem; color: var(--muted); font-weight: 700; }
-
-    .section-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 24px;
       margin-bottom: 24px;
     }
 
-    .panel {
-      padding: 24px;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--ink); color: #f8f3ea; }
+    .btn-secondary { border-color: var(--line); background: rgba(251,248,242,.62); }
+
+    .signal-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .signal {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(251, 248, 242, 0.74);
+      border: 1px solid rgba(31,26,23,.08);
+      box-shadow: var(--shadow);
+    }
+
+    .signal b {
+      display: block;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.25rem;
+      margin-bottom: 4px;
+    }
+
+    .hero-stage {
+      position: relative;
+      min-height: 620px;
+      border-radius: 36px;
       overflow: hidden;
+      border: 1px solid rgba(31, 26, 23, 0.1);
+      box-shadow: 0 30px 80px rgba(66, 40, 20, 0.16);
+      background:
+        linear-gradient(180deg, rgba(255,247,235,.8), rgba(240,230,219,.98)),
+        radial-gradient(circle at top, rgba(215,167,66,.18), transparent 35%);
+    }
+
+    #hero-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: auto 20px 20px 20px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .scene-chip {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(251, 248, 242, 0.86);
+      border: 1px solid rgba(31,26,23,.08);
+      font-weight: 700;
+      box-shadow: var(--shadow);
+    }
+
+    .scene-progress {
+      height: 10px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(31, 26, 23, 0.08);
+    }
+
+    .scene-progress > span {
+      display: block;
+      height: 100%;
+      width: 20%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--accent-3));
+      transform-origin: left;
+    }
+
+    .section {
+      padding: 34px 0;
     }
 
     .section-head {
-      display: flex; justify-content: space-between; align-items: end; gap: 12px;
-      margin-bottom: 20px;
-    }
-    .section-head h2 { font-size: clamp(1.7rem, 2vw, 2.4rem); }
-    .section-head p { margin: 0; color: var(--muted); max-width: 34ch; }
-
-    .bio {
-      display: grid; gap: 18px;
-    }
-    .bio p { margin: 0; color: var(--muted); }
-
-    .maker-list {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 8px;
-    }
-
-    .maker-card {
-      padding: 16px;
-      border: 1px solid rgba(31,35,33,0.09);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.42);
-    }
-    .maker-card h3 { font-size: 1.08rem; margin-bottom: 8px; }
-    .maker-card p { color: var(--muted); margin: 0; font-size: .95rem; }
-
-    .skill-clusters {
-      display: grid;
-      gap: 18px;
-    }
-    .cluster {
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.46);
-      border: 1px solid rgba(31,35,33,0.09);
-    }
-    .cluster h3 { font-size: 1rem; margin-bottom: 12px; }
-
-    .timeline {
-      display: grid;
-      gap: 16px;
-    }
-
-    .entry {
-      position: relative;
-      padding: 18px 18px 18px 22px;
-      border-left: 3px solid rgba(31,35,33,0.12);
-      background: linear-gradient(90deg, rgba(255,255,255,0.55), rgba(255,255,255,0.22));
-      border-radius: 0 18px 18px 0;
-    }
-    .entry::before {
-      content: '';
-      position: absolute;
-      left: -8px;
-      top: 20px;
-      width: 13px; height: 13px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 4px rgba(203,92,50,0.18);
-    }
-    .entry-header {
-      display: flex; justify-content: space-between; gap: 16px; align-items: start;
-      margin-bottom: 8px;
-    }
-    .entry h3 { font-size: 1.16rem; margin-bottom: 6px; }
-    .entry .meta { color: var(--muted); font-weight: 700; }
-    .entry p { margin: 0; color: var(--muted); }
-    .entry ul { margin: 10px 0 0 18px; color: var(--muted); padding: 0; }
-
-    .portfolio {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .project {
-      display: grid;
-      grid-template-rows: 180px auto;
-      border-radius: 22px;
-      overflow: hidden;
-      border: 1px solid rgba(31,35,33,0.12);
-      background: rgba(255,255,255,0.48);
-      transition: transform .24s ease, box-shadow .24s ease;
-    }
-    .project:hover { transform: translateY(-5px) rotate(-.2deg); box-shadow: 0 18px 38px rgba(63,42,20,0.14); }
-    .project-media { position: relative; overflow: hidden; background: #dfd1be; }
-    .project-media img { width: 100%; height: 100%; object-fit: cover; }
-    .project-body { padding: 16px; display: grid; gap: 10px; }
-    .project-body h3 { font-size: 1.14rem; }
-    .project-body p { margin: 0; color: var(--muted); font-size: .95rem; }
-
-    .live-grid {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
+      grid-template-columns: 240px 1fr;
       gap: 24px;
+      align-items: start;
       margin-bottom: 24px;
     }
 
-    .contrib-frame {
+    .section-kicker {
+      font-size: .84rem;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--muted);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-bottom: 10px;
+    }
+
+    .section-text {
+      max-width: 70ch;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .maker-grid,
+    .skills-grid,
+    .projects-grid,
+    .live-grid,
+    .timeline,
+    .license-grid,
+    .contact-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .maker-grid { grid-template-columns: 1.1fr .9fr; }
+    .skills-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .projects-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .live-grid { grid-template-columns: 1.1fr .9fr; align-items: start; }
+    .timeline { grid-template-columns: 1fr; }
+    .license-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .contact-grid { grid-template-columns: 1fr 1fr; }
+
+    .panel {
+      border: 1px solid rgba(31,26,23,.09);
+      background: rgba(251,248,242,.72);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .panel.pad { padding: 24px; }
+
+    .panel h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .profile-block {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .avatar {
+      aspect-ratio: 1;
+      border-radius: 26px;
       overflow: hidden;
-      border-radius: 22px;
-      border: 1px solid rgba(31,35,33,0.11);
-      background: rgba(255,255,255,0.55);
-      padding: 16px;
-      min-height: 220px;
+      background: linear-gradient(145deg, #eadbc9, #d4c2af);
+      border: 1px solid rgba(31,26,23,.08);
     }
-    .contrib-frame img { width: 100%; border-radius: 14px; }
-    .helper { color: var(--muted); font-size: .92rem; }
 
-    .github-feed {
-      display: grid;
-      gap: 12px;
-    }
-    .repo-row {
-      display: grid;
-      gap: 8px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      border: 1px solid rgba(31,35,33,0.1);
-      background: rgba(255,255,255,0.44);
-    }
-    .repo-top { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
-    .repo-name { font-weight: 800; }
-    .repo-meta { color: var(--muted); font-size: .88rem; }
+    .maker-list,
+    .skill-list,
+    .meta-list,
+    .license-list { display: grid; gap: 12px; }
 
-    .footer {
-      padding: 20px 24px;
-      display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    .maker-item,
+    .skill-card,
+    .repo-card,
+    .timeline-item,
+    .license-item,
+    .contact-card {
+      border: 1px solid rgba(31,26,23,.09);
+      background: rgba(251,248,242,.72);
       border-radius: 24px;
-      border: 1px solid var(--line);
-      background: rgba(31,35,33,0.95);
-      color: #f6f0e6;
+      box-shadow: var(--shadow);
     }
-    .footer small { color: rgba(246,240,230,0.72); }
 
-    @media (max-width: 1040px) {
-      .hero, .section-grid, .live-grid, .portfolio { grid-template-columns: 1fr 1fr; }
-      .hero { grid-template-columns: 1fr; }
-      .live-grid, .section-grid, .portfolio { grid-template-columns: 1fr; }
+    .maker-item,
+    .skill-card,
+    .timeline-item,
+    .license-item,
+    .contact-card { padding: 20px; }
+
+    .maker-item b,
+    .repo-card h3,
+    .timeline-item h3,
+    .license-item h3,
+    .contact-card h3 {
+      font-family: 'Syne', sans-serif;
+      letter-spacing: -.03em;
+    }
+
+    .repo-card {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 220px;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .repo-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(185,80,45,.35);
+    }
+
+    .repo-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .pill-row, .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill, .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: .82rem;
+      border: 1px solid rgba(31,26,23,.1);
+      background: rgba(255,255,255,.36);
+      color: var(--muted);
+    }
+
+    .tag.strong { color: var(--ink); font-weight: 700; }
+
+    .section-split {
+      display: grid;
+      grid-template-columns: 1.04fr .96fr;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .timeline-year {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+
+    .muted { color: var(--muted); }
+
+    .contrib-wrap {
+      overflow: auto;
+      padding-bottom: 6px;
+    }
+
+    .contrib-grid {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: repeat(7, 13px);
+      gap: 5px;
+      min-width: max-content;
+    }
+
+    .day {
+      width: 13px;
+      height: 13px;
+      border-radius: 4px;
+      background: rgba(31,26,23,.08);
+    }
+
+    .lvl-1 { background: #e5c595; }
+    .lvl-2 { background: #d8a260; }
+    .lvl-3 { background: #bf6e3f; }
+    .lvl-4 { background: #8e4027; }
+
+    .footnote {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    footer {
+      padding: 28px 0 56px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 1060px) {
+      .hero-grid,
+      .maker-grid,
+      .live-grid,
+      .section-split,
+      .contact-grid,
+      .section-head,
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+      .skills-grid,
+      .projects-grid,
+      .license-grid,
+      .signal-row {
+        grid-template-columns: 1fr 1fr;
+      }
+      .hero-stage { min-height: 520px; }
     }
 
     @media (max-width: 720px) {
-      .shell { width: min(calc(100% - 20px), var(--max)); margin-top: 14px; }
-      .nav { border-radius: 26px; align-items: start; flex-direction: column; }
-      .display { max-width: unset; }
-      .maker-list, .stamp-grid { grid-template-columns: 1fr; }
-      .entry-header { flex-direction: column; }
-      .hero-main, .hero-side, .panel { border-radius: 22px; }
+      .topbar-inner { align-items: flex-start; padding: 10px 0; }
+      .nav { justify-content: flex-start; }
+      .skills-grid,
+      .projects-grid,
+      .license-grid,
+      .signal-row { grid-template-columns: 1fr; }
+      .hero { padding-top: 24px; }
+      .hero-stage { min-height: 440px; }
+      .profile-block { grid-template-columns: 1fr; }
+      .hero h1 { font-size: clamp(3rem, 15vw, 5rem); }
     }
   </style>
 </head>
 <body>
-  <div class="shell">
-    <nav class="nav">
-      <a class="brand" href="#top">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="#top" class="brand">
         <span class="brand-mark">AK</span>
         <span>Alon Kolyakov</span>
       </a>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
+      <nav class="nav">
+        <a href="#story">Story</a>
+        <a href="#skills">Skills</a>
+        <a href="#work">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#live">Live / Latest</a>
-        <a href="#credentials">Credentials</a>
-        <a href="https://github.com/BloodShop" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com/in/alon-kolyakov/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="#live">Live</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Software engineer · founder · glider pilot · hands-on builder</span>
+          <h1>Building systems that move.</h1>
+          <p class="hero-sub">
+            I’m <strong>Alon Kolyakov</strong> — backend-leaning full-stack engineer working across <strong>.NET, Node.js, TypeScript, Python, AWS</strong> and modern product systems,
+            while also building in the physical world: <strong>electric skateboards, onewheels, motion hardware, Surron projects</strong>, and the discipline of <strong>glider flight</strong>.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">See selected work</a>
+            <a class="btn btn-secondary" href="AlonKolyakovCV.pdf" target="_blank" rel="noreferrer">Open CV PDF</a>
+            <a class="btn btn-secondary" href="mailto:koliakovcr7@gmail.com?subject=Let's%20build%20something">Hire / contact</a>
+          </div>
+          <div class="signal-row">
+            <div class="signal"><b id="repo-count">52+</b><span>public GitHub repos and experiments</span></div>
+            <div class="signal"><b>Blueboard</b><span>electric rideables and maker energy</span></div>
+            <div class="signal"><b>8200 track</b><span>engineering, ops, discipline, systems thinking</span></div>
+          </div>
+        </div>
+
+        <div class="hero-stage panel">
+          <canvas id="hero-canvas" aria-label="Animated 3D-inspired scene of Alon riding, flying, coding and sleeping"></canvas>
+          <div class="hero-overlay">
+            <div class="scene-chip"><span>Looping hero scene</span><strong id="scene-label">OneWheel mode</strong></div>
+            <div class="scene-progress"><span id="scene-bar"></span></div>
+          </div>
+        </div>
       </div>
-    </nav>
-
-    <section class="hero" id="top">
-      <article class="hero-main">
-        <div class="eyebrow">Software engineer · founder · glider pilot</div>
-        <h1 class="display">I build systems that move.</h1>
-        <p class="lead">
-          Backend-heavy engineer with full-stack instincts: C#, .NET, Node.js, Python, TypeScript, AWS, React, Svelte.
-          I like real things too — electric skateboards, onewheels, Surron bikes, repair benches, wiring, mechanics, and aircraft towlines over the Negev.
-        </p>
-        <div class="hero-tags">
-          <span>.NET / C#</span>
-          <span>Node.js / TypeScript</span>
-          <span>Python</span>
-          <span>AWS / Serverless</span>
-          <span>OpenClaw</span>
-          <span>n8n</span>
-          <span>Blueboard</span>
-          <span>Glider Pilot</span>
-        </div>
-        <div class="hero-cta">
-          <a class="button primary" href="mailto:koliakovcr7@gmail.com?subject=Interview%20Opportunity">Hire me</a>
-          <a class="button secondary" href="./AlonKolyakovCV.pdf" target="_blank">Open PDF CV</a>
-          <a class="button secondary" href="https://blueboard.bloodshop.org" target="_blank" rel="noreferrer">Blueboard</a>
-        </div>
-      </article>
-
-      <aside class="hero-side">
-        <div class="portrait">
-          <img src="images/profile1.png" alt="Portrait of Alon Kolyakov" onerror="this.src='images/imgg.jpg'">
-        </div>
-        <div class="stamp-grid">
-          <div class="stamp"><strong id="repoCount">52</strong><span>public repos</span></div>
-          <div class="stamp"><strong id="followerCount">6</strong><span>GitHub followers</span></div>
-          <div class="stamp"><strong>3+</strong><span>years building production software</span></div>
-          <div class="stamp"><strong>2 worlds</strong><span>software + electromechanics</span></div>
-        </div>
-        <div class="cluster">
-          <h3>Contact</h3>
-          <div class="chips">
-            <span class="chip"><a href="mailto:koliakovcr7@gmail.com">koliakovcr7@gmail.com</a></span>
-            <span class="chip"><a href="https://api.whatsapp.com/send?phone=972503901000" target="_blank" rel="noreferrer">+972 50-390-1000</a></span>
-            <span class="chip"><a href="https://twitter.com/AlonKolyakov" target="_blank" rel="noreferrer">@AlonKolyakov</a></span>
-          </div>
-        </div>
-      </aside>
     </section>
 
-    <section class="section-grid" id="about">
-      <article class="panel">
-        <div class="section-head">
-          <h2>About</h2>
-          <p>Builder energy. Cloud systems by day, batteries, boards, and flight by choice.</p>
-        </div>
-        <div class="bio">
-          <p>
-            I’m a software engineer focused on backend and distributed systems, but I’m happiest when software touches real-world motion — logistics, infrastructure, automation, connected products, or anything with motors, batteries, sensors, or timing.
-          </p>
-          <p>
-            Professionally, I work across .NET, Node.js, Python, SQL/NoSQL, AWS, ELK, and modern frontend stacks when needed. I also actively use AI tooling and workflow automation, including OpenClaw and n8n, to move faster and build smarter systems.
-          </p>
-          <p>
-            Outside pure software, I build and fix electric movement platforms: Blueboard electric skateboards, onewheels, Surron bikes, and other hands-on electronic/mechanical projects. I’m also a glider pilot at the Negev Gliding Center.
-          </p>
-        </div>
-        <div class="maker-list">
-          <div class="maker-card">
-            <h3>Blueboard</h3>
-            <p>Founder / builder of electric skateboard projects and experiments. Practical product thinking, fabrication mindset, and direct ownership. <a href="https://blueboard.bloodshop.org" target="_blank" rel="noreferrer">Visit site ↗</a></p>
-          </div>
-          <div class="maker-card">
-            <h3>Electric movement</h3>
-            <p>Repairing, upgrading, and tuning hardware systems around electric boards, onewheels, and Surron-class bikes.</p>
-          </div>
-          <div class="maker-card">
-            <h3>AI-native workflows</h3>
-            <p>Using OpenClaw, automation, and agentic tooling to reduce friction between idea, prototype, and production.</p>
-          </div>
-          <div class="maker-card">
-            <h3>Flight</h3>
-            <p>Glider pilot at Negev Gliding Center — systems awareness, calm decision-making, and respect for physics in real life.</p>
-          </div>
-        </div>
-      </article>
-
-      <aside class="panel">
-        <div class="section-head">
-          <h2>Skill stack</h2>
-          <p>Broad enough to ship end-to-end, strongest where systems meet scale.</p>
-        </div>
-        <div class="skill-clusters">
-          <div class="cluster">
-            <h3>Backend & cloud</h3>
-            <div class="chips">
-              <span class="chip">C#</span><span class="chip">.NET Core</span><span class="chip">Node.js</span><span class="chip">TypeScript</span><span class="chip">Python</span><span class="chip">AWS</span><span class="chip">Azure</span><span class="chip">REST APIs</span><span class="chip">Serverless</span>
-            </div>
-          </div>
-          <div class="cluster">
-            <h3>Data & observability</h3>
-            <div class="chips">
-              <span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">DynamoDB</span><span class="chip">NoSQL</span><span class="chip">SQLAlchemy</span><span class="chip">ELK</span><span class="chip">SQS</span><span class="chip">S3</span>
-            </div>
-          </div>
-          <div class="cluster">
-            <h3>Frontend & product</h3>
-            <div class="chips">
-              <span class="chip">React</span><span class="chip">Svelte</span><span class="chip">HTML/CSS</span><span class="chip">Bootstrap</span><span class="chip">Responsive UI</span><span class="chip">GitHub Pages</span>
-            </div>
-          </div>
-          <div class="cluster">
-            <h3>AI & automation</h3>
-            <div class="chips">
-              <span class="chip">OpenClaw</span><span class="chip">n8n</span><span class="chip">LLM APIs</span><span class="chip">Prompt workflows</span><span class="chip">Agent orchestration</span><span class="chip">Process automation</span>
-            </div>
-          </div>
-        </div>
-      </aside>
-    </section>
-
-    <section class="section-grid" id="experience">
-      <article class="panel">
-        <div class="section-head">
-          <h2>Work experience</h2>
-          <p>Structured from your current resume and public company context, ready for exact LinkedIn wording later.</p>
-        </div>
-        <div class="timeline">
-          <div class="entry">
-            <div class="entry-header">
-              <div>
-                <h3>Software Engineer · abra R&D Solutions (formerly Devalore)</h3>
-                <div class="meta">2022 — Present · Full-time</div>
-              </div>
-            </div>
-            <p>Backend engineer delivering production systems for multiple clients across cloud apps, internal tools, and commerce-oriented platforms.</p>
-            <ul>
-              <li>Built and maintained production-grade backend systems with .NET, Node.js, TypeScript, PostgreSQL, and AWS.</li>
-              <li>Worked with DynamoDB, S3, SQS, Lambdas, and multi-database integrations including legacy environments.</li>
-              <li>Handled customer-facing technical communication from requirements to delivery.</li>
-            </ul>
-          </div>
-
-          <div class="entry">
-            <div class="entry-header">
-              <div>
-                <h3>Backend Developer · SAFE.AI</h3>
-                <div class="meta">2024 — Present · Freelance</div>
-              </div>
-            </div>
-            <p>Worked on an AI-assisted mental-health product focused on scalable backend services and practical LLM integration.</p>
-            <ul>
-              <li>Used Python, Flask, SQLAlchemy, and Aurora MySQL to support application development.</li>
-              <li>Improved LLM API usage patterns and backend performance.</li>
-              <li>Owned cloud infrastructure pieces across EC2, RDS, Elastic Beanstalk, S3, and CloudFront.</li>
-            </ul>
-          </div>
-
-          <div class="entry">
-            <div class="entry-header">
-              <div>
-                <h3>Air Support Officer · Israel Defense Forces</h3>
-                <div class="meta">2022 — Present · Reserve service</div>
-              </div>
-            </div>
-            <p>Coordinating and translating operational requirements into air-support directives inside maneuvering contexts.</p>
-          </div>
-
-          <div class="entry">
-            <div class="entry-header">
-              <div>
-                <h3>Deputy Company Commander · Israel Defense Forces</h3>
-                <div class="meta">2018 — 2022 · Full-time</div>
-              </div>
-            </div>
-            <p>Led training and operational coordination responsibilities, combining execution discipline with planning and team readiness.</p>
-          </div>
-        </div>
-      </article>
-
-      <aside class="panel" id="credentials">
-        <div class="section-head">
-          <h2>Education & licenses</h2>
-          <p>Built from the existing resume and the items you asked to mirror from LinkedIn.</p>
-        </div>
-        <div class="timeline">
-          <div class="entry">
-            <div class="entry-header">
-              <div>
-                <h3>Physics B.Sc. · Open University</h3>
-                <div class="meta">2023 — Present</div>
-              </div>
-            </div>
-            <p>Continuing academic work in physics while maintaining full-time engineering work.</p>
-          </div>
-          <div class="entry">
-            <div class="entry-header">
-              <div>
-                <h3>Software Developer Program · Sela College</h3>
-                <div class="meta">2022 — 2023</div>
-              </div>
-            </div>
-            <p>Tech-Warriors / 8200 track covering ASP.NET, C#, algorithms, data structures, OOP, EF Core, Azure, Angular, SQL, MongoDB, Git, and more.</p>
-          </div>
-          <div class="entry">
-            <div class="entry-header">
-              <div>
-                <h3>Computer Programming · Technion</h3>
-                <div class="meta">2016 — 2017</div>
-              </div>
-            </div>
-            <p>Advanced scientific-technological high-school major for outstanding students in science, engineering, and entrepreneurship.</p>
-          </div>
-          <div class="entry">
-            <div class="entry-header">
-              <div>
-                <h3>Licenses & certificates</h3>
-                <div class="meta">To sync from LinkedIn</div>
-              </div>
-            </div>
-            <p>Add the exact licenses/certifications from LinkedIn here. I kept this block intentionally modular so it’s easy to update titles, issuing organizations, and dates later.</p>
-          </div>
-        </div>
-      </aside>
-    </section>
-
-    <section class="panel" id="projects" style="margin-bottom:24px;">
+    <section class="section shell" id="story">
       <div class="section-head">
-        <h2>Selected projects</h2>
-        <p>A mix of product, experimentation, and hands-on engineering curiosity.</p>
+        <div class="section-kicker">Story</div>
+        <div>
+          <h2 class="section-title">Engineer brain, builder hands.</h2>
+          <p class="section-text">The strongest version of this site shouldn’t read like a generic CV. It should feel like the same person who ships backend systems, opens up controllers and batteries to fix motion problems, founds Blueboard, and then goes flying at the Negev Gliding Center. So the structure below is less “resume template” and more “operating manual for how I work.”</p>
+        </div>
       </div>
-      <div class="portfolio">
-        <a class="project" href="https://blueboard.bloodshop.org" target="_blank" rel="noreferrer">
-          <div class="project-media"><img src="images/imgg.jpg" alt="Blueboard project image"></div>
-          <div class="project-body">
-            <h3>Blueboard</h3>
-            <p>Electric skateboard company / maker project focused on ride systems, product thinking, and building things that physically move.</p>
-            <div class="chips"><span class="chip">Founder</span><span class="chip">Hardware</span><span class="chip">Brand</span></div>
-          </div>
-        </a>
 
-        <a class="project" href="https://github.com/BloodShop/home-smart-chef" target="_blank" rel="noreferrer">
-          <div class="project-media"><img src="images/portfolio/dexcelerate.png" alt="Home Smart Chef preview"></div>
-          <div class="project-body">
-            <h3>Home Smart Chef</h3>
-            <p>Expo app with a daily recipe content pipeline — product + automation + mobile delivery.</p>
-            <div class="chips"><span class="chip">TypeScript</span><span class="chip">Expo</span><span class="chip">Content pipeline</span></div>
+      <div class="maker-grid">
+        <div class="panel pad">
+          <div class="profile-block">
+            <div class="avatar"><img src="images/profile1.png" alt="Alon Kolyakov portrait"></div>
+            <div>
+              <h3>What I’m optimizing for</h3>
+              <p class="muted">Reliable backend systems, automation that actually saves time, products with clear utility, and projects where software meets the physical world.</p>
+              <div class="pill-row">
+                <span class="pill">OpenClaw</span>
+                <span class="pill">n8n</span>
+                <span class="pill">AWS</span>
+                <span class="pill">.NET</span>
+                <span class="pill">React / Svelte</span>
+                <span class="pill">Motion systems</span>
+              </div>
+            </div>
           </div>
-        </a>
+        </div>
 
-        <a class="project" href="https://github.com/BloodShop/Students-Manager-MVVM-UWP" target="_blank" rel="noreferrer">
-          <div class="project-media"><img src="images/portfolio/box.png" alt="Students manager preview"></div>
-          <div class="project-body">
-            <h3>Students Manager</h3>
-            <p>UWP MVVM application for managing study candidates — one of the stronger early desktop projects in the repo.</p>
-            <div class="chips"><span class="chip">C#</span><span class="chip">UWP</span><span class="chip">MVVM</span></div>
+        <div class="maker-list">
+          <div class="maker-item">
+            <b>Blueboard / electric movement systems</b>
+            <div class="muted">Building and fixing rideables, especially electric skateboard systems and the mechanical-electrical logic around motion, control, safety, and feel. <a href="https://blueboard.bloodshop.org" target="_blank" rel="noreferrer">blueboard.bloodshop.org</a></div>
           </div>
+          <div class="maker-item">
+            <b>Rideables as engineering playground</b>
+            <div class="muted">OneWheel, electric skateboard, Surron and related systems are not just hobbies — they’re hands-on product and troubleshooting environments.</div>
+          </div>
+          <div class="maker-item">
+            <b>Glider pilot</b>
+            <div class="muted">Flying at Negev Gliding Center sharpened judgment, calmness, and sensitivity to systems, airflow, timing and failure margins.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="skills">
+      <div class="section-head">
+        <div class="section-kicker">Skills</div>
+        <div>
+          <h2 class="section-title">Backend-first, product-capable, AI-augmented.</h2>
+          <p class="section-text">A practical stack shaped by shipping work: APIs, cloud, data, frontend where needed, automation when useful, and AI tooling where it genuinely compresses iteration cycles.</p>
+        </div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card"><h3>Core engineering</h3><div class="skill-list"><span>.NET / ASP.NET Core / C#</span><span>Node.js / TypeScript / JavaScript</span><span>Python / Flask / automation</span><span>SQL / PostgreSQL / MySQL / NoSQL</span></div></div>
+        <div class="skill-card"><h3>Cloud & systems</h3><div class="skill-list"><span>AWS: S3, SQS, Lambda, EC2, RDS, CloudFront</span><span>Azure cloud</span><span>Serverless and service integration</span><span>ELK / observability / ops awareness</span></div></div>
+        <div class="skill-card"><h3>Product & AI tooling</h3><div class="skill-list"><span>React / Svelte / frontend implementation</span><span>OpenClaw</span><span>n8n workflows</span><span>LLM integration and prompt-driven product features</span></div></div>
+      </div>
+    </section>
+
+    <section class="section shell" id="work">
+      <div class="section-head">
+        <div class="section-kicker">Experience</div>
+        <div>
+          <h2 class="section-title">Work across software, operations, and responsibility.</h2>
+          <p class="section-text">These entries are based on your current public resume and shaped into cleaner language. Exact LinkedIn wording, certificates and title refinements can be dropped in later without redesigning the page.</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-year">2022 — Present</div>
+          <div>
+            <h3>Software Engineer · abra R&D Solutions (formerly Devalore)</h3>
+            <p class="muted">Building production systems across ecommerce and internal platforms with .NET, Node.js and cloud services, including direct customer communication, scalable backend architecture and cross-system integrations.</p>
+            <div class="tag-row"><span class="tag strong">.NET</span><span class="tag">Node.js</span><span class="tag">TypeScript</span><span class="tag">AWS</span><span class="tag">PostgreSQL</span><span class="tag">AS400</span></div>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-year">2024 — Present</div>
+          <div>
+            <h3>Backend Developer · SAFE.AI · Freelance</h3>
+            <p class="muted">Backend work for an AI-assisted mental health product: Python, Flask, SQLAlchemy, Aurora MySQL and AWS infrastructure, with hands-on contribution to LLM API usage and application scalability.</p>
+            <div class="tag-row"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLAlchemy</span><span class="tag">Aurora MySQL</span><span class="tag">AWS</span><span class="tag">LLM integration</span></div>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-year">2022 — Present</div>
+          <div>
+            <h3>Air Support Officer · Israel Defense Forces · Reserve service</h3>
+            <p class="muted">Managing air support requirements for maneuvering forces, coordinating between battlefield needs, intelligence inputs and operational air directives.</p>
+            <div class="tag-row"><span class="tag">Operations</span><span class="tag">Decision-making</span><span class="tag">Coordination</span><span class="tag">Pressure handling</span></div>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-year">2018 — 2022</div>
+          <div>
+            <h3>Deputy Company Commander · Israel Defense Forces</h3>
+            <p class="muted">Led training coordination, operational preparation and execution support for a fighting company, building discipline and structured leadership habits that still show up in engineering work.</p>
+            <div class="tag-row"><span class="tag">Leadership</span><span class="tag">Training</span><span class="tag">Execution</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell" id="projects">
+      <div class="section-head">
+        <div class="section-kicker">Projects</div>
+        <div>
+          <h2 class="section-title">Selected projects and proof of curiosity.</h2>
+          <p class="section-text">A mix of portfolio work, experiments and recent GitHub activity. This section pulls from your public repos and also highlights projects already present in the resume repository.</p>
+        </div>
+      </div>
+      <div class="projects-grid" id="featured-projects">
+        <a class="repo-card" href="https://github.com/BloodShop/home-smart-chef" target="_blank" rel="noreferrer">
+          <div class="repo-top"><h3>Home Smart Chef</h3><span class="pill">Recent</span></div>
+          <p class="muted">Expo app with a daily recipe content pipeline.</p>
+          <div class="tag-row"><span class="tag">TypeScript</span><span class="tag">Mobile</span><span class="tag">Content pipeline</span></div>
+        </a>
+        <a class="repo-card" href="https://github.com/BloodShop/Students-Manager-MVVM-UWP" target="_blank" rel="noreferrer">
+          <div class="repo-top"><h3>Students Manager MVVM UWP</h3><span class="pill">C#</span></div>
+          <p class="muted">Candidate management application built with MVVM and UWP patterns.</p>
+          <div class="tag-row"><span class="tag">C#</span><span class="tag">UWP</span><span class="tag">MVVM</span></div>
+        </a>
+        <a class="repo-card" href="https://blueboard.bloodshop.org" target="_blank" rel="noreferrer">
+          <div class="repo-top"><h3>Blueboard</h3><span class="pill">Maker</span></div>
+          <p class="muted">Electric skateboard direction, hardware passion and the beginning of a stronger maker-facing brand story.</p>
+          <div class="tag-row"><span class="tag">Hardware</span><span class="tag">Brand</span><span class="tag">Rideables</span></div>
         </a>
       </div>
     </section>
 
-    <section class="live-grid" id="live">
-      <article class="panel">
-        <div class="section-head">
-          <h2>Live / latest</h2>
-          <p>Public GitHub activity, wired live from the profile instead of being frozen into the page.</p>
+    <section class="section shell" id="live">
+      <div class="section-head">
+        <div class="section-kicker">Live</div>
+        <div>
+          <h2 class="section-title">Latest GitHub pulse.</h2>
+          <p class="section-text">This section is generated live in the browser from public GitHub data, so the page stays fresher than a frozen PDF resume.</p>
         </div>
-        <div class="contrib-frame">
-          <img src="https://ghchart.rshah.org/cb5c32/BloodShop" alt="GitHub contribution chart for BloodShop" />
-          <p class="helper">Contribution chart is loaded live from a public GitHub-compatible service. If you want, I can swap this for a custom native grid later.</p>
+      </div>
+      <div class="live-grid">
+        <div class="panel pad">
+          <h3>Contribution-style activity</h3>
+          <p class="muted">A lightweight client-side visualization based on recent public repository pushes and updates.</p>
+          <div class="contrib-wrap">
+            <div class="contrib-grid" id="contrib-grid"></div>
+          </div>
+          <p class="footnote">Not GitHub’s private contribution graph — a public-API-powered approximation for a live site.</p>
         </div>
-      </article>
-
-      <aside class="panel">
-        <div class="section-head">
-          <h2>Fresh repos</h2>
-          <p>Latest public repositories and recently updated work.</p>
+        <div class="panel pad">
+          <h3>Recently active repositories</h3>
+          <div id="repo-feed" class="skill-list">
+            <div class="muted">Loading public repo activity…</div>
+          </div>
         </div>
-        <div class="github-feed" id="repoFeed">
-          <div class="repo-row"><div class="repo-name">Loading latest repositories…</div></div>
-        </div>
-      </aside>
+      </div>
     </section>
 
-    <footer class="footer">
-      <div>
-        <div style="font-family:'Syne',sans-serif;font-size:1.35rem;letter-spacing:-0.04em;">Alon Kolyakov</div>
-        <small>Software engineer · founder · builder · glider pilot</small>
+    <section class="section shell" id="education">
+      <div class="section-head">
+        <div class="section-kicker">Education</div>
+        <div>
+          <h2 class="section-title">Formal training plus self-driven expansion.</h2>
+        </div>
       </div>
-      <div class="chips">
-        <span class="chip"><a href="https://github.com/BloodShop" target="_blank" rel="noreferrer">GitHub</a></span>
-        <span class="chip"><a href="https://www.linkedin.com/in/alon-kolyakov/" target="_blank" rel="noreferrer">LinkedIn</a></span>
-        <span class="chip"><a href="mailto:koliakovcr7@gmail.com">Email</a></span>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-year">2023 — Present</div>
+          <div>
+            <h3>Physics B.Sc. · Open University</h3>
+            <p class="muted">Physics studies reinforcing analytical depth, abstraction and systems thinking.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-year">2022 — 2023</div>
+          <div>
+            <h3>Software Developer Program · Sela College · Tech-Warriors 8200</h3>
+            <p class="muted">Training across ASP.NET, algorithms, data structures, design patterns, JavaScript, databases, Azure and core software engineering habits.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-year">2016 — 2017</div>
+          <div>
+            <h3>Computer Programming · Technion / science-technology track</h3>
+            <p class="muted">Early technical foundation built around science, engineering and team-oriented problem solving.</p>
+          </div>
+        </article>
       </div>
-    </footer>
-  </div>
+    </section>
 
-  <script>
-    const repoFeed = document.getElementById('repoFeed');
+    <section class="section shell" id="licenses">
+      <div class="section-head">
+        <div class="section-kicker">Licenses & certificates</div>
+        <div>
+          <h2 class="section-title">Ready for LinkedIn-backed details.</h2>
+          <p class="section-text">This is intentionally structured as a clean scaffold so exact licenses and certificates can be filled from LinkedIn without redesigning anything.</p>
+        </div>
+      </div>
+      <div class="license-grid">
+        <div class="license-item"><h3>Glider pilot</h3><div class="muted">Add exact license wording / issuer / date from LinkedIn or official certificate.</div></div>
+        <div class="license-item"><h3>Military / operational training</h3><div class="muted">Add exact program names or command qualifications if you want them represented publicly.</div></div>
+        <div class="license-item"><h3>Professional certificates</h3><div class="muted">Drop in cloud, software, or other formal certificates here once you send the exact list.</div></div>
+      </div>
+    </section>
 
-    function formatDate(input) {
-      const date = new Date(input);
-      return date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+    <section class="section shell" id="contact">
+      <div class="section-head">
+        <div class="section-kicker">Contact</div>
+        <div>
+          <h2 class="section-title">Available for serious builds.</h2>
+          <p class="section-text">If you need backend leadership, full-stack execution, AI workflow integration, or a builder who understands systems beyond the screen, reach out.</p>
+        </div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Email</h3>
+          <div><a href="mailto:koliakovcr7@gmail.com?subject=Let's%20build%20something">koliakovcr7@gmail.com</a></div>
+        </div>
+        <div class="contact-card">
+          <h3>Links</h3>
+          <div class="skill-list">
+            <a href="https://github.com/BloodShop" target="_blank" rel="noreferrer">GitHub / BloodShop</a>
+            <a href="https://www.linkedin.com/in/alon-kolyakov/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://twitter.com/AlonKolyakov" target="_blank" rel="noreferrer">X / Twitter</a>
+            <a href="https://blueboard.bloodshop.org" target="_blank" rel="noreferrer">Blueboard</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <div>Designed as a first strong reviewable draft: hero animation + live GitHub + sharper maker story. Next pass should deepen the 3D scene and replace placeholders with exact LinkedIn certificates/titles.</div>
+  </footer>
+
+  <script type="module">
+    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js';
+
+    const canvas = document.getElementById('hero-canvas');
+    const labelEl = document.getElementById('scene-label');
+    const barEl = document.getElementById('scene-bar');
+
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.Fog(0xf4efe7, 8, 18);
+
+    const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+    camera.position.set(0, 2.8, 8.8);
+
+    const ambient = new THREE.AmbientLight(0xfff0df, 2.4);
+    scene.add(ambient);
+
+    const sun = new THREE.DirectionalLight(0xffe0b0, 2.8);
+    sun.position.set(4, 9, 4);
+    scene.add(sun);
+
+    const rim = new THREE.DirectionalLight(0x8fd1d2, 1.4);
+    rim.position.set(-6, 3, -4);
+    scene.add(rim);
+
+    const ground = new THREE.Mesh(
+      new THREE.CylinderGeometry(5.6, 7.4, 0.55, 48),
+      new THREE.MeshStandardMaterial({ color: 0xd9ccb8, roughness: 0.9, metalness: 0.04 })
+    );
+    ground.position.y = -1.5;
+    scene.add(ground);
+
+    const orbitRing = new THREE.Mesh(
+      new THREE.TorusGeometry(4.35, 0.06, 12, 80),
+      new THREE.MeshStandardMaterial({ color: 0x1c6d72, roughness: 0.4, metalness: 0.7 })
+    );
+    orbitRing.rotation.x = Math.PI / 2;
+    orbitRing.position.y = -1.08;
+    scene.add(orbitRing);
+
+    const floaters = new THREE.Group();
+    for (let i = 0; i < 36; i++) {
+      const cube = new THREE.Mesh(
+        new THREE.BoxGeometry(.08 + Math.random() * .08, .08 + Math.random() * .08, .08 + Math.random() * .08),
+        new THREE.MeshStandardMaterial({ color: i % 3 === 0 ? 0xb9502d : i % 3 === 1 ? 0x1c6d72 : 0xd7a742, roughness: .45, metalness: .25 })
+      );
+      cube.position.set((Math.random() - .5) * 10, Math.random() * 4 + .2, (Math.random() - .5) * 6);
+      cube.userData = { oy: cube.position.y, speed: .2 + Math.random() * .6 };
+      floaters.add(cube);
     }
+    scene.add(floaters);
+
+    function makeRoundedBox(w, h, d, r, color, rough = 0.65, metal = 0.12) {
+      const shape = new THREE.Shape();
+      const x = -w / 2, y = -h / 2;
+      shape.moveTo(x + r, y);
+      shape.lineTo(x + w - r, y);
+      shape.quadraticCurveTo(x + w, y, x + w, y + r);
+      shape.lineTo(x + w, y + h - r);
+      shape.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+      shape.lineTo(x + r, y + h);
+      shape.quadraticCurveTo(x, y + h, x, y + h - r);
+      shape.lineTo(x, y + r);
+      shape.quadraticCurveTo(x, y, x + r, y);
+      const geo = new THREE.ExtrudeGeometry(shape, { depth: d, bevelEnabled: false });
+      geo.center();
+      return new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color, roughness: rough, metalness: metal }));
+    }
+
+    const hero = new THREE.Group();
+    scene.add(hero);
+
+    const body = makeRoundedBox(0.82, 1.18, 0.34, 0.18, 0x1f1a17, 0.7, 0.15);
+    body.position.y = 0.28;
+    hero.add(body);
+
+    const head = new THREE.Mesh(
+      new THREE.SphereGeometry(0.33, 24, 24),
+      new THREE.MeshStandardMaterial({ color: 0xe3b083, roughness: 0.82, metalness: 0.02 })
+    );
+    head.position.set(0, 1.15, 0.02);
+    hero.add(head);
+
+    const armL = makeRoundedBox(0.22, 0.82, 0.2, 0.08, 0xe3b083);
+    const armR = makeRoundedBox(0.22, 0.82, 0.2, 0.08, 0xe3b083);
+    armL.position.set(-0.58, 0.42, 0.02);
+    armR.position.set(0.58, 0.42, 0.02);
+    hero.add(armL, armR);
+
+    const legL = makeRoundedBox(0.24, 0.92, 0.24, 0.08, 0x53473f);
+    const legR = makeRoundedBox(0.24, 0.92, 0.24, 0.08, 0x53473f);
+    legL.position.set(-0.18, -0.78, 0.02);
+    legR.position.set(0.18, -0.78, 0.02);
+    hero.add(legL, legR);
+
+    const vehicle = new THREE.Group();
+    hero.add(vehicle);
+
+    const board = makeRoundedBox(2.2, 0.16, 0.5, 0.08, 0x2a2724, 0.55, 0.24);
+    board.position.set(0, -1.22, 0);
+    vehicle.add(board);
+
+    const wheel1 = new THREE.Mesh(new THREE.TorusGeometry(0.26, 0.08, 18, 48), new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.9 }));
+    const wheel2 = wheel1.clone();
+    wheel1.rotation.y = Math.PI / 2;
+    wheel2.rotation.y = Math.PI / 2;
+    wheel1.position.set(-0.84, -1.32, 0);
+    wheel2.position.set(0.84, -1.32, 0);
+    vehicle.add(wheel1, wheel2);
+
+    const onewheel = new THREE.Mesh(new THREE.TorusGeometry(0.45, 0.15, 22, 60), new THREE.MeshStandardMaterial({ color: 0x161616, roughness: 0.88 }));
+    onewheel.rotation.y = Math.PI / 2;
+    onewheel.position.set(0, -1.28, 0);
+    hero.add(onewheel);
+
+    const glider = new THREE.Group();
+    const wing = makeRoundedBox(4.6, 0.12, 0.46, 0.06, 0xf7f1e8, 0.6, 0.16);
+    wing.position.y = 0.18;
+    const fuselage = makeRoundedBox(2.0, 0.18, 0.3, 0.05, 0xb9502d, 0.45, 0.24);
+    fuselage.rotation.z = 0.04;
+    const tail = makeRoundedBox(0.52, 0.75, 0.08, 0.05, 0xf7f1e8);
+    tail.position.set(-0.95, 0.45, 0);
+    glider.add(wing, fuselage, tail);
+    glider.position.set(0, 0.75, -0.42);
+    scene.add(glider);
+
+    const desk = new THREE.Group();
+    const deskTop = makeRoundedBox(2.8, 0.18, 1.12, 0.08, 0xa56c44, 0.72, 0.12);
+    deskTop.position.y = 0.2;
+    const legA = makeRoundedBox(0.14, 1.9, 0.14, 0.04, 0x1f1a17, 0.52, 0.46);
+    const legB = legA.clone();
+    legA.position.set(-1.1, -0.8, 0);
+    legB.position.set(1.1, -0.8, 0);
+    const monitor = makeRoundedBox(1.08, 0.72, 0.08, 0.06, 0x1f1a17, 0.28, 0.22);
+    monitor.position.set(0.26, 0.86, -0.18);
+    const screen = makeRoundedBox(0.9, 0.54, 0.04, 0.05, 0x7dc0b8, 0.2, 0.02);
+    screen.position.set(0.26, 0.86, -0.1);
+    desk.add(deskTop, legA, legB, monitor, screen);
+    desk.position.set(0, -0.28, -1.05);
+    scene.add(desk);
+
+    const bed = new THREE.Group();
+    const mattress = makeRoundedBox(2.85, 0.36, 1.35, 0.12, 0xf3eadf, 0.9, 0.02);
+    const pillow = makeRoundedBox(0.82, 0.2, 0.52, 0.08, 0xffffff, 0.96, 0.01);
+    pillow.position.set(-0.72, 0.22, -0.2);
+    const blanket = makeRoundedBox(1.5, 0.2, 1.05, 0.1, 0x1c6d72, 0.82, 0.03);
+    blanket.position.set(0.48, 0.18, 0.08);
+    bed.add(mattress, pillow, blanket);
+    bed.position.set(0, -1.14, -1.2);
+    scene.add(bed);
+
+    const sleepZ = new THREE.Group();
+    for (let i = 0; i < 3; i++) {
+      const z = makeRoundedBox(0.26 + i * 0.05, 0.36 + i * 0.05, 0.04, 0.04, 0xd7a742, 0.35, 0.1);
+      z.position.set(0.9 + i * 0.33, 1.2 + i * 0.35, 0.4);
+      sleepZ.add(z);
+    }
+    scene.add(sleepZ);
+
+    const states = [
+      { name: 'OneWheel mode', color: 0x1c6d72 },
+      { name: 'Electric skateboard', color: 0xb9502d },
+      { name: 'Glider flight', color: 0xd7a742 },
+      { name: 'Lifted desk coding', color: 0x1f1a17 },
+      { name: 'Sleep / reset', color: 0x6f7a9c }
+    ];
+
+    const clock = new THREE.Clock();
+    const stateDuration = 3.2;
+    const totalDuration = states.length * stateDuration;
+
+    function ease(t) {
+      return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function mix(a, b, t) { return a + (b - a) * t; }
+
+    function resize() {
+      const rect = canvas.getBoundingClientRect();
+      camera.aspect = rect.width / rect.height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(rect.width, rect.height, false);
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    function animate() {
+      const elapsed = clock.getElapsedTime();
+      const loop = elapsed % totalDuration;
+      const idx = Math.floor(loop / stateDuration);
+      const local = (loop % stateDuration) / stateDuration;
+      const t = ease(local);
+      const state = states[idx];
+
+      labelEl.textContent = state.name;
+      barEl.style.transform = `scaleX(${(loop / totalDuration).toFixed(4)})`;
+
+      floaters.children.forEach((cube, i) => {
+        cube.rotation.x += 0.003 + i * 0.00001;
+        cube.rotation.y += 0.004 + i * 0.00001;
+        cube.position.y = cube.userData.oy + Math.sin(elapsed * cube.userData.speed + i) * 0.08;
+      });
+
+      const bob = Math.sin(elapsed * 2.4) * 0.05;
+      hero.position.y = bob;
+      hero.rotation.y = Math.sin(elapsed * 0.6) * 0.12;
+      head.rotation.z = Math.sin(elapsed * 1.8) * 0.05;
+      armL.rotation.z = Math.sin(elapsed * 2.2) * 0.18;
+      armR.rotation.z = -Math.sin(elapsed * 2.2) * 0.18;
+      legL.rotation.z = -Math.sin(elapsed * 2.2) * 0.12;
+      legR.rotation.z = Math.sin(elapsed * 2.2) * 0.12;
+      wheel1.rotation.z -= 0.15;
+      wheel2.rotation.z -= 0.15;
+      onewheel.rotation.z -= 0.13;
+
+      vehicle.visible = idx === 1 || idx === 3;
+      onewheel.visible = idx === 0;
+      glider.visible = idx === 2;
+      desk.visible = idx === 3;
+      bed.visible = idx === 4;
+      sleepZ.visible = idx === 4;
+
+      // reset defaults
+      hero.position.set(0, bob, 0);
+      hero.rotation.set(0, Math.sin(elapsed * 0.6) * 0.12, 0);
+      hero.scale.set(1, 1, 1);
+      board.scale.x = 1;
+      desk.position.y = -0.28;
+      glider.rotation.set(0, 0, 0);
+      sleepZ.rotation.z = 0;
+      sleepZ.position.y = 0;
+      body.rotation.z = 0;
+      head.position.set(0, 1.15, 0.02);
+
+      if (idx === 0) {
+        hero.position.x = Math.sin(elapsed * 1.4) * 0.4;
+        hero.rotation.z = Math.sin(elapsed * 1.4) * 0.08;
+        armL.rotation.x = -0.8;
+        armR.rotation.x = -0.8;
+      } else if (idx === 1) {
+        board.scale.x = mix(1.0, 1.25, t);
+        hero.position.x = mix(-0.3, 0.6, t) + Math.sin(elapsed * 4) * 0.05;
+        hero.rotation.z = Math.sin(elapsed * 3.5) * 0.04;
+        armL.rotation.x = -0.45;
+        armR.rotation.x = -0.45;
+      } else if (idx === 2) {
+        glider.rotation.z = Math.sin(elapsed * 1.6) * 0.18;
+        glider.rotation.y = Math.sin(elapsed * 0.8) * 0.32;
+        glider.position.y = 1.1 + Math.sin(elapsed * 2.2) * 0.24;
+        hero.visible = false;
+      } else if (idx === 3) {
+        hero.visible = true;
+        hero.position.set(0.15, 0.22 + bob, -0.28);
+        desk.position.y = mix(-0.38, 0.02, t);
+        armL.rotation.x = -1.15;
+        armR.rotation.x = -1.15;
+        armL.rotation.z = -0.2;
+        armR.rotation.z = 0.2;
+        legL.rotation.z = 0.03;
+        legR.rotation.z = -0.03;
+      } else if (idx === 4) {
+        hero.visible = true;
+        hero.position.set(0.2, -0.64, -0.1);
+        hero.rotation.set(0, 0, Math.PI / 2 - 0.08);
+        body.rotation.z = 0.08;
+        head.position.set(0.54, 0.72, 0.02);
+        sleepZ.rotation.z = Math.sin(elapsed * 1.5) * 0.08;
+        sleepZ.position.y = Math.sin(elapsed * 1.7) * 0.06;
+      }
+
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    const username = 'BloodShop';
 
     async function loadGitHub() {
       try {
-        const [userRes, repoRes] = await Promise.all([
-          fetch('https://api.github.com/users/BloodShop'),
-          fetch('https://api.github.com/users/BloodShop/repos?per_page=6&sort=updated')
+        const [userRes, reposRes] = await Promise.all([
+          fetch(`https://api.github.com/users/${username}`),
+          fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`)
         ]);
-
-        if (!userRes.ok || !repoRes.ok) throw new Error('GitHub API unavailable');
-
         const user = await userRes.json();
-        const repos = await repoRes.json();
+        const repos = await reposRes.json();
 
-        document.getElementById('repoCount').textContent = user.public_repos ?? '—';
-        document.getElementById('followerCount').textContent = user.followers ?? '—';
+        if (user.public_repos) {
+          document.getElementById('repo-count').textContent = `${user.public_repos}+`;
+        }
 
-        const filtered = repos
-          .filter(repo => !repo.archived)
-          .slice(0, 5);
+        const nonForks = repos.filter(r => !r.fork);
+        const recent = [...nonForks].sort((a,b) => new Date(b.pushed_at) - new Date(a.pushed_at)).slice(0, 6);
+        const repoFeed = document.getElementById('repo-feed');
+        repoFeed.innerHTML = recent.map(repo => {
+          const date = new Date(repo.pushed_at).toLocaleDateString('en', { month: 'short', day: 'numeric', year: 'numeric' });
+          return `<a class="repo-card" href="${repo.html_url}" target="_blank" rel="noreferrer"><div class="repo-top"><h3>${repo.name.replace(/-/g,' ')}</h3><span class="pill">${repo.language || 'Code'}</span></div><p class="muted">${repo.description || 'Public repository in active rotation.'}</p><div class="tag-row"><span class="tag">Updated ${date}</span><span class="tag">★ ${repo.stargazers_count}</span></div></a>`;
+        }).join('');
 
-        repoFeed.innerHTML = filtered.map(repo => `
-          <a class="repo-row" href="${repo.html_url}" target="_blank" rel="noreferrer">
-            <div class="repo-top">
-              <div>
-                <div class="repo-name">${repo.name}</div>
-                <div class="repo-meta">${repo.language || 'Mixed stack'} · updated ${formatDate(repo.pushed_at)}</div>
-              </div>
-              <div class="repo-meta">★ ${repo.stargazers_count}</div>
-            </div>
-            <div class="helper">${repo.description || 'No description yet — likely a fresh or internal-style scratchpad project.'}</div>
-          </a>
-        `).join('');
+        const featured = document.getElementById('featured-projects');
+        const dynamic = recent.slice(0, 3).map(repo => `<a class="repo-card" href="${repo.html_url}" target="_blank" rel="noreferrer"><div class="repo-top"><h3>${repo.name.replace(/-/g,' ')}</h3><span class="pill">${repo.language || 'Project'}</span></div><p class="muted">${repo.description || 'Public repository from the BloodShop profile.'}</p><div class="tag-row"><span class="tag">Forks ${repo.forks_count}</span><span class="tag">Stars ${repo.stargazers_count}</span></div></a>`).join('');
+        if (dynamic) featured.innerHTML = dynamic;
+
+        buildContributionApprox(recent, repos);
       } catch (err) {
-        repoFeed.innerHTML = `
-          <div class="repo-row">
-            <div class="repo-name">Couldn’t load live GitHub data</div>
-            <div class="helper">The page still works fine; GitHub may have rate-limited the request. Refresh later or I can add a local fallback snapshot.</div>
-          </div>
-        `;
+        document.getElementById('repo-feed').innerHTML = '<div class="muted">Could not load GitHub data right now.</div>';
       }
+    }
+
+    function buildContributionApprox(recent, repos) {
+      const grid = document.getElementById('contrib-grid');
+      const days = [];
+      const today = new Date();
+      for (let i = 364; i >= 0; i--) {
+        const d = new Date(today);
+        d.setDate(today.getDate() - i);
+        days.push(d);
+      }
+
+      const updates = repos.map(repo => new Date(repo.pushed_at));
+      const counts = days.map(d => {
+        const iso = d.toISOString().slice(0, 10);
+        let c = 0;
+        for (const u of updates) {
+          if (u.toISOString().slice(0, 10) === iso) c += 2;
+        }
+        for (const repo of recent) {
+          const created = new Date(repo.created_at).toISOString().slice(0,10);
+          if (created === iso) c += 1;
+        }
+        return c;
+      });
+
+      grid.innerHTML = counts.map((count, idx) => {
+        const lvl = count >= 4 ? 4 : count >= 3 ? 3 : count >= 2 ? 2 : count >= 1 ? 1 : 0;
+        const title = `${days[idx].toDateString()} — ${count} public activity signal${count === 1 ? '' : 's'}`;
+        return `<div class="day ${lvl ? `lvl-${lvl}` : ''}" title="${title}"></div>`;
+      }).join('');
     }
 
     loadGitHub();
