@@ -1,0 +1,3 @@
+# Large local Insta360 preview exports.
+# Git cannot ignore by size threshold, so ignore this filename pattern directly.
+images/insta360_preview_*.mp4

@@ -194,6 +194,54 @@ const GALLERY_BEHAVIOR = {
   }
 };
 
+const INSTA360_CAPTURES = [
+  {
+    key: "ride",
+    title: "Ride with riders",
+    url: "https://cloud-fra.insta360.com/share/fra/31667u5N4q7s6F175534911488/player",
+    preview: {
+      type: "video",
+      src: "images/insta360_preview_VID_20251107_093920_00_009_174612777_367555955656757248.mp4"
+    }
+  },
+  {
+    key: "flights",
+    title: "First flights",
+    url: "https://cloud-fra.insta360.com/share/fra/366o7L5k4Z8x4C3S6116930560/player",
+    preview: {
+      type: "video",
+      src: "images/insta360_preview_VID_20251205_131323_00_005_175358791_367557918624583680.mp4"
+    }
+  },
+  {
+    key: "snow",
+    title: "Snowboard in a storm",
+    url: "https://cloud-fra.insta360.com/share/fra/3u6J785M4H8s8A2t2617849856/player",
+    preview: {
+      type: "video",
+      src: "images/insta360_preview_VID_20260101_163339_00_014_175528759_367558286456655872.mp4"
+    }
+  },
+  {
+    key: "forest",
+    title: "Forest vibes",
+    url: "https://cloud-fra.insta360.com/share/fra/3Z6p78574I9u2v4y2706755584/player",
+    preview: {
+      type: "video",
+      src: "images/insta360_preview_VID_20260207_162947_00_020_175807110_367558950641467392.mp4"
+    }
+  },
+  {
+    key: "flight",
+    title: "Flight mode",
+    url: "https://cloud-fra.insta360.com/share/fra/3b6b7G5W4b964j1b4669025280/player",
+    preview: {
+      type: "video",
+      src: "images/insta360_preview_VID_20260220_140516_00_002_180437684_367560589880328192.mp4"
+    }
+  }
+];
+
 const MOTION_SCENES = [
   {
     key: "onewheel",
@@ -252,6 +300,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderHobbies();
   bindRailControls();
   void renderGalleries();
+  void renderInstaCaptures();
   initMobileFooter();
   initHeroAnimation();
 });
@@ -296,13 +345,178 @@ function renderHobbies() {
   `).join("");
 }
 
+async function renderInstaCaptures() {
+  const container = document.getElementById("insta-grid");
+  if (!container) {
+    return;
+  }
+
+  const cards = await Promise.all(INSTA360_CAPTURES.map(async (capture) => {
+    const preview = await resolveInstaPreview(capture);
+    return createInstaCard(capture, preview);
+  }));
+
+  container.innerHTML = cards.join("");
+  hydrateInstaPreviewPosters(container);
+  bindInstaPreviewPlayback(container);
+}
+
+async function resolveInstaPreview(capture) {
+  if (capture.preview && await assetExists(capture.preview.src)) {
+    return capture.preview;
+  }
+
+  const candidates = [
+    { type: "video", src: `videos/insta360/${capture.key}.mp4` },
+    { type: "video", src: `videos/insta360/${capture.key}.webm` },
+    { type: "image", src: `videos/insta360/${capture.key}.gif` }
+  ];
+
+  for (const candidate of candidates) {
+    if (await assetExists(candidate.src)) {
+      return candidate;
+    }
+  }
+
+  return null;
+}
+
+async function assetExists(src) {
+  try {
+    const response = await fetch(src, { method: "HEAD" });
+    return response.ok;
+  } catch (error) {
+    return false;
+  }
+}
+
+function createInstaCard(capture, preview) {
+  const modifierClass = `insta-card--${capture.key}`;
+  const previewMarkup = preview
+    ? `
+      <button
+        class="insta-card__frame insta-card__launch"
+        type="button"
+        data-preview-type="${preview.type}"
+        data-preview-src="${preview.src}"
+        aria-label="Play ${capture.title} preview"
+      >
+        ${preview.type === "video" ? `
+          <video
+            class="insta-card__poster-video"
+            src="${preview.src}"
+            muted
+            playsinline
+            preload="metadata"
+            aria-hidden="true"
+          ></video>
+        ` : ""}
+        <span class="insta-card__play"><i class="fas fa-play"></i></span>
+        <span class="insta-card__label">Play preview</span>
+      </button>
+    `
+    : `
+      <div class="insta-card__frame insta-card__placeholder" aria-label="Inline preview unavailable until a local preview file is added">
+        <span class="insta-card__placeholder-title">Inline preview not added yet</span>
+        <span class="insta-card__label">Add local MP4 or GIF</span>
+      </div>
+    `;
+
+  const statusMarkup = preview
+    ? `<span class="insta-card__meta">Local preview ready</span>`
+    : `<span class="insta-card__meta">Add local preview to enable inline playback</span>`;
+
+  return `
+    <article class="insta-card ${modifierClass}">
+      ${previewMarkup}
+      <div class="insta-card__body">
+        <h4>${capture.title}</h4>
+        ${statusMarkup}
+        <a href="${capture.url}" target="_blank" rel="noopener noreferrer">Open in Insta360</a>
+      </div>
+    </article>
+  `;
+}
+
+function bindInstaPreviewPlayback(container) {
+  container.querySelectorAll("[data-preview-src]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const previewType = button.dataset.previewType;
+      const previewSrc = button.dataset.previewSrc;
+      if (!previewType || !previewSrc) {
+        return;
+      }
+
+      if (previewType === "image") {
+        button.outerHTML = `
+          <div class="insta-card__frame insta-card__media">
+            <img src="${previewSrc}" alt="Animated preview" loading="lazy">
+          </div>
+        `;
+        return;
+      }
+
+      if (previewType === "iframe") {
+        button.outerHTML = `
+          <div class="insta-card__frame insta-card__media">
+            <iframe
+              src="${previewSrc}"
+              title="Inline preview"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        `;
+        return;
+      }
+
+      button.outerHTML = `
+        <div class="insta-card__frame insta-card__media">
+          <video controls autoplay muted loop playsinline preload="metadata">
+            <source src="${previewSrc}">
+          </video>
+        </div>
+      `;
+    }, { once: true });
+  });
+}
+
+function hydrateInstaPreviewPosters(container) {
+  container.querySelectorAll(".insta-card__poster-video").forEach((video) => {
+    const markReady = () => {
+      const frame = video.closest(".insta-card__frame");
+      if (frame) {
+        frame.classList.add("is-poster-ready");
+      }
+      video.pause();
+    };
+
+    video.addEventListener("loadedmetadata", () => {
+      const safeTime = Math.min(0.12, Math.max((video.duration || 0) / 10, 0));
+      if (safeTime > 0) {
+        try {
+          video.currentTime = safeTime;
+        } catch (error) {
+          markReady();
+        }
+        return;
+      }
+
+      markReady();
+    }, { once: true });
+
+    video.addEventListener("seeked", markReady, { once: true });
+    video.addEventListener("loadeddata", markReady, { once: true });
+  });
+}
+
 async function renderGalleries() {
   const discoveredFiles = await loadImageDirectoryListing();
   document.querySelectorAll("[data-gallery]").forEach((rail) => {
     const items = buildGalleryItems(rail.dataset.gallery, discoveredFiles);
     rail.innerHTML = items.map((item) => `
       <article class="media-card">
-        <img class="media-card__image" src="${item.src}" alt="${item.title}" loading="lazy">
+        <img class="media-card__image" src="${item.src}" alt="${item.title}" loading="lazy" decoding="async" fetchpriority="low">
         <div class="media-card__body">
           <h4>${item.title}</h4>
           <p>${item.description}</p>
