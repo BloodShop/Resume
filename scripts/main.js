@@ -6,7 +6,7 @@ const HOBBIES = [
     tag: "Builder"
   },
   {
-    icon: "fas fa-wind",
+    icon: "fas fa-plane",
     title: "Glider flying",
     description: "Glider time sharpens planning, situational awareness, and fast decisions under changing conditions.",
     tag: "Pilot"
@@ -18,7 +18,7 @@ const HOBBIES = [
     tag: "Rideables"
   },
   {
-    icon: "fas fa-person-snowboarding",
+    icon: "fas fa-wind",
     title: "Snowboarding",
     description: "Cold-weather edge control, fast terrain reading, and another reason to spend time outside of code.",
     tag: "Snow"
@@ -54,34 +54,47 @@ const GALLERY_FALLBACKS = {
       title: "Flight log memory",
       description: "A grounded snapshot from the glider side of life."
     }
-  ],
+  ]
+};
+
+const CURATED_GALLERIES = {
   surron: [
     {
-      src: "images/surron_IMG20250828183413.jpg",
-      title: "Build phase",
-      description: "Hands-on iteration around setup, fit, and mechanical details."
+      src: "images/surron_build_FB_IMG_1768138483116.jpg",
+      title: "Kitchen labs",
+      description: "Kitchen labs old days."
     },
     {
-      src: "images/surron_IMG20260130110701.jpg",
-      title: "Ride day",
-      description: "The bike in its natural state: outside and moving."
+      src: "images/surron_build_IMG_20260213_113209.jpg",
+      title: "Controller fitment",
+      description: "Configuring controller of the e-bike."
     },
     {
-      src: "images/surron_IMG20250930075650.jpg",
-      title: "Tuning session",
-      description: "Adjustments, testing, and refining the rideable system."
+      src: "images/surron_build_IMG-20251101-WA0071(1).jpg",
+      title: "Front fork calibration",
+      description: "Calibrating front suspension forks."
+    },
+    {
+      src: "images/surron_build_IMG20260209105514.jpg",
+      title: "Controller adapter print",
+      description: "3D printing mount adapter for the controller."
     },
     {
       src: "images/surron_IMG-20250918-WA0086.jpg",
-      title: "Latest snapshot",
-      description: "Another checkpoint in the Surron and e-bike build loop."
-    }
+      title: "DIY wiring",
+      description: "Some diy."
+    },
+    {
+      src: "images/surron_IMG20250828183413.jpg",
+      title: "DIY assembly",
+      description: "More diy."
+    },
   ],
   setup: [
     {
-      src: "images/setup_2jetsons_pi_zero_IMG20260318204744.jpg",
-      title: "Dual Jetson bench",
-      description: "Embedded compute setup with more than one board in the loop."
+      src: "images/setup_qkd_IMG20260107104420.jpg",
+      title: "QKD setup",
+      description: "QKD setup with custom pcbs and solidrun lx2160a boards."
     },
     {
       src: "images/setup_nxp_lx2160a_IMG_20250713_162927.jpg",
@@ -92,48 +105,58 @@ const GALLERY_FALLBACKS = {
       src: "images/setup_rpi5_n_jetson_IMG20260318204456.jpg",
       title: "Raspberry Pi and Jetson",
       description: "Mixed-platform setup for prototyping, testing, and integration work."
+    },
+    {
+      src: "images/setup_2jetsons_pi_zero_IMG20260318204744.jpg",
+      title: "Dual Jetson bench",
+      description: "Embedded compute setup with more than one board in the loop."
     }
   ],
   stash: [
     {
       src: "images/stash_FB_IMG_1768478697049.jpg",
-      title: "Stash overview",
-      description: "The broader inventory and transport side that supports the builds."
+      title: "Ultra Bee ski bike",
+      description: "Surron Ultra Bee Electric Ski Bike."
     },
     {
       src: "images/stash_IMG-20250804-WA0055.jpg",
-      title: "Tool loadout",
-      description: "Cases and supporting tools that travel with the hardware."
+      title: "Two EUCs",
+      description: "Two EUC (electric unicycles)."
     },
     {
       src: "images/stash_IMG-20250804-WA0056.jpg",
-      title: "Packed system",
-      description: "Compact transport-friendly arrangement for moving more than one piece of gear."
+      title: "Two Onewheels",
+      description: "Two onewheels."
     },
     {
       src: "images/stash_IMG-20250807-WA0031.jpeg",
-      title: "Transport detail",
-      description: "Another angle on the equipment that keeps projects and rides mobile."
+      title: "Electric skateboards",
+      description: "Three electric skateboards."
     },
     {
       src: "images/stash_IMG-20250822-WA0030.jpeg",
-      title: "Field carry",
-      description: "Practical storage for getting gear from stash to real use."
+      title: "Engined motorcycles",
+      description: "Two engined motorcycles."
     },
     {
       src: "images/stash_IMG-20250822-WA0131.jpeg",
-      title: "Utility setup",
-      description: "The less glamorous part of the hobby stack, but one of the most useful."
+      title: "Electric scooter",
+      description: "Electric Scooter MiaDynamics."
     },
     {
-      src: "images/stash_Screenshot_2026-01-15-23-02-15-40_a23b203fd3aafc6dcb84e438dda678b6.jpg",
-      title: "Tracking and inventory",
-      description: "A digital view into the same transport and stash workflow."
+      src: "images/stash_IMG20260130110701.jpg",
+      title: "First option",
+      description: "Upgraded Surron Light bee (my first option)."
+    },
+    {
+      src: "images/stash_IMG20250930075650.jpg",
+      title: "Third option",
+      description: "Stock Surron Light bee (Third option of mine)."
     },
     {
       src: "images/stash_IMG-20260214-WA0031.jpeg",
-      title: "Latest stash snapshot",
-      description: "Recent inventory and transport state."
+      title: "Second option",
+      description: "Surron Light bee Semi upgraded (my second option)."
     }
   ]
 };
@@ -158,6 +181,16 @@ const GALLERY_CONFIG = {
     prefix: "stash_",
     fallbackTitle: "Transport setup",
     fallbackDescription: "Transport, storage, and tool organization that keep the hardware stack usable."
+  }
+};
+
+const GALLERY_BEHAVIOR = {
+  surron: {
+    pinFirst: true,
+    shuffleRest: true
+  },
+  stash: {
+    shuffleAll: true
   }
 };
 
@@ -304,6 +337,10 @@ function buildGalleryItems(key, discoveredFiles) {
     return [];
   }
 
+  if (CURATED_GALLERIES[key]) {
+    return arrangeGalleryItems(key, CURATED_GALLERIES[key]);
+  }
+
   const matchedFiles = discoveredFiles
     .filter((file) => file.startsWith(config.prefix))
     .sort((left, right) => left.localeCompare(right, undefined, { numeric: true, sensitivity: "base" }));
@@ -320,6 +357,35 @@ function buildGalleryItems(key, discoveredFiles) {
       description: copy.description
     };
   });
+}
+
+function arrangeGalleryItems(key, items) {
+  const copies = items.map((item) => ({ ...item }));
+  const behavior = GALLERY_BEHAVIOR[key];
+  if (!behavior) {
+    return copies;
+  }
+
+  if (behavior.pinFirst && behavior.shuffleRest && copies.length > 1) {
+    const [first, ...rest] = copies;
+    return [first, ...shuffleItems(rest)];
+  }
+
+  if (behavior.shuffleAll) {
+    return shuffleItems(copies);
+  }
+
+  return copies;
+}
+
+function shuffleItems(items) {
+  const copies = [...items];
+  for (let index = copies.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [copies[index], copies[randomIndex]] = [copies[randomIndex], copies[index]];
+  }
+
+  return copies;
 }
 
 function describeGalleryItem(key, file, index) {

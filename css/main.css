@@ -620,8 +620,12 @@ a:hover {
   grid-auto-columns: minmax(280px, 360px);
   gap: 1rem;
   overflow-x: auto;
+  overflow-y: hidden;
   padding-bottom: 0.3rem;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: none;
+  scrollbar-gutter: stable;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y pinch-zoom;
 }
 
 .media-card {
