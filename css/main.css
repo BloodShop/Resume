@@ -722,19 +722,13 @@ a:hover {
   cursor: pointer;
 }
 
-.insta-card__poster-video {
+.insta-card__poster-image {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.2s ease;
   pointer-events: none;
-}
-
-.insta-card__frame.is-poster-ready .insta-card__poster-video {
-  opacity: 1;
 }
 
 .insta-card__placeholder {

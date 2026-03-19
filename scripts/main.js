@@ -199,6 +199,7 @@ const INSTA360_CAPTURES = [
     key: "ride",
     title: "Ride with riders",
     url: "https://cloud-fra.insta360.com/share/fra/31667u5N4q7s6F175534911488/player",
+    poster: "images/insta360_preview_IMG_20251107_093920_00_009_174612777_367555955656757248.jpg",
     preview: {
       type: "video",
       src: "images/insta360_preview_VID_20251107_093920_00_009_174612777_367555955656757248.mp4"
@@ -208,6 +209,7 @@ const INSTA360_CAPTURES = [
     key: "flights",
     title: "First flights",
     url: "https://cloud-fra.insta360.com/share/fra/366o7L5k4Z8x4C3S6116930560/player",
+    poster: "images/insta360_preview_IMG_20251205_131323_00_005_175358791_367557918624583680.jpg",
     preview: {
       type: "video",
       src: "images/insta360_preview_VID_20251205_131323_00_005_175358791_367557918624583680.mp4"
@@ -217,6 +219,7 @@ const INSTA360_CAPTURES = [
     key: "snow",
     title: "Snowboard in a storm",
     url: "https://cloud-fra.insta360.com/share/fra/3u6J785M4H8s8A2t2617849856/player",
+    poster: "images/insta360_preview_IMG_20260101_163339_00_014_175528759_367558286456655872.jpg",
     preview: {
       type: "video",
       src: "images/insta360_preview_VID_20260101_163339_00_014_175528759_367558286456655872.mp4"
@@ -226,6 +229,7 @@ const INSTA360_CAPTURES = [
     key: "forest",
     title: "Forest vibes",
     url: "https://cloud-fra.insta360.com/share/fra/3Z6p78574I9u2v4y2706755584/player",
+    poster: "images/insta360_preview_IMG_20260207_162947_00_020_175807110_367558950641467392.jpg",
     preview: {
       type: "video",
       src: "images/insta360_preview_VID_20260207_162947_00_020_175807110_367558950641467392.mp4"
@@ -235,6 +239,7 @@ const INSTA360_CAPTURES = [
     key: "flight",
     title: "Flight mode",
     url: "https://cloud-fra.insta360.com/share/fra/3b6b7G5W4b964j1b4669025280/player",
+    poster: "images/insta360_preview_IMG_20260220_140516_00_002_180437684_367560589880328192.jpg",
     preview: {
       type: "video",
       src: "images/insta360_preview_VID_20260220_140516_00_002_180437684_367560589880328192.mp4"
@@ -357,7 +362,6 @@ async function renderInstaCaptures() {
   }));
 
   container.innerHTML = cards.join("");
-  hydrateInstaPreviewPosters(container);
   bindInstaPreviewPlayback(container);
 }
 
@@ -399,17 +403,18 @@ function createInstaCard(capture, preview) {
         type="button"
         data-preview-type="${preview.type}"
         data-preview-src="${preview.src}"
+        data-fallback-url="${capture.url}"
         aria-label="Play ${capture.title} preview"
       >
-        ${preview.type === "video" ? `
-          <video
-            class="insta-card__poster-video"
-            src="${preview.src}"
-            muted
-            playsinline
-            preload="metadata"
-            aria-hidden="true"
-          ></video>
+        ${capture.poster ? `
+          <img
+            class="insta-card__poster-image"
+            src="${capture.poster}"
+            alt="${capture.title} preview image"
+            loading="lazy"
+            decoding="async"
+            fetchpriority="low"
+          >
         ` : ""}
         <span class="insta-card__play"><i class="fas fa-play"></i></span>
         <span class="insta-card__label">Play preview</span>
@@ -443,6 +448,8 @@ function bindInstaPreviewPlayback(container) {
     button.addEventListener("click", () => {
       const previewType = button.dataset.previewType;
       const previewSrc = button.dataset.previewSrc;
+      const fallbackUrl = button.dataset.fallbackUrl;
+      const card = button.closest(".insta-card");
       if (!previewType || !previewSrc) {
         return;
       }
@@ -472,41 +479,42 @@ function bindInstaPreviewPlayback(container) {
 
       button.outerHTML = `
         <div class="insta-card__frame insta-card__media">
-          <video controls autoplay muted loop playsinline preload="metadata">
+          <video class="insta-card__inline-video" controls autoplay muted loop playsinline preload="metadata" data-fallback-url="${fallbackUrl || ""}">
             <source src="${previewSrc}">
           </video>
         </div>
       `;
-    }, { once: true });
-  });
-}
 
-function hydrateInstaPreviewPosters(container) {
-  container.querySelectorAll(".insta-card__poster-video").forEach((video) => {
-    const markReady = () => {
-      const frame = video.closest(".insta-card__frame");
-      if (frame) {
-        frame.classList.add("is-poster-ready");
-      }
-      video.pause();
-    };
-
-    video.addEventListener("loadedmetadata", () => {
-      const safeTime = Math.min(0.12, Math.max((video.duration || 0) / 10, 0));
-      if (safeTime > 0) {
-        try {
-          video.currentTime = safeTime;
-        } catch (error) {
-          markReady();
-        }
+      const insertedVideo = card ? card.querySelector(".insta-card__inline-video") : null;
+      if (!insertedVideo) {
         return;
       }
 
-      markReady();
-    }, { once: true });
+      let settled = false;
+      const openFallback = () => {
+        if (settled) {
+          return;
+        }
+        settled = true;
+        if (fallbackUrl) {
+          window.open(fallbackUrl, "_blank", "noopener,noreferrer");
+        }
+      };
 
-    video.addEventListener("seeked", markReady, { once: true });
-    video.addEventListener("loadeddata", markReady, { once: true });
+      const success = () => {
+        settled = true;
+      };
+
+      insertedVideo.addEventListener("loadeddata", () => {
+        success();
+      }, { once: true });
+      insertedVideo.addEventListener("canplay", () => {
+        success();
+      }, { once: true });
+      insertedVideo.addEventListener("error", () => {
+        openFallback();
+      }, { once: true });
+    }, { once: true });
   });
 }
 
