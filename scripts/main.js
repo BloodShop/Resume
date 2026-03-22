@@ -396,15 +396,15 @@ async function assetExists(src) {
 
 function createInstaCard(capture, preview) {
   const modifierClass = `insta-card--${capture.key}`;
-  const previewMarkup = preview
+  const previewMarkup = (preview || capture.poster)
     ? `
       <button
         class="insta-card__frame insta-card__launch"
         type="button"
-        data-preview-type="${preview.type}"
-        data-preview-src="${preview.src}"
+        data-preview-type="${preview ? preview.type : "external"}"
+        data-preview-src="${preview ? preview.src : ""}"
         data-fallback-url="${capture.url}"
-        aria-label="Play ${capture.title} preview"
+        aria-label="${preview ? `Play ${capture.title} preview` : `Open ${capture.title} in Insta360`}"
       >
         ${capture.poster ? `
           <img
@@ -429,7 +429,9 @@ function createInstaCard(capture, preview) {
 
   const statusMarkup = preview
     ? `<span class="insta-card__meta">Local preview ready</span>`
-    : `<span class="insta-card__meta">Add local preview to enable inline playback</span>`;
+    : capture.poster
+      ? `<span class="insta-card__meta">Poster preview ready. Opens Insta360 when no local video is available.</span>`
+      : `<span class="insta-card__meta">Add local preview to enable inline playback</span>`;
 
   return `
     <article class="insta-card ${modifierClass}">
@@ -444,13 +446,24 @@ function createInstaCard(capture, preview) {
 }
 
 function bindInstaPreviewPlayback(container) {
-  container.querySelectorAll("[data-preview-src]").forEach((button) => {
+  container.querySelectorAll("[data-preview-src], [data-preview-type='external']").forEach((button) => {
     button.addEventListener("click", () => {
       const previewType = button.dataset.previewType;
       const previewSrc = button.dataset.previewSrc;
       const fallbackUrl = button.dataset.fallbackUrl;
       const card = button.closest(".insta-card");
-      if (!previewType || !previewSrc) {
+      if (!previewType) {
+        return;
+      }
+
+      if (previewType === "external") {
+        if (fallbackUrl) {
+          window.open(fallbackUrl, "_blank", "noopener,noreferrer");
+        }
+        return;
+      }
+
+      if (!previewSrc) {
         return;
       }
 
@@ -514,6 +527,13 @@ function bindInstaPreviewPlayback(container) {
       insertedVideo.addEventListener("error", () => {
         openFallback();
       }, { once: true });
+
+      window.requestAnimationFrame(() => {
+        const playAttempt = insertedVideo.play();
+        if (playAttempt && typeof playAttempt.catch === "function") {
+          playAttempt.catch(() => {});
+        }
+      });
     }, { once: true });
   });
 }
