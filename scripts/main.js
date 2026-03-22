@@ -199,53 +199,40 @@ const INSTA360_CAPTURES = [
     key: "ride",
     title: "Ride with riders",
     url: "https://cloud-fra.insta360.com/share/fra/31667u5N4q7s6F175534911488/player",
-    poster: "images/insta360_preview_IMG_20251107_093920_00_009_174612777_367555955656757248.jpg",
-    preview: {
-      type: "video",
-      src: "images/insta360_preview_VID_20251107_093920_00_009_174612777_367555955656757248.mp4"
-    }
+    assetId: "20251107_093920_00_009_174612777_367555955656757248"
   },
   {
     key: "flights",
     title: "First flights",
     url: "https://cloud-fra.insta360.com/share/fra/366o7L5k4Z8x4C3S6116930560/player",
-    poster: "images/insta360_preview_IMG_20251205_131323_00_005_175358791_367557918624583680.jpg",
-    preview: {
-      type: "video",
-      src: "images/insta360_preview_VID_20251205_131323_00_005_175358791_367557918624583680.mp4"
-    }
+    assetId: "20251205_131323_00_005_175358791_367557918624583680"
   },
   {
     key: "snow",
     title: "Snowboard in a storm",
     url: "https://cloud-fra.insta360.com/share/fra/3u6J785M4H8s8A2t2617849856/player",
-    poster: "images/insta360_preview_IMG_20260101_163339_00_014_175528759_367558286456655872.jpg",
-    preview: {
-      type: "video",
-      src: "images/insta360_preview_VID_20260101_163339_00_014_175528759_367558286456655872.mp4"
-    }
+    assetId: "20260101_163339_00_014_175528759_367558286456655872"
   },
   {
     key: "forest",
     title: "Forest vibes",
     url: "https://cloud-fra.insta360.com/share/fra/3Z6p78574I9u2v4y2706755584/player",
-    poster: "images/insta360_preview_IMG_20260207_162947_00_020_175807110_367558950641467392.jpg",
-    preview: {
-      type: "video",
-      src: "images/insta360_preview_VID_20260207_162947_00_020_175807110_367558950641467392.mp4"
-    }
+    assetId: "20260207_162947_00_020_175807110_367558950641467392"
   },
   {
     key: "flight",
     title: "Flight mode",
     url: "https://cloud-fra.insta360.com/share/fra/3b6b7G5W4b964j1b4669025280/player",
-    poster: "images/insta360_preview_IMG_20260220_140516_00_002_180437684_367560589880328192.jpg",
-    preview: {
-      type: "video",
-      src: "images/insta360_preview_VID_20260220_140516_00_002_180437684_367560589880328192.mp4"
-    }
+    assetId: "20260220_140516_00_002_180437684_367560589880328192"
   }
-];
+].map((capture) => ({
+  ...capture,
+  poster: `images/insta360_preview_IMG_${capture.assetId}.jpg`,
+  preview: {
+    type: "video",
+    src: `images/insta360_preview_VID_${capture.assetId}.mp4`
+  }
+}));
 
 const MOTION_SCENES = [
   {
