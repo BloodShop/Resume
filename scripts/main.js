@@ -205,7 +205,8 @@ const INSTA360_CAPTURES = [
     key: "flights",
     title: "First flights",
     url: "https://cloud-fra.insta360.com/share/fra/366o7L5k4Z8x4C3S6116930560/player",
-    assetId: "20260207_162947_00_020_175807110_367558950641467392"
+    assetId: "20251205_131323_00_005_175358791_367557918624583680",
+    posterAssetId: "20260207_162947_00_020_175807110_367558950641467392"
   },
   {
     key: "snow",
@@ -217,7 +218,8 @@ const INSTA360_CAPTURES = [
     key: "forest",
     title: "Forest vibes",
     url: "https://cloud-fra.insta360.com/share/fra/3Z6p78574I9u2v4y2706755584/player",
-    assetId: "20251205_131323_00_005_175358791_367557918624583680"
+    assetId: "20260207_162947_00_020_175807110_367558950641467392",
+    posterAssetId: "20251205_131323_00_005_175358791_367557918624583680"
   },
   {
     key: "flight",
@@ -227,7 +229,7 @@ const INSTA360_CAPTURES = [
   }
 ].map((capture) => ({
   ...capture,
-  poster: `images/insta360_preview_IMG_${capture.assetId}.jpg`,
+  poster: `images/insta360_preview_IMG_${capture.posterAssetId ?? capture.assetId}.jpg`,
   preview: {
     type: "video",
     src: `images/insta360_preview_VID_${capture.assetId}.mp4`
